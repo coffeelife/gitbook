@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>介绍 · GitBook</title>
+        <title>H5常见router · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Android组件化开发.html" />
+    <link rel="next" href="webpack使用学习.html" />
     
+    
+    <link rel="prev" href="ES6新特性学习.html" />
     
 
     </head>
@@ -87,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -165,7 +167,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="H5常见router.html">
+        <li class="chapter active" data-level="1.7" data-path="H5常见router.html">
             
                 <a href="H5常见router.html">
             
@@ -234,7 +236,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >介绍</a>
+        <a href="." >H5常见router</a>
     </h1>
 </div>
 
@@ -249,7 +251,38 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x767D;&#x7684;&#x535A;&#x5BA2;&#x4ECB;&#x7ECD;">&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x767D;&#x7684;&#x535A;&#x5BA2;&#x4ECB;&#x7ECD;</h1>
+                                <h1 id="h5&#x5E38;&#x89C1;router">H5&#x5E38;&#x89C1;router</h1>
+<h2 id="&#x9875;&#x9762;router">&#x9875;&#x9762;Router</h2>
+<p>&#x4E3B;&#x8981;&#x901A;&#x8FC7;&#x64CD;&#x4F5C;&#x9875;&#x9762;&#x6765;&#x6539;&#x53D8;&#x9875;&#x9762;&#x8DEF;&#x7531;&#x3002;</p>
+<p>window.location.href = &#x201C;www.baidu.com&#x201D;</p>
+<p>history.back();</p>
+<h2 id="hash-router">Hash Router</h2>
+<p>&#x4E3B;&#x8981;&#x901A;&#x8FC7;&#x6539;&#x53D8;&#x9875;&#x9762;&#x8DEF;&#x7531;hash&#x503C;&#xFF0C;&#x6765;&#x6539;&#x53D8;&#x9875;&#x9762;&#x8DEF;&#x7531;&#x3002;</p>
+<p>window.location.href=&apos;&apos;#test1&quot;</p>
+<p>window.location.href=&apos;&apos;#test2&quot;</p>
+<p>window.onhashchange= function(){console.log(&quot;current hash:&quot;,window.location.hash)}</p>
+<h2 id="h5-router">H5 Router</h2>
+<p>history.pushState(&apos;name&apos;,&apos;title&apos;,&apos;/path&apos;);//&#x5F80;&#x6808;&#x91CC;&#x9762;&#x63A8;&#x8DEF;&#x7531;</p>
+<p>history.pushState(&apos;test&apos;,&apos;title&apos;,&apos;#test&apos;);</p>
+<p>history.pushState(&apos;test&apos;,&apos;title&apos;,&apos;/user/login&apos;);</p>
+<p>window.onpopstate = function(e){</p>
+<pre><code>console.log(&apos;h5 router change&apos;,e.state);
+
+console.log(window.location.href);//&#x5168;&#x8DEF;&#x5F84;
+
+console.log(window.location.pathname);//&#x7EDD;&#x5BF9;&#x8DEF;&#x7531;
+
+console.log(window.location.hash);//hash&#x503C;
+
+console.log(window.location.search);//search ?&#x4E4B;&#x540E;&#x7684;&#x53C2;&#x6570;
+</code></pre><p>}//&#x8DEF;&#x7531;&#x76D1;&#x542C;</p>
+<p>history.pushState(&apos;test&apos;,&apos;title&apos;,&apos;/user/test&apos;);</p>
+<p>history.replaceState(&apos;name&apos;,null,&apos;/path&apos;)//&#x66FF;&#x6362;&#x5F53;&#x524D;&#x9875;&#x9762;&#x8DEF;&#x7531;</p>
+<h2 id="react-router">React Router</h2>
+<p><route></route>//&#x8DEF;&#x7531;&#x89C4;&#x5219;</p>
+<p><switch></switch>//&#x8DEF;&#x7531;&#x9009;&#x9879; &#x81EA;&#x52A8;&#x5339;&#x914D;&#xFF0C;&#x5339;&#x914D;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x5C31;&#x4E0D;&#x518D;&#x7EE7;&#x7EED;&#x5339;&#x914D;</p>
+<p><link>//&#x8DF3;&#x8F6C;&#x5BFC;&#x822A;</p>
+<p><redirect>//&#x81EA;&#x52A8;&#x8DF3;&#x8F6C;</redirect></p>
 
                                 
                                 </section>
@@ -277,8 +310,12 @@
 
             
                 
+                <a href="ES6新特性学习.html" class="navigation navigation-prev " aria-label="Previous page: ES6新特性学习">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="Android组件化开发.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Android组件化开发">
+                
+                <a href="webpack使用学习.html" class="navigation navigation-next " aria-label="Next page: webpack使用学习">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -289,7 +326,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"介绍","level":"1.1","depth":1,"next":{"title":"Android组件化开发","level":"1.2","depth":1,"path":"Android组件化开发.md","ref":"Android组件化开发.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-09-24T08:12:41.794Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T08:12:52.534Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"H5常见router","level":"1.7","depth":1,"next":{"title":"webpack使用学习","level":"1.8","depth":1,"path":"webpack使用学习.md","ref":"webpack使用学习.md","articles":[]},"previous":{"title":"ES6新特性学习","level":"1.6","depth":1,"path":"ES6新特性学习.md","ref":"ES6新特性学习.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"H5常见router.md","mtime":"2019-05-31T08:17:44.086Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T08:12:52.534Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

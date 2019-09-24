@@ -1,0 +1,1125 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>webpack使用学习 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Web安全之CSRF和XSS.html" />
+    
+    
+    <link rel="prev" href="H5常见router.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Android组件化开发.html">
+            
+                <a href="Android组件化开发.html">
+            
+                    
+                    Android组件化开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Android开发工具之OKHttp日志抓取.html">
+            
+                <a href="Android开发工具之OKHttp日志抓取.html">
+            
+                    
+                    Android开发工具之OKHttp日志抓取（仿IOS DBDebugToolkit)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Android开发工具之环境切换.html">
+            
+                <a href="Android开发工具之环境切换.html">
+            
+                    
+                    Android开发工具之环境切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="热更新在Cordova平台的实践.html">
+            
+                <a href="热更新在Cordova平台的实践.html">
+            
+                    
+                    热更新(HotCode)在Cordova平台的实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ES6新特性学习.html">
+            
+                <a href="ES6新特性学习.html">
+            
+                    
+                    ES6新特性学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="H5常见router.html">
+            
+                <a href="H5常见router.html">
+            
+                    
+                    H5常见router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="webpack使用学习.html">
+            
+                <a href="webpack使用学习.html">
+            
+                    
+                    webpack使用学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Web安全之CSRF和XSS.html">
+            
+                <a href="Web安全之CSRF和XSS.html">
+            
+                    
+                    Web安全之CSRF和XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >webpack使用学习</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="webpack&#x4F7F;&#x7528;&#x5B66;&#x4E60;">webpack&#x4F7F;&#x7528;&#x5B66;&#x4E60;</h1>
+<p>&#x672C;&#x5206;&#x4EAB;&#x5B66;&#x4E60;&#x501F;&#x9274;webpack&#x4E2D;&#x6587;&#x5B98;&#x7F51;&#xFF0C;&#x5B98;&#x7F51;&#x94FE;&#x63A5;(&#x4E2D;&#x6587;&#x6587;&#x6863;)&#xFF1A;<a href="https://www.webpackjs.com" target="_blank">https://www.webpackjs.com</a></p>
+<p>&#x6B64;&#x6559;&#x7A0B;&#x672C;&#x4EBA;demo &#x5730;&#x5740;(develop&#x5206;&#x652F;&#x4EE3;&#x7801;)&#xFF1A;<a href="https://github.com/coffeelife/WebpackStudy/tree/develop" target="_blank">https://github.com/coffeelife/WebpackStudy/tree/develop</a></p>
+<h3 id="&#x4F7F;&#x7528;github-demo&#x6559;&#x7A0B;">&#x4F7F;&#x7528;github Demo&#x6559;&#x7A0B;</h3>
+<pre><code>git clone https://github.com/coffeelife/WebpackStudy.git
+cd WebpackStudy
+npm install
+webpack//&#x5B89;&#x88C5;&#x4E86;webpack&#x7684;&#x524D;&#x63D0;&#x4E0B;
+webpack-dev-server//&#x5B89;&#x88C5;&#x4E86;webpack-dev-server&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;&#x6D4F;&#x89C8;&#x5668;localhost:8080/dist/index.html&#x67E5;&#x770B;&#x6548;&#x679C;
+</code></pre><p><img src="https://i.loli.net/2019/04/09/5cac4aeae47e4.png" alt="5cac4aeae47e4"></p>
+<h2 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h2>
+<p>&#x672C;&#x8D28;&#x4E0A;&#xFF0C;<em>webpack</em>&#x662F;&#x4E00;&#x4E2A;&#x73B0;&#x4EE3; JavaScript &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;<em>&#x9759;&#x6001;&#x6A21;&#x5757;&#x6253;&#x5305;&#x5668;(module bundler)</em>&#x3002;&#x5F53; webpack &#x5904;&#x7406;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x9012;&#x5F52;&#x5730;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;<em>&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x56FE;(dependency graph)</em>&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x7684;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x6A21;&#x5757;&#x6253;&#x5305;&#x6210;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;<em>bundle</em>&#x3002;</p>
+<h3 id="&#x56DB;&#x4E2A;&#x6838;&#x5FC3;&#x6982;&#x5FF5;">&#x56DB;&#x4E2A;&#x6838;&#x5FC3;&#x6982;&#x5FF5;</h3>
+<ul>
+<li>&#x5165;&#x53E3;(entry)</li>
+<li>&#x8F93;&#x51FA;(output)</li>
+<li>loader</li>
+<li>&#x63D2;&#x4EF6;(plugins)</li>
+</ul>
+<h2 id="&#x5165;&#x53E3;entry">&#x5165;&#x53E3;(entry)</h2>
+<p><strong>&#x5165;&#x53E3;&#x8D77;&#x70B9;(entry point)</strong>&#x6307;&#x793A; webpack &#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x6765;&#x4F5C;&#x4E3A;&#x6784;&#x5EFA;&#x5176;&#x5185;&#x90E8;<em>&#x4F9D;&#x8D56;&#x56FE;</em>&#x7684;&#x5F00;&#x59CB;&#x3002;&#x8FDB;&#x5165;&#x5165;&#x53E3;&#x8D77;&#x70B9;&#x540E;&#xFF0C;webpack &#x4F1A;&#x627E;&#x51FA;&#x6709;&#x54EA;&#x4E9B;&#x6A21;&#x5757;&#x548C;&#x5E93;&#x662F;&#x5165;&#x53E3;&#x8D77;&#x70B9;&#xFF08;&#x76F4;&#x63A5;&#x548C;&#x95F4;&#x63A5;&#xFF09;&#x4F9D;&#x8D56;&#x7684;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;webpack &#x914D;&#x7F6E;&#x4E2D;&#x914D;&#x7F6E;<code>entry</code>&#x5C5E;&#x6027;&#xFF0C;&#x6765;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5165;&#x53E3;&#x8D77;&#x70B9;&#xFF08;&#x6216;&#x591A;&#x4E2A;&#x5165;&#x53E3;&#x8D77;&#x70B9;&#xFF09;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;<code>./src</code>&#x3002;</p>
+<h3 id="&#x5355;&#x5165;&#x53E3;&#x6A21;&#x5F0F;">&#x5355;&#x5165;&#x53E3;&#x6A21;&#x5F0F;</h3>
+<p>&#x7528;&#x6CD5;&#xFF1A;<code>entry: string|Array&lt;string&gt;</code></p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>//&#x7B80;&#x5199;
+module.exports = {
+  entry: &apos;./path/to/my/entry/file.js&apos;
+};
+
+module.exports = {
+  entry: {
+    main: &apos;./path/to/my/entry/file.js&apos;
+  }
+};
+</code></pre><h3 id="&#x591A;&#x5165;&#x53E3;&#x6A21;&#x5F0F;">&#x591A;&#x5165;&#x53E3;&#x6A21;&#x5F0F;</h3>
+<p>&#x7528;&#x6CD5;&#xFF1A;<code>entry: {[entryChunkName: string]: string|Array&lt;string&gt;}</code></p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>module.exports = {
+  entry: {
+    pageOne: &apos;./src/pageOne/index.js&apos;,
+    pageTwo: &apos;./src/pageTwo/index.js&apos;,
+    pageThree: &apos;./src/pageThree/index.js&apos;
+  }
+};
+</code></pre><p><strong>&#x6839;&#x636E;&#x7ECF;&#x9A8C;&#xFF1A;&#x6BCF;&#x4E2A; HTML &#x6587;&#x6863;&#x53EA;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5165;&#x53E3;&#x8D77;&#x70B9;&#x3002;</strong></p>
+<h2 id="&#x51FA;&#x53E3;output">&#x51FA;&#x53E3;(output)</h2>
+<h3 id="&#x7528;&#x6CD5;usage">&#x7528;&#x6CD5;(Usage)</h3>
+<p><strong>output</strong>&#x5C5E;&#x6027;&#x544A;&#x8BC9; webpack &#x5728;&#x54EA;&#x91CC;&#x8F93;&#x51FA;&#x5B83;&#x6240;&#x521B;&#x5EFA;&#x7684;<em>bundles</em>&#xFF0C;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x547D;&#x540D;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;<code>./dist</code>&#x3002;&#x57FA;&#x672C;&#x4E0A;&#xFF0C;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;&#xFF0C;&#x90FD;&#x4F1A;&#x88AB;&#x7F16;&#x8BD1;&#x5230;&#x4F60;&#x6307;&#x5B9A;&#x7684;&#x8F93;&#x51FA;&#x8DEF;&#x5F84;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x914D;&#x7F6E;&#x4E2D;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;<code>output</code>&#x5B57;&#x6BB5;&#xFF0C;&#x6765;&#x914D;&#x7F6E;&#x8FD9;&#x4E9B;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#x3002;</p>
+<p>&#x5728; webpack &#x4E2D;&#x914D;&#x7F6E;<code>output</code>&#x5C5E;&#x6027;&#x7684;&#x6700;&#x4F4E;&#x8981;&#x6C42;&#x662F;&#xFF0C;&#x5C06;&#x5B83;&#x7684;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x62EC;&#x4EE5;&#x4E0B;&#x4E24;&#x70B9;&#xFF1A;</p>
+<ul>
+<li><code>filename</code>&#x7528;&#x4E8E;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;</li>
+<li>&#x76EE;&#x6807;&#x8F93;&#x51FA;&#x76EE;&#x5F55;<code>path</code>&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</li>
+</ul>
+<h3 id="&#x5355;&#x5165;&#x53E3;&#x8D77;&#x70B9;">&#x5355;&#x5165;&#x53E3;&#x8D77;&#x70B9;</h3>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>const path = require(&apos;path&apos;);
+
+module.exports = {
+  entry: &apos;./path/to/my/entry/file.js&apos;,
+  output: {
+    path: path.resolve(__dirname, &apos;dist&apos;),
+    filename: &apos;my-first-webpack.bundle.js&apos;
+  }
+};
+</code></pre><p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;<code>output.filename</code>&#x548C;<code>output.path</code>&#x5C5E;&#x6027;&#xFF0C;&#x6765;&#x544A;&#x8BC9; webpack bundle &#x7684;&#x540D;&#x79F0;&#xFF0C;&#x4EE5;&#x53CA;&#x6211;&#x4EEC;&#x60F3;&#x8981; bundle &#x751F;&#x6210;(emit)&#x5230;&#x54EA;&#x91CC;&#x3002;</p>
+<h3 id="&#x591A;&#x5165;&#x53E3;&#x8D77;&#x70B9;">&#x591A;&#x5165;&#x53E3;&#x8D77;&#x70B9;</h3>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>{
+  entry: {
+    app: &apos;./src/app.js&apos;,
+    search: &apos;./src/search.js&apos;
+  },
+  output: {
+    filename: &apos;[name].js&apos;,
+    path: __dirname + &apos;/dist&apos;
+  }
+}
+//&#x5199;&#x5165;&#x5230;&#x786C;&#x76D8;&#xFF1A;./dist/app.js, ./dist/search.js
+</code></pre><p>&#x5982;&#x679C;&#x914D;&#x7F6E;&#x521B;&#x5EFA;&#x4E86;&#x591A;&#x4E2A;&#x5355;&#x72EC;&#x7684; &quot;chunk&quot;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x5165;&#x53E3;&#x8D77;&#x70B9;&#x6216;&#x4F7F;&#x7528;&#x50CF; CommonsChunkPlugin &#x8FD9;&#x6837;&#x7684;&#x63D2;&#x4EF6;&#xFF09;&#xFF0C;&#x5219;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x5360;&#x4F4D;&#x7B26;(substitutions)&#x6765;&#x786E;&#x4FDD;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x5177;&#x6709;&#x552F;&#x4E00;&#x7684;&#x540D;&#x79F0;&#x3002;</p>
+<h2 id="&#x6A21;&#x5F0F;mode">&#x6A21;&#x5F0F;(mode)</h2>
+<h3 id="&#x7528;&#x6CD5;">&#x7528;&#x6CD5;</h3>
+<p>&#x53EA;&#x5728;&#x914D;&#x7F6E;&#x4E2D;&#x63D0;&#x4F9B;<code>mode</code>&#x9009;&#x9879;&#xFF1A;</p>
+<pre><code>module.exports = {
+  mode: &apos;production&apos;
+};
+</code></pre><p>&#x6216;&#x8005;&#x4ECE;CLI&#x53C2;&#x6570;&#x4E2D;&#x4F20;&#x9012;&#xFF1A;</p>
+<pre><code>webpack --mode=production
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">&#x9009;&#x9879;</th>
+<th style="text-align:center">&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">development</td>
+<td style="text-align:center">&#x4F1A;&#x5C06;<code>process.env.NODE_ENV</code>&#x7684;&#x503C;&#x8BBE;&#x4E3A;<code>development</code>&#x3002;&#x542F;&#x7528;<code>NamedChunksPlugin</code>&#x548C;<code>NamedModulesPlugin</code>&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:center">production</td>
+<td style="text-align:center">&#x4F1A;&#x5C06;<code>process.env.NODE_ENV</code>&#x7684;&#x503C;&#x8BBE;&#x4E3A;<code>production</code>&#x3002;&#x542F;&#x7528;<code>FlagDependencyUsagePlugin</code>,<code>FlagIncludedChunksPlugin</code>,<code>ModuleConcatenationPlugin</code>,<code>NoEmitOnErrorsPlugin</code>,<code>OccurrenceOrderPlugin</code>,<code>SideEffectsFlagPlugin</code>&#x548C;<code>UglifyJsPlugin</code>.</td>
+</tr>
+</tbody>
+</table>
+<p> <strong>mode: development</strong></p>
+<pre><code>// webpack.development.config.js
+module.exports = {
++ mode: &apos;development&apos;
+- plugins: [
+-   new webpack.NamedModulesPlugin(),
+-   new webpack.DefinePlugin({ &quot;process.env.NODE_ENV&quot;: JSON.stringify(&quot;development&quot;) }),
+- ]
+}
+</code></pre><p><strong>mode: production</strong></p>
+<pre><code>// webpack.production.config.js
+module.exports = {
++  mode: &apos;production&apos;,
+-  plugins: [
+-    new UglifyJsPlugin(/* ... */),
+-    new webpack.DefinePlugin({ &quot;process.env.NODE_ENV&quot;: JSON.stringify(&quot;production&quot;) }),
+-    new webpack.optimize.ModuleConcatenationPlugin(),
+-    new webpack.NoEmitOnErrorsPlugin()
+-  ]
+}
+</code></pre><h2 id="loader">loader</h2>
+<p>loader &#x7528;&#x4E8E;&#x5BF9;&#x6A21;&#x5757;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x3002;loader &#x53EF;&#x4EE5;&#x4F7F;&#x4F60;&#x5728;<code>import</code>&#x6216;&quot;&#x52A0;&#x8F7D;&quot;&#x6A21;&#x5757;&#x65F6;&#x9884;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x3002;&#x56E0;&#x6B64;&#xFF0C;loader &#x7C7B;&#x4F3C;&#x4E8E;&#x5176;&#x4ED6;&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#x4E2D;&#x201C;&#x4EFB;&#x52A1;(task)&#x201D;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x5904;&#x7406;&#x524D;&#x7AEF;&#x6784;&#x5EFA;&#x6B65;&#x9AA4;&#x7684;&#x5F3A;&#x5927;&#x65B9;&#x6CD5;&#x3002;loader &#x53EF;&#x4EE5;&#x5C06;&#x6587;&#x4EF6;&#x4ECE;&#x4E0D;&#x540C;&#x7684;&#x8BED;&#x8A00;&#xFF08;&#x5982; TypeScript&#xFF09;&#x8F6C;&#x6362;&#x4E3A; JavaScript&#xFF0C;&#x6216;&#x5C06;&#x5185;&#x8054;&#x56FE;&#x50CF;&#x8F6C;&#x6362;&#x4E3A; data URL&#x3002;loader &#x751A;&#x81F3;&#x5141;&#x8BB8;&#x4F60;&#x76F4;&#x63A5;&#x5728; JavaScript &#x6A21;&#x5757;&#x4E2D;<code>import</code>CSS&#x6587;&#x4EF6;&#xFF01;</p>
+<h3 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h3>
+<pre><code>npm install --save-dev css-loader
+npm install --save-dev ts-loader
+</code></pre><p><strong>webpack.config.js</strong></p>
+<pre><code>module.exports = {
+  module: {
+    rules: [
+      { test: /\.css$/, use: &apos;css-loader&apos; },
+      { test: /\.ts$/, use: &apos;ts-loader&apos; }
+    ]
+  }
+};
+</code></pre><p>&#x6307;&#x793A; webpack &#x5BF9;&#x6BCF;&#x4E2A;<code>.css</code>&#x4F7F;&#x7528;<a href="https://www.webpackjs.com/loaders/css-loader" target="_blank"><code>css-loader</code></a>&#xFF0C;&#x4EE5;&#x53CA;&#x5BF9;&#x6240;&#x6709;<code>.ts</code>&#x6587;&#x4EF6;&#x4F7F;&#x7528;<a href="https://github.com/TypeStrong/ts-loader" target="_blank"><code>ts-loader</code></a>&#xFF1A;</p>
+<h3 id="&#x4F7F;&#x7528;loader">&#x4F7F;&#x7528;loader</h3>
+<p>&#x5728;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;&#x6709;&#x4E09;&#x79CD;&#x4F7F;&#x7528; loader &#x7684;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<ul>
+<li>&#x914D;&#x7F6E;&#xFF08;&#x63A8;&#x8350;&#xFF09;&#xFF1A;&#x5728;<strong>webpack.config.js</strong>&#x6587;&#x4EF6;&#x4E2D;&#x6307;&#x5B9A; loader&#x3002;</li>
+<li>&#x5185;&#x8054;&#xFF1A;&#x5728;&#x6BCF;&#x4E2A;<code>import</code>&#x8BED;&#x53E5;&#x4E2D;&#x663E;&#x5F0F;&#x6307;&#x5B9A; loader&#x3002;</li>
+<li>CLI&#xFF1A;&#x5728; shell &#x547D;&#x4EE4;&#x4E2D;&#x6307;&#x5B9A;&#x5B83;&#x4EEC;&#x3002;</li>
+</ul>
+<h3 id="&#x914D;&#x7F6E;configuration">&#x914D;&#x7F6E;(Configuration)</h3>
+<p><a href="https://www.webpackjs.com/configuration/module/#module-rules" target="_blank"><code>module.rules</code></a>&#x5141;&#x8BB8;&#x4F60;&#x5728; webpack &#x914D;&#x7F6E;&#x4E2D;&#x6307;&#x5B9A;&#x591A;&#x4E2A; loader&#x3002; &#x8FD9;&#x662F;&#x5C55;&#x793A; loader &#x7684;&#x4E00;&#x79CD;&#x7B80;&#x660E;&#x65B9;&#x5F0F;&#xFF0C;&#x5E76;&#x4E14;&#x6709;&#x52A9;&#x4E8E;&#x4F7F;&#x4EE3;&#x7801;&#x53D8;&#x5F97;&#x7B80;&#x6D01;&#x3002;&#x540C;&#x65F6;&#x8BA9;&#x4F60;&#x5BF9;&#x5404;&#x4E2A; loader &#x6709;&#x4E2A;&#x5168;&#x5C40;&#x6982;&#x89C8;&#xFF1A;</p>
+<pre><code>  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: &apos;style-loader&apos; },
+          {
+            loader: &apos;css-loader&apos;,
+            options: {
+              modules: true
+            }
+          }
+        ]
+      }
+    ]
+  }
+</code></pre><h3 id="&#x5185;&#x8054;">&#x5185;&#x8054;</h3>
+<p>&#x53EF;&#x4EE5;&#x5728;<code>import</code>&#x8BED;&#x53E5;&#x6216;&#x4EFB;&#x4F55;&#x7B49;&#x6548;&#x4E8E; &quot;import&quot; &#x7684;&#x65B9;&#x5F0F;&#x4E2D;&#x6307;&#x5B9A; loader&#x3002;&#x4F7F;&#x7528;<code>!</code>&#x5C06;&#x8D44;&#x6E90;&#x4E2D;&#x7684; loader &#x5206;&#x5F00;&#x3002;&#x5206;&#x5F00;&#x7684;&#x6BCF;&#x4E2A;&#x90E8;&#x5206;&#x90FD;&#x76F8;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x89E3;&#x6790;&#x3002;</p>
+<pre><code>import Styles from &apos;style-loader!css-loader?modules!./styles.css&apos;;
+</code></pre><p>&#x901A;&#x8FC7;&#x524D;&#x7F6E;&#x6240;&#x6709;&#x89C4;&#x5219;&#x53CA;&#x4F7F;&#x7528;<code>!</code>&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;&#x5E94;&#x8986;&#x76D6;&#x5230;&#x914D;&#x7F6E;&#x4E2D;&#x7684;&#x4EFB;&#x610F; loader&#x3002;</p>
+<p>&#x9009;&#x9879;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#xFF0C;&#x4F8B;&#x5982;<code>?key=value&amp;foo=bar</code>&#xFF0C;&#x6216;&#x8005;&#x4E00;&#x4E2A; JSON &#x5BF9;&#x8C61;&#xFF0C;&#x4F8B;&#x5982;<code>?{&quot;key&quot;:&quot;value&quot;,&quot;foo&quot;:&quot;bar&quot;}</code>&#x3002;</p>
+<blockquote>
+<p>&#x5C3D;&#x53EF;&#x80FD;&#x4F7F;&#x7528;<code>module.rules</code>&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x6E90;&#x7801;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x91CF;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x5728;&#x51FA;&#x9519;&#x65F6;&#xFF0C;&#x66F4;&#x5FEB;&#x5730;&#x8C03;&#x8BD5;&#x548C;&#x5B9A;&#x4F4D; loader &#x4E2D;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+</blockquote>
+<h3 id="cli">CLI</h3>
+<p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; CLI &#x4F7F;&#x7528; loader&#xFF1A;</p>
+<pre><code>webpack --module-bind jade-loader --module-bind &apos;css=style-loader!css-loader&apos;
+</code></pre><p>&#x8FD9;&#x4F1A;&#x5BF9;<code>.jade</code>&#x6587;&#x4EF6;&#x4F7F;&#x7528;<code>jade-loader</code>&#xFF0C;&#x5BF9;<code>.css</code>&#x6587;&#x4EF6;&#x4F7F;&#x7528;<a href="https://www.webpackjs.com/loaders/style-loader" target="_blank"><code>style-loader</code></a>&#x548C;<a href="https://www.webpackjs.com/loaders/css-loader" target="_blank"><code>css-loader</code></a>&#x3002;</p>
+<h3 id="loader&#x7279;&#x6027;">loader&#x7279;&#x6027;</h3>
+<p>loader &#x901A;&#x8FC7;&#xFF08;loader&#xFF09;&#x9884;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x4E3A; JavaScript &#x751F;&#x6001;&#x7CFB;&#x7EDF;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x591A;&#x80FD;&#x529B;&#x3002; &#x7528;&#x6237;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x5730;&#x5F15;&#x5165;&#x7EC6;&#x7C92;&#x5EA6;&#x903B;&#x8F91;&#xFF0C;&#x4F8B;&#x5982;&#x538B;&#x7F29;&#x3001;&#x6253;&#x5305;&#x3001;&#x8BED;&#x8A00;&#x7FFB;&#x8BD1;&#x548C;&#x5176;&#x4ED6;&#x66F4;&#x591A;&#x3002;</p>
+<ul>
+<li>loader &#x652F;&#x6301;&#x94FE;&#x5F0F;&#x4F20;&#x9012;&#x3002;&#x80FD;&#x591F;&#x5BF9;&#x8D44;&#x6E90;&#x4F7F;&#x7528;&#x6D41;&#x6C34;&#x7EBF;(pipeline)&#x3002;&#x4E00;&#x7EC4;&#x94FE;&#x5F0F;&#x7684; loader &#x5C06;&#x6309;&#x7167;&#x76F8;&#x53CD;&#x7684;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x3002;loader &#x94FE;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A; loader &#x8FD4;&#x56DE;&#x503C;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A; loader&#x3002;&#x5728;&#x6700;&#x540E;&#x4E00;&#x4E2A; loader&#xFF0C;&#x8FD4;&#x56DE; webpack &#x6240;&#x9884;&#x671F;&#x7684; JavaScript&#x3002;</li>
+<li>loader &#x53EF;&#x4EE5;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5F02;&#x6B65;&#x7684;&#x3002;</li>
+<li>loader &#x8FD0;&#x884C;&#x5728; Node.js &#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x80FD;&#x591F;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x53EF;&#x80FD;&#x7684;&#x64CD;&#x4F5C;&#x3002;</li>
+<li>loader &#x63A5;&#x6536;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x3002;&#x7528;&#x4E8E;&#x5BF9; loader &#x4F20;&#x9012;&#x914D;&#x7F6E;&#x3002;</li>
+<li>loader &#x4E5F;&#x80FD;&#x591F;&#x4F7F;&#x7528;<code>options</code>&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x3002;</li>
+<li>&#x9664;&#x4E86;&#x4F7F;&#x7528;<code>package.json</code>&#x5E38;&#x89C1;&#x7684;<code>main</code>&#x5C5E;&#x6027;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5C06;&#x666E;&#x901A;&#x7684; npm &#x6A21;&#x5757;&#x5BFC;&#x51FA;&#x4E3A; loader&#xFF0C;&#x505A;&#x6CD5;&#x662F;&#x5728;<code>package.json</code>&#x91CC;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;<code>loader</code>&#x5B57;&#x6BB5;&#x3002;</li>
+<li>&#x63D2;&#x4EF6;(plugin)&#x53EF;&#x4EE5;&#x4E3A; loader &#x5E26;&#x6765;&#x66F4;&#x591A;&#x7279;&#x6027;&#x3002;</li>
+<li>loader &#x80FD;&#x591F;&#x4EA7;&#x751F;&#x989D;&#x5916;&#x7684;&#x4EFB;&#x610F;&#x6587;&#x4EF6;&#x3002;</li>
+</ul>
+<h2 id="&#x63D2;&#x4EF6;plugins">&#x63D2;&#x4EF6;(plugins)</h2>
+<p>&#x63D2;&#x4EF6;&#x662F; webpack &#x7684;&#x652F;&#x67F1;&#x529F;&#x80FD;&#x3002;webpack &#x81EA;&#x8EAB;&#x4E5F;&#x662F;&#x6784;&#x5EFA;&#x4E8E;&#xFF0C;&#x4F60;&#x5728; webpack &#x914D;&#x7F6E;&#x4E2D;&#x7528;&#x5230;&#x7684;<strong>&#x76F8;&#x540C;&#x7684;&#x63D2;&#x4EF6;&#x7CFB;&#x7EDF;</strong>&#x4E4B;&#x4E0A;&#xFF01;&#x63D2;&#x4EF6;&#x76EE;&#x7684;&#x5728;&#x4E8E;&#x89E3;&#x51B3;loader&#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;<strong>&#x5176;&#x4ED6;&#x4E8B;</strong>&#x3002;</p>
+<h3 id="&#x5256;&#x6790;">&#x5256;&#x6790;</h3>
+<p>webpack<strong>&#x63D2;&#x4EF6;</strong>&#x662F;&#x4E00;&#x4E2A;&#x5177;&#x6709;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank"><code>apply</code></a>&#x5C5E;&#x6027;&#x7684; JavaScript &#x5BF9;&#x8C61;&#x3002;<code>apply</code>&#x5C5E;&#x6027;&#x4F1A;&#x88AB; webpack compiler &#x8C03;&#x7528;&#xFF0C;&#x5E76;&#x4E14; compiler &#x5BF9;&#x8C61;&#x53EF;&#x5728;<strong>&#x6574;&#x4E2A;</strong>&#x7F16;&#x8BD1;&#x751F;&#x547D;&#x5468;&#x671F;&#x8BBF;&#x95EE;&#x3002;</p>
+<p><strong>ConsoleLogOnBuildWebpackPlugin.js</strong></p>
+<pre><code>const pluginName = &apos;ConsoleLogOnBuildWebpackPlugin&apos;;
+
+class ConsoleLogOnBuildWebpackPlugin {
+    apply(compiler) {
+        compiler.hooks.run.tap(pluginName, compilation =&gt; {
+            console.log(&quot;webpack &#x6784;&#x5EFA;&#x8FC7;&#x7A0B;&#x5F00;&#x59CB;&#xFF01;&quot;);
+        });
+    }
+}
+</code></pre><p>compiler hook &#x7684; tap &#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x9A7C;&#x5CF0;&#x5F0F;&#x547D;&#x540D;&#x7684;&#x63D2;&#x4EF6;&#x540D;&#x79F0;&#x3002;&#x5EFA;&#x8BAE;&#x4E3A;&#x6B64;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5E38;&#x91CF;&#xFF0C;&#x4EE5;&#x4FBF;&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x6240;&#x6709; hook &#x4E2D;&#x590D;&#x7528;&#x3002;</p>
+<h3 id="&#x7528;&#x6CD5;">&#x7528;&#x6CD5;</h3>
+<p>&#x7531;&#x4E8E;<strong>&#x63D2;&#x4EF6;</strong>&#x53EF;&#x4EE5;&#x643A;&#x5E26;&#x53C2;&#x6570;/&#x9009;&#x9879;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x5728; webpack &#x914D;&#x7F6E;&#x4E2D;&#xFF0C;&#x5411;<code>plugins</code>&#x5C5E;&#x6027;&#x4F20;&#x5165;<code>new</code>&#x5B9E;&#x4F8B;&#x3002;</p>
+<p>&#x6839;&#x636E;&#x4F60;&#x7684; webpack &#x7528;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x63D2;&#x4EF6;&#x3002;</p>
+<h3 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h3>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;); //&#x901A;&#x8FC7; npm &#x5B89;&#x88C5;
+const webpack = require(&apos;webpack&apos;); //&#x8BBF;&#x95EE;&#x5185;&#x7F6E;&#x7684;&#x63D2;&#x4EF6;
+const path = require(&apos;path&apos;);
+
+const config = {
+  entry: &apos;./path/to/my/entry/file.js&apos;,
+  output: {
+    filename: &apos;my-first-webpack.bundle.js&apos;,
+    path: path.resolve(__dirname, &apos;dist&apos;)
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: &apos;babel-loader&apos;
+      }
+    ]
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin(),
+    new HtmlWebpackPlugin({template: &apos;./src/index.html&apos;})
+  ]
+};
+
+module.exports = config;
+</code></pre><h2 id="&#x9879;&#x76EE;&#x4F7F;&#x7528;webpack">&#x9879;&#x76EE;&#x4F7F;&#x7528;webpack</h2>
+<p>&#x672C;&#x9879;&#x76EE;&#x4F7F;&#x7528;yarn&#x64CD;&#x4F5C;&#xFF0C;mac&#x4E0B;&#x65B0;&#x5EFA;&#x76EE;&#x5F55;WebpackStudy&#x76EE;&#x5F55;</p>
+<h3 id="&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;">&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;</h3>
+<pre><code>yarn init
+</code></pre><p>&#x9009;&#x9879;&#x4E00;&#x76F4;<code>enter</code>&#xFF0C;init&#x64CD;&#x4F5C;&#x4E4B;&#x540E;&#x751F;&#x6210;<code>package.json</code>&#x548C;<code>yarn.lock</code>&#x6587;&#x4EF6;</p>
+<p><strong>package.json</strong></p>
+<pre><code>{
+  &quot;name&quot;: &quot;WebpackStudy&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;license&quot;: &quot;MIT&quot;
+}
+</code></pre><h3 id="&#x9879;&#x76EE;&#x4E0B;&#x5B89;&#x88C5;&#x4F7F;&#x7528;webpack">&#x9879;&#x76EE;&#x4E0B;&#x5B89;&#x88C5;&#x4F7F;&#x7528;webpack</h3>
+<h4 id="&#x5B89;&#x88C5;&#x914D;&#x7F6E;">&#x5B89;&#x88C5;&#x914D;&#x7F6E;</h4>
+<p>&#x901A;&#x8FC7;yarn&#x5168;&#x5C40;&#x5B89;&#x88C5;webpack,&#x8FD9;&#x91CC;&#x6211;&#x76F4;&#x63A5;&#x5B89;&#x88C5;&#x7684;&#x662F;&#x6700;&#x65B0;&#x7248;&#x7684;</p>
+<pre><code>yarn global add webpack
+yarn global add webpack-cli
+webpack -v //&#x8F93;&#x51FA;webpack&#x7248;&#x672C;&#x53F7;&#x8BF4;&#x660E;&#x6210;&#x529F;
+</code></pre><p><strong>package.json</strong></p>
+<pre><code>&quot;dependencies&quot;: {
+    &quot;webpack&quot;: &quot;^4.30.0&quot;,
+    &quot;webpack-cli&quot;: &quot;^3.3.0&quot;
+  }
+</code></pre><h4 id="&#x65B0;&#x5EFA;webpackconfigjs">&#x65B0;&#x5EFA;webpack.config.js</h4>
+<p>&#x65B0;&#x5EFA;webpack.config.js&#x6587;&#x4EF6;&#x5E76;&#x5C06;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x62F7;&#x5165;&#x6587;&#x4EF6;&#x4E2D;</p>
+<pre><code>const path = require(&quot;path&quot;);
+
+module.exports = {
+  entry: &quot;./src/js/index.js&quot;,
+  output: {
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;index.js&quot;
+  }
+};
+</code></pre><p><code>entry</code>&#x8868;&#x793A;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#xFF0C;&#x6B64;&#x5904;&#x65B0;&#x5EFA;src&#x76EE;&#x5F55;&#xFF0C;&#x5E76;&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;<code>index.js</code>&#x6587;&#x4EF6;&#xFF0C;&#x4F5C;&#x4E3A;&#x6253;&#x5305;&#x6587;&#x4EF6;&#x7684;&#x5165;&#x53E3;&#x6587;&#x4EF6;</p>
+<p><code>output</code>&#x8868;&#x793A;&#x51FA;&#x53E3;&#x6587;&#x4EF6;&#xFF0C;<code>path</code>&#x8868;&#x793A;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#xFF0C;<code>path.resolve</code>&#x8868;&#x793A;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x7684;&#x89E3;&#x6790;,<code>__dirname</code>&#x8868;&#x793A;&#x5F53;&#x524D;&#x76EE;&#x5F55;(&#x6CE8;&#x610F;&#x662F;&#x53CC;_)&#xFF0C;<code>dist</code>&#x8868;&#x793A;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#xFF0C;<code>filename</code>&#x8868;&#x793A;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;</p>
+<p><strong>&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x7ED3;&#x6784;</strong></p>
+<p><img src="https://i.loli.net/2019/04/15/5cb4323402393.png" alt="5cb4323402393"></p>
+<p><strong>&#x6267;&#x884C;&#x6253;&#x5305;&#x8BED;&#x53E5;</strong></p>
+<pre><code>webpack//&#x5168;&#x5C40;&#x5B89;&#x88C5;&#x8FD0;&#x884C;
+node_modules/.bin/webpack//&#x975E;&#x5168;&#x5C40;&#x5B89;&#x88C5;&#x4E0B;&#x4F7F;&#x7528;
+</code></pre><p>&#x5982;&#x679C;&#x5168;&#x5C40;&#x5B89;&#x88C5;&#x7684;&#x8BDD;&#x76F4;&#x63A5;&#x6267;&#x884C;<code>webpack</code>&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x7684;&#x8BDD;&#x6267;&#x884C;<code>node_modules</code>&#x4E0B;&#x7684;<code>.bin</code>&#x4E0B;&#x7684;webpack&#xFF0C;&#x6267;&#x884C;&#x5B8C;&#x5C31;&#x53D1;&#x73B0;&#x76EE;&#x5F55;&#x591A;&#x4E86;dist&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x548C;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x7684;index.js</p>
+<p><strong>&#x6CE8;&#x610F;&#x63D0;&#x793A;</strong>(&#x8FD9;&#x91CC;&#x6211;&#x5728;config&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x4E86;mode:none&#x518D;&#x6B21;&#x8FD0;&#x884C;&#x6CA1;&#x6709;&#x8BE5;&#x63D0;&#x793A;&#x4E86;)</p>
+<p><img src="https://i.loli.net/2019/04/15/5cb4357f33afb.png" alt="5cb4357f33afb"></p>
+<pre><code>localhost:WebpackStudy gm$ webpack
+Hash: 99630336d25493823585
+Version: webpack 4.30.0
+Time: 61ms
+Built at: 2019-04-15 15:41:00
+   Asset      Size  Chunks             Chunk Names
+index.js  3.57 KiB       0  [emitted]  main
+Entrypoint main = index.js
+[0] ./src/js/index.js 0 bytes {0} [built]
+</code></pre><p>&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x7F16;&#x8F91;index.js&#xFF0C;&#x8FD0;&#x884C;webpack&#x67E5;&#x770B;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x53D8;&#x5316;&#x3002;</p>
+<h3 id="&#x4F7F;&#x7528;htmlwebpackplugin">&#x4F7F;&#x7528;HtmlWebpackPlugin</h3>
+<p>&#x8BE5;&#x63D2;&#x4EF6;&#x7528;&#x6765;&#x6253;&#x5305;html&#x6587;&#x4EF6;&#xFF0C;&#x76F4;&#x63A5;&#x5728;&#x5B98;&#x7F51;&#x641C;&#x7D22;&#x8BE5;&#x63D2;&#x4EF6;&#x5C31;&#x6709;&#x6559;&#x7A0B;&#xFF0C;&#x94FE;&#x63A5;&#x7F51;&#x5740;&#xFF1A;<a href="https://webpack.js.org/plugins/html-webpack-plugin/#root" target="_blank">https://webpack.js.org/plugins/html-webpack-plugin/#root</a></p>
+<p>github&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x7F51;&#x5740;&#xFF1A;<a href="https://github.com/jantimon/html-webpack-plugin#options" target="_blank">https://github.com/jantimon/html-webpack-plugin#options</a></p>
+<h4 id="&#x5B89;&#x88C5;htmlwebpackplugin">&#x5B89;&#x88C5;HtmlWebpackPlugin</h4>
+<pre><code>yarn add html-webpack-plugin --dev
+</code></pre><h4 id="&#x914D;&#x7F6E;webpackconfigjs&#x6587;&#x4EF6;">&#x914D;&#x7F6E;webpack.config.js&#x6587;&#x4EF6;</h4>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>const path = require(&quot;path&quot;);
+var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);//&#x5F15;&#x5165;&#x63D2;&#x4EF6;
+
+module.exports = {
+  mode: &quot;none&quot;,
+  entry: &quot;./src/js/index.js&quot;,
+  output: {
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;index.js&quot;
+  },
+  plugins: [new HtmlWebpackPlugin()]//&#x5F15;&#x5165;&#x63D2;&#x4EF6;
+};
+</code></pre><h4 id="&#x6253;&#x5305;">&#x6253;&#x5305;</h4>
+<pre><code>webpack
+</code></pre><p>&#x8FD0;&#x884C;&#x4E4B;&#x540E;&#x53D1;&#x73B0;&#x5728;<code>dist</code>&#x76EE;&#x5F55;&#x4E0B;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;index.html&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x5F15;&#x5165;index.js&#x6587;&#x4EF6;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Webpack App&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;index.js&quot;&gt;&lt;/script&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h4 id="&#x914D;&#x7F6E;&#x5C5E;&#x6027;&#x5E38;&#x7528;">&#x914D;&#x7F6E;&#x5C5E;&#x6027;(&#x5E38;&#x7528;)</h4>
+<table>
+<thead>
+<tr>
+<th>&#x540D;&#x79F0;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x9ED8;&#x8BA4;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>{String}</td>
+<td style="text-align:left">Webpack App</td>
+<td>&#x7528;&#x4E8E;&#x751F;&#x6210;&#x7684;HTML&#x6587;&#x6863;&#x7684;&#x6807;&#x9898;</td>
+</tr>
+<tr>
+<td>filename</td>
+<td>{String}</td>
+<td style="text-align:left">&apos;index.html&apos;</td>
+<td>&#x8981;&#x5C06;HTML&#x5199;&#x5165;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;index.html&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5B50;&#x76EE;&#x5F55;&#x592A;&#xFF08;&#x5982;&#xFF1A;assets/admin.html&#xFF09;</td>
+</tr>
+<tr>
+<td>template</td>
+<td>{String}</td>
+<td style="text-align:left">``</td>
+<td>webpack&#x6A21;&#x677F;&#x7684;&#x76F8;&#x5BF9;&#x6216;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;src/index.ejs&#x5982;&#x679C;&#x5B83;&#x5B58;&#x5728;&#xFF0C;&#x5B83;&#x5C06;&#x4F7F;&#x7528;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>plugins: [new HtmlWebpackPlugin({
+      title: &apos;MyApp&apos;,
+      filename: &apos;index.html&apos;
+      template: &quot;src/index.html&quot;
+  })]
+</code></pre><p>&#x6B64;&#x5904;&#x6211;&#x4EEC;&#x5C06;&#x539F;&#x6765;&#x5EFA;&#x597D;&#x7684;index.html&#x6587;&#x4EF6;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x5185;&#x5BB9;</p>
+<p><strong>index.html</strong></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewPort&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+        &lt;meta name=&quot;author&quot; content=&quot;gm&quot;&gt;
+        &lt;title&gt;WebpackStudy&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div&gt;WebpackStudy&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>&#x8FD0;&#x884C;<code>webpack</code>&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x6253;&#x5305;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;<code>dist</code>&#x4E0B;&#x7684;<code>index.html</code>&#x6587;&#x6863;&#x53D8;&#x6210;&#x81EA;&#x5DF1;&#x7F16;&#x5199;&#x7684;&#x6587;&#x4EF6;</p>
+<h3 id="&#x5B89;&#x88C5;&#x4F7F;&#x7528;babel-loader">&#x5B89;&#x88C5;&#x4F7F;&#x7528;babel-loader</h3>
+<p>&#x8BE5;loader&#x7528;&#x6765;&#x6253;&#x5305;&#x811A;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x5B98;&#x7F51;&#x94FE;&#x63A5;&#x7F51;&#x5740;&#xFF1A;<a href="https://webpack.js.org/loaders/babel-loader/#root" target="_blank">https://webpack.js.org/loaders/babel-loader/#root</a></p>
+<h4 id="&#x5B89;&#x88C5;babel-loader">&#x5B89;&#x88C5;babel-loader</h4>
+<pre><code>yarn add babel-loader @babel/core @babel/preset-env --dev
+</code></pre><p>&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x4E4B;&#x540E;<code>package.json</code>&#x6587;&#x4EF6;&#x5982;&#x4E0B;,&#x589E;&#x52A0;<code>babel-loader</code>&#x89E3;&#x6790;&#x811A;&#x672C;&#x6587;&#x4EF6;</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>&quot;devDependencies&quot;: {
+    &quot;@babel/core&quot;: &quot;^7.4.3&quot;,
+    &quot;@babel/preset-env&quot;: &quot;^7.4.3&quot;,
+    &quot;babel-loader&quot;: &quot;^8.0.5&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^3.2.0&quot;
+  }
+</code></pre><h4 id="&#x4F7F;&#x7528;babel-loader">&#x4F7F;&#x7528;babel-loader</h4>
+<p>&#x914D;&#x7F6E;webpack.config.js</p>
+<pre><code>module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: &quot;babel-loader&quot;,
+          options: {
+            presets: [&quot;@babel/preset-env&quot;]
+          }
+        }
+      }
+    ]
+  }
+</code></pre><p><code>rules</code>&#x8868;&#x793A;&#x5904;&#x7406;&#x89C4;&#x5219;&#xFF1B;<code>test</code>&#x8868;&#x793A;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x7684;&#x6B63;&#x5219;&#x5339;&#x914D;&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x91CC;&#x8868;&#x793A;.js&#x6587;&#x4EF6;&#xFF1B;<code>exclude</code>&#x8868;&#x793A;&#x5BF9;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF1B;<code>use</code>&#x8868;&#x793A;&#x4F7F;&#x7528;babel-loader&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+<h4 id="&#x5B89;&#x88C5;&#x4F7F;&#x7528;babel-present-react&#x63D2;&#x4EF6;">&#x5B89;&#x88C5;&#x4F7F;&#x7528;babel-present-react&#x63D2;&#x4EF6;</h4>
+<p>&#x4F7F;&#x7528;babel-present-react&#x6765;&#x5904;&#x7406;react&#x6587;&#x4EF6;</p>
+<p><strong>&#x5B89;&#x88C5;</strong></p>
+<pre><code>yarn add babel-preset-react --dev
+</code></pre><p>&#x5B89;&#x88C5;&#x4E4B;&#x540E;package.json&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x4E3A;</p>
+<p><strong>package.json</strong></p>
+<pre><code>&quot;devDependencies&quot;: {
+    &quot;@babel/core&quot;: &quot;^7.4.3&quot;,
+    &quot;@babel/preset-env&quot;: &quot;^7.4.3&quot;,
+    &quot;babel-loader&quot;: &quot;^8.0.5&quot;,
+    &quot;babel-preset-react&quot;: &quot;^6.24.1&quot;,//&#x589E;&#x52A0;&#x8FD9;&#x6761;
+    &quot;html-webpack-plugin&quot;: &quot;^3.2.0&quot;
+  }
+</code></pre><p>&#x4FEE;&#x6539;webpack.config.js&#xFF0C;&#x6765;&#x5904;&#x7406;react&#x6587;&#x4EF6;</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: &quot;babel-loader&quot;,
+          options: {
+            presets: [&quot;@babel/preset-env&quot;,&quot;react&quot;]//&#x6B64;&#x5904;&#x589E;&#x52A0;react&#x9009;&#x9879;
+          }
+        }
+      }
+    ]
+  },
+</code></pre><h4 id="&#x5C06;react&#x6DFB;&#x52A0;&#x5230;&#x5F53;&#x524D;&#x9879;&#x76EE;&#x4E2D;">&#x5C06;react&#x6DFB;&#x52A0;&#x5230;&#x5F53;&#x524D;&#x9879;&#x76EE;&#x4E2D;</h4>
+<pre><code>yarn init//&#x521A;&#x624D;&#x6267;&#x884C;&#x8FC7;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x6267;&#x884C;
+yarn add react react-dom
+</code></pre><p>&#x8FD0;&#x884C;&#x8BE5;&#x547D;&#x4EE4;&#x4E4B;&#x540E;<code>package.json</code>&#x6587;&#x4EF6;&#x589E;&#x52A0;<code>react</code>&#x548C;<code>react-dom</code></p>
+<p><strong>package.json</strong></p>
+<pre><code>&quot;dependencies&quot;: {
+    &quot;react&quot;: &quot;^16.8.6&quot;,
+    &quot;react-dom&quot;: &quot;^16.8.6&quot;,
+    &quot;webpack&quot;: &quot;^4.30.0&quot;,
+    &quot;webpack-cli&quot;: &quot;^3.3.0&quot;
+  }
+</code></pre><p>&#x5C06;<code>index.js</code>&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x4FEE;&#x6539;&#x4E3A;<code>index.jsx</code>&#xFF0C;&#x5E76;&#x53C2;&#x7167;react&#x5B98;&#x7F51;&#x7F51;&#x5740;&#xFF1A;<a href="https://react.docschina.org/" target="_blank">https://react.docschina.org/</a> &#x6DFB;&#x52A0;&#x5185;&#x5BB9;</p>
+<p><strong>index.jsx</strong></p>
+<pre><code>import React from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+
+ReactDOM.render(
+  &lt;h1&gt;Hello, Webpack!&lt;/h1&gt;,
+  document.getElementById(&apos;root&apos;)
+);
+</code></pre><p>&#x5E76;&#x5C06;index.html&#x6587;&#x4EF6;&#x7684;div&#x6DFB;&#x52A0;id=&quot;root&quot;</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewPort&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+        &lt;meta name=&quot;author&quot; content=&quot;gm&quot;&gt;
+        &lt;title&gt;WebpackStudy&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;root&quot;&gt;WebpackStudy&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>&#x4FEE;&#x6539;<code>webpack.config.js</code>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x5165;&#x53E3;&#x4FEE;&#x6539;&#x4E3A;<code>index.jsx</code>&#xFF0C;&#x5E76;&#x5C06;<code>babel-loader</code>&#x4E2D;&#x7684;<code>rules</code>&#x89C4;&#x5219;&#x6587;&#x4EF6;&#x540D;&#x6539;&#x4E3A;<code>.jsx</code></p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>const path = require(&quot;path&quot;);
+var HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+
+module.exports = {
+  mode: &quot;none&quot;,
+  entry: &quot;./src/js/index.jsx&quot;,//&#x6B64;&#x5904;&#x66F4;&#x6539;![5cb58851485eb](https://i.loli.net/2019/04/16/5cb58851485eb.png)
+  output: {
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;index.js&quot;
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?jsx$/,//&#x6B64;&#x5904;&#x66F4;&#x6539;
+        exclude: /(node_modules)/,
+        use: {
+          loader: &quot;babel-loader&quot;,
+          options: {
+            presets: [&quot;@babel/preset-env&quot;, &quot;react&quot;]
+          }
+        }
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: &quot;MyApp&quot;,
+      filename: &quot;index.html&quot;,
+      template: &quot;src/index.html&quot;
+    })
+  ]
+};
+</code></pre><p>&#x70B9;&#x51FB;&#x8FD0;&#x884C;webpack&#x4E4B;&#x540E;&#x4F1A;&#x53D1;&#x73B0;&#x62A5;&#x9519;(&#x62A5;&#x9519;&#x622A;&#x56FE;&#x5982;&#x4E0B;)&#xFF0C;&#x6B64;&#x5904;&#x662F;&#x7531;&#x4E8E;<code>babel-loader</code>&#x3001;<code>babel-core</code>&#x3001;<code>babel-preset</code>&#x7248;&#x672C;&#x95EE;&#x9898;&#x5BFC;&#x81F4;</p>
+<p><img src="https://i.loli.net/2019/04/16/5cb5886b939c2.png" alt="5cb5886b939c2"></p>
+<p><img src="https://i.loli.net/2019/04/16/5cb5887b734a8.png" alt="5cb5887b734a8"></p>
+<p>&#x6B64;&#x5904;&#x9700;&#x8981;&#x5C06;&#x7248;&#x672C;&#x4F7F;&#x7528;6.x&#x7684;&#x7248;&#x672C;&#xFF0C;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x5982;&#x4E0B;</p>
+<pre><code>yarn add babel-core@6.26.0 babel-loader@7.1.2 babel-preset-env@1.6.1 --dev
+</code></pre><p>&#x5E76;&#x5C06;webpack.config.js&#x6587;&#x4EF6;&#xFF0C;<code>rules</code>&#x4FEE;&#x6539;&#x4E3A;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;</p>
+<pre><code>module: {
+    rules: [
+      {
+        test: /\.m?jsx$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: &quot;babel-loader&quot;,
+          options: {
+            presets: [&quot;env&quot;, &quot;react&quot;]//&#x5C06;&#x5B83;&#x4FEE;&#x6539;&#x4E3A;env&#x4F7F;&#x7528;&#x4F4E;&#x7248;&#x672C;
+          }
+        }
+      }
+    ]
+  }
+</code></pre><p>&#x5728;&#x8FD0;&#x884C;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x5DF2;&#x7ECF;&#x6253;&#x5305;&#x6210;&#x529F;&#xFF0C;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x5185;&#x5BB9;&#x4FEE;&#x6539;&#x4E3A;<code>Hello Webpack</code></p>
+<p><img src="https://i.loli.net/2019/04/16/5cb59a831c36b.png" alt="5cb59a831c36b"></p>
+<h4 id="babelsrc&#x6587;&#x4EF6;&#x914D;&#x7F6E;">.babelsrc&#x6587;&#x4EF6;&#x914D;&#x7F6E;</h4>
+<p>&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x7F51;&#x5740;&#xFF1A;<a href="https://excaliburhan.com/post/babel-preset-and-plugins.html" target="_blank">https://excaliburhan.com/post/babel-preset-and-plugins.html</a></p>
+<h3 id="&#x5B89;&#x88C5;&#x4F7F;&#x7528;css-loader&#x548C;style-loader">&#x5B89;&#x88C5;&#x4F7F;&#x7528;css-loader&#x548C;style-loader</h3>
+<p>&#x8BE5;loader&#x7528;&#x6765;&#x89E3;&#x6790;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#xFF0C;css-loader&#x5B98;&#x7F51;&#x7F51;&#x5740;&#xFF1A;<a href="https://webpack.js.org/loaders/css-loader/#root" target="_blank">https://webpack.js.org/loaders/css-loader/#root</a>&#xFF0C;style-loader&#x5B98;&#x7F51;&#x7F51;&#x5740;&#xFF1A;<a href="https://webpack.js.org/loaders/style-loader/#root" target="_blank">https://webpack.js.org/loaders/style-loader/#root</a></p>
+<h4 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h4>
+<pre><code>yarn add css-loader style-loader --dev
+</code></pre><p>&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x914D;&#x7F6E;webpack.config.js&#x6587;&#x4EF6;</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>module: {
+    rules: [
+      {
+        test: /\.m?jsx$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: &quot;babel-loader&quot;,
+          options: {
+            presets: [&quot;env&quot;, &quot;react&quot;]
+          }
+        }
+      },
+      {//&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x914D;&#x7F6E;
+        test: /\.css$/,
+        use: [&apos;style-loader&apos;, &apos;css-loader&apos;],
+      }
+    ]
+  }
+</code></pre><p>&#x5728;&#x76EE;&#x5F55;&#x6DFB;&#x52A0;<code>css</code>&#x76EE;&#x5F55;&#xFF0C;&#x5E76;&#x521B;&#x5EFA;<code>index.css</code>&#x6587;&#x4EF6;</p>
+<p><img src="https://i.loli.net/2019/04/16/5cb59e991690e.png" alt="5cb59e991690e"></p>
+<p>&#x5728;<code>index.css</code>&#x6DFB;&#x52A0;&#x4EE3;&#x7801;</p>
+<pre><code>#root{
+    color: red;
+}
+</code></pre><p><strong>&#x6CE8;&#x610F;&#xFF1A;&#x6B64;&#x65F6;&#x8FD0;&#x884C;webpack&#xFF0C;&#x53D1;&#x73B0;&#x6837;&#x5F0F;&#x5E76;&#x4E0D;&#x4F1A;&#x751F;&#x6548;&#xFF0C;&#x6B64;&#x65F6;&#x9700;&#x8981;&#x5728;<code>.jsx</code>&#x6587;&#x4EF6;&#x4E2D;&#x5F15;&#x5165;&#x6837;&#x5F0F;&#x6587;&#x4EF6;</strong></p>
+<p>&#x8FD0;&#x884C;webpack,&#x67E5;&#x770B;&#x6837;&#x5F0F;&#x53D8;&#x5316;&#xFF0C;&#x6587;&#x5B57;&#x53D8;&#x7EA2;</p>
+<p><strong>index.jsx</strong></p>
+<pre><code>import React from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+import &apos;../css/index.css&apos;;//&#x52A0;&#x5165;&#x8FD9;&#x4E00;&#x884C;
+
+ReactDOM.render(
+  &lt;h1&gt;Hello, Webpack!&lt;/h1&gt;,
+  document.getElementById(&apos;root&apos;)
+);
+</code></pre><h3 id="css&#x6837;&#x5F0F;&#x52A0;&#x8F7D;&#x4F18;&#x5316;&#x5904;&#x7406;&#xFF08;&#x4F7F;&#x7528;extracttextwebpackplugin&#xFF09;">css&#x6837;&#x5F0F;&#x52A0;&#x8F7D;&#x4F18;&#x5316;&#x5904;&#x7406;&#xFF08;&#x4F7F;&#x7528;ExtractTextWebpackPlugin&#xFF09;</h3>
+<p>&#x5982;&#x679C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5F15;&#x5165;&#xFF0C;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;<code>dist</code>&#x6587;&#x4EF6;&#x4E0B;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#xFF0C;&#x5728;<code>index.js</code>&#x641C;&#x7D22;&#x53D1;&#x73B0;&#x5982;&#x4E0B;&#x4EE3;&#x7801;</p>
+<p><strong>index.js</strong></p>
+<pre><code>exports.push([module.i, &quot;#root{\n    color: red;\n}&quot;, &quot;&quot;]);
+</code></pre><p>&#x6839;&#x636E;html&#x89E3;&#x6790;&#x987A;&#x5E8F;&#x7684;&#x8BDD;&#xFF0C;css&#x9700;&#x8981;&#x7B49;&#x5F85;&#x6240;&#x6709;&#x7684;js&#x4EE3;&#x7801;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#x624D;&#x4F1A;&#x8FDB;&#x884C;&#x6837;&#x5F0F;&#x52A0;&#x8F7D;&#xFF0C;&#x8FD9;&#x6837;&#x9875;&#x9762;&#x4F1A;&#x6709;&#x5F88;&#x5927;&#x7684;&#x4E00;&#x6BB5;&#x767D;&#x5C4F;&#x65F6;&#x95F4;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x8FDB;&#x884C;css&#x6837;&#x5F0F;&#x52A0;&#x8F7D;&#x4F18;&#x5316;&#x5904;&#x7406;&#x3002;&#x94FE;&#x63A5;&#x7F51;&#x5740;&#xFF1A;<a href="https://blog.csdn.net/qq_39793127/article/details/78900707" target="_blank">https://blog.csdn.net/qq_39793127/article/details/78900707</a></p>
+<h4 id="&#x5B89;&#x88C5;extracttextwebpackplugin">&#x5B89;&#x88C5;ExtractTextWebpackPlugin</h4>
+<pre><code>yarn add extract-text-webpack-plugin --dev
+</code></pre><h4 id="&#x4F7F;&#x7528;extracttextwebpackplugin">&#x4F7F;&#x7528;ExtractTextWebpackPlugin</h4>
+<p>&#x5728;webpack.config.js&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x5F15;&#x5165;&#x8BE5;&#x63D2;&#x4EF6;&#xFF0C;&#x5E76;&#x5C06;<code>css</code>&#x6587;&#x4EF6;&#x7684;&#x6253;&#x5305;&#x65B9;&#x5F0F;&#x6539;&#x4E3A;<code>ExtractTextWebpackPlugin</code>&#x63D2;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>const path = require(&quot;path&quot;);
+var HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+const ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);
+
+module.exports = {
+  mode: &quot;none&quot;,
+  entry: &quot;./src/js/index.jsx&quot;,
+  output: {
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;index.js&quot;
+  },
+  module: {
+    rules: [
+      ...//&#x7531;&#x4E8E;&#x5F15;&#x5165;&#x592A;&#x591A;&#x4F7F;&#x7528;&#x7701;&#x7565;&#x53F7;&#x9690;&#x85CF;
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: &quot;style-loader&quot;,
+          use: &quot;css-loader&quot;
+        })
+      }
+    ]
+  },
+  plugins: [
+    ...//&#x7531;&#x4E8E;&#x5F15;&#x5165;&#x592A;&#x591A;&#x4F7F;&#x7528;&#x7701;&#x7565;&#x53F7;&#x9690;&#x85CF;
+    new ExtractTextPlugin(&quot;index.css&quot;)
+  ]
+};
+</code></pre><p>&#x8FD0;&#x884C;webpack&#x62A5;&#x9519;&#xFF0C;&#x9519;&#x8BEF;&#x5982;&#x4E0B;&#xFF0C;&#x767E;&#x5EA6;&#x53EF;&#x77E5;&#xFF0C;&#x63D2;&#x4EF6;&#x5F53;&#x524D;&#x7248;&#x672C;&#x4E0D;&#x652F;&#x6301;webpack4&#xFF0C;&#x4F7F;&#x7528;beta&#x7248;&#x672C;&#x53EF;&#x89E3;&#x51B3;&#x8BE5;&#x95EE;&#x9898;<img src="https://i.loli.net/2019/04/16/5cb5a5d47bbb3.png" alt="5cb5a5d47bbb3"></p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF0C;&#x5B89;&#x88C5;beta &#x7248;&#x672C;</p>
+<pre><code>yarn add extract-text-webpack-plugin@next --dev
+</code></pre><p>&#x518D;&#x6B21;&#x8FD0;&#x884C;webpack&#xFF0C;&#x6267;&#x884C;&#x6210;&#x529F;&#xFF0C;<code>dist</code>&#x4E0B;&#x589E;&#x52A0;<code>index.css</code>&#x6587;&#x4EF6;</p>
+<h3 id="&#x6253;&#x5305;sass&#x6837;&#x5F0F;&#x6587;&#x4EF6;sass-loader">&#x6253;&#x5305;Sass&#x6837;&#x5F0F;&#x6587;&#x4EF6;(sass-loader)</h3>
+<p>&#x73B0;&#x5728;&#x8FDB;&#x884C;sass&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x6253;&#x5305;&#xFF0C;&#x94FE;&#x63A5;&#x5730;&#x5740;&#xFF1A;<a href="https://webpack.js.org/plugins/extract-text-webpack-plugin/#extracting-sass-or-less" target="_blank">https://webpack.js.org/plugins/extract-text-webpack-plugin/#extracting-sass-or-less</a></p>
+<h4 id="&#x5B89;&#x88C5;sass-loader">&#x5B89;&#x88C5;sass-loader</h4>
+<pre><code>yarn add sass-loader node-sass --dev
+</code></pre><p><strong>&#x6CE8;&#x610F;&#xFF0C;sass-loader&#x4EE5;&#x6765;node-sass&#x548C;webpack&#xFF0C;&#x4F7F;&#x7528;sass-loader&#x5FC5;&#x987B;&#x5B89;&#x88C5;&#x53E6;&#x5916;&#x4E24;&#x4E2A;</strong></p>
+<p>&#x5728;webpack.config.js&#x914D;&#x7F6E;<code>rules</code>&#x89C4;&#x5219;&#xFF0C;&#x4F9D;&#x65E7;&#x4F7F;&#x7528;ExtractTextWebpackPlugin&#x5904;&#x7406;</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>{
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: &quot;style-loader&quot;,
+          use: [&quot;css-loader&quot;, &quot;sass-loader&quot;]
+        })
+      }
+</code></pre><p>&#x65B0;&#x5EFA;<code>index.scss</code>&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x66F4;&#x6539;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x80CC;&#x666F;&#x66F4;&#x6539;&#x4E3A;&#x7070;&#x8272;&#xFF0C;&#x5E76;&#x5C06;&#x5B57;&#x4F53;&#x53D8;&#x6210;30px&#x5927;&#x5C0F;</p>
+<p><strong>index.scss</strong></p>
+<pre><code>body{
+    background: gray;
+    #root{
+        font-size: 30px;
+    }
+}
+</code></pre><p>&#x5728;<code>index.jsx</code>&#x6587;&#x4EF6;&#x4E2D;&#x5F15;&#x5165;<code>index.scss</code>&#x6837;&#x5F0F;&#x6587;&#x4EF6;</p>
+<p><strong>index.jsx</strong></p>
+<pre><code>import React from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+import &apos;../css/index.css&apos;;
+import &apos;../css/index.scss&apos;;//&#x6DFB;&#x52A0;&#x8FD9;&#x4E00;&#x884C;&#x4EE3;&#x7801;
+
+ReactDOM.render(
+  &lt;h1&gt;Hello, Webpack!&lt;/h1&gt;,
+  document.getElementById(&apos;root&apos;)
+);
+</code></pre><p>&#x8FD0;&#x884C;webpack&#x4E4B;&#x540E;&#x53D1;&#x73B0;<code>dist</code>&#x76EE;&#x5F55;&#x4E0B;&#x7684;<code>index.css</code>&#x6587;&#x4EF6;&#x6539;&#x53D8;&#xFF0C;&#x5728;&#x7F51;&#x9875;&#x6253;&#x5F00;&#x53D1;&#x73B0;&#x7F51;&#x9875;&#x5317;&#x4EAC;&#x53D8;&#x6210;&#x7070;&#x8272;&#xFF0C;&#x5B57;&#x4F53;&#x53D8;&#x5927;</p>
+<p>index.css</p>
+<pre><code>#root{
+    color: red;
+}
+body {
+    background: gray; 
+}
+body #root {
+    font-size: 30px; 
+}
+</code></pre><p><img src="https://i.loli.net/2019/04/16/5cb5abb1c85dc.jpg" alt="5cb5abb1c85dc"></p>
+<h3 id="&#x5B89;&#x88C5;&#x4F7F;&#x7528;&#x8D44;&#x6E90;&#x5904;&#x7406;file-loader&#x548C;url-loader">&#x5B89;&#x88C5;&#x4F7F;&#x7528;&#x8D44;&#x6E90;&#x5904;&#x7406;(file-loader&#x548C;url-loader)</h3>
+<p>&#x672C;&#x6587;&#x7528;file-loader&#x7684;&#x5C01;&#x88C5;url-loader&#xFF0C;<code>url-loader</code>&#x7C7B;&#x4F3C;&#x4E8E;<a href="https://webpack.js.org/loaders/file-loader/" target="_blank"><code>file-loader</code></a>&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5C0F;&#x4E8E;&#x5B57;&#x8282;&#x9650;&#x5236;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;DataURL,file-loader&#x5B98;&#x7F51;&#x94FE;&#x63A5;&#xFF1A;<a href="https://webpack.js.org/loaders/file-loader/#root" target="_blank">https://webpack.js.org/loaders/file-loader/#root</a>&#xFF0C;url_loader&#x5B98;&#x7F51;&#x94FE;&#x63A5;&#xFF1A;<a href="https://webpack.js.org/loaders/url-loader/#root" target="_blank">https://webpack.js.org/loaders/url-loader/#root</a></p>
+<h4 id="&#x5B89;&#x88C5;url-loader">&#x5B89;&#x88C5;url-loader</h4>
+<pre><code>yarn add file-loader url-loader --dev
+//npm install url-loader --save-dev
+</code></pre><p><strong>&#x6CE8;&#x610F;&#xFF1A;url-loader&#x4F9D;&#x8D56;&#x4E8E;file-loader,&#x6240;&#x4EE5;file-loader&#x4E5F;&#x9700;&#x8981;&#x5B89;&#x88C5;</strong></p>
+<h4 id="&#x4F7F;&#x7528;url-loader">&#x4F7F;&#x7528;url-loader</h4>
+<p>&#x914D;&#x7F6E;webpack.config.js&#x6587;&#x4EF6;&#xFF0C;&#x5728;<code>rules</code>&#x6DFB;&#x52A0;<code>url-loader</code>&#x914D;&#x7F6E;</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>{
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: &apos;url-loader&apos;,
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      }
+</code></pre><p><code>test</code>&#x8868;&#x793A;&#x5339;&#x914D;&#x7684;&#x540E;&#x7F00;&#x540D;&#xFF0C;<code>loader</code>&#x8868;&#x793A;&#x4F7F;&#x7528;<code>url-loader</code>&#xFF0C;<code>option</code>&#x4E2D;&#x7684;<code>limit</code>&#x8868;&#x793A;&#x5927;&#x4E8E;8k&#x751F;&#x6210;&#x56FE;&#x7247;&#xFF0C;&#x5C0F;&#x4E8E;8k&#x751F;&#x6210;<code>DataURL</code>&#xFF0C;&#x8FD9;&#x91CC;&#x81EA;&#x5DF1;&#x7167;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x653E;&#x5165;&#x9879;&#x76EE;&#x7684;<code>image</code>&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x6267;&#x884C;webpack&#x4F1A;&#x53D1;&#x73B0;<code>dist</code>&#x76EE;&#x5F55;&#x4E0B;&#x591A;&#x4E86;&#x4E00;&#x5F20;&#x6253;&#x5305;&#x7684;&#x56FE;&#x7247;&#xFF0C;&#x4FEE;&#x6539;index.scss&#x7684;&#x80CC;&#x666F;&#x6837;&#x5F0F;&#xFF0C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x67E5;&#x770B;&#x6548;&#x679C;</p>
+<pre><code>body{
+    background: url(../image/test.jpg);
+    background-size: 100%;
+    #root{
+        font-size: 30px;
+    }
+}
+</code></pre><p><img src="https://i.loli.net/2019/04/16/5cb5b169e13cb.png" alt="5cb5b169e13cb"></p>
+<h3 id="&#x4F7F;&#x7528;&#x5B57;&#x4F53;&#x6587;&#x4EF6;font-awesome">&#x4F7F;&#x7528;&#x5B57;&#x4F53;&#x6587;&#x4EF6;font-awesome()</h3>
+<p>&#x6587;&#x5B57;&#x6587;&#x4EF6;&#x4F7F;&#x7528;font-awesome&#xFF0C;font-awesome&#x5B98;&#x7F51;&#x5730;&#x5740;&#xFF1A;<a href="http://www.fontawesome.com.cn/faicons/" target="_blank">http://www.fontawesome.com.cn/faicons/</a></p>
+<h4 id="&#x5B89;&#x88C5;font-awesome&#x5B57;&#x4F53;&#x6587;&#x4EF6;">&#x5B89;&#x88C5;font-awesome&#x5B57;&#x4F53;&#x6587;&#x4EF6;</h4>
+<pre><code>yarn add font-awesome
+</code></pre><h4 id="&#x4F7F;&#x7528;font-awesome">&#x4F7F;&#x7528;font-awesome</h4>
+<p>&#x5728;<code>index.jsx</code>&#x6587;&#x4EF6;&#x4E2D;&#x7F16;&#x5199;&#xFF0C;&#x5F15;&#x5165;<code>font-awesome</code>&#x91CC;&#x9762;&#x7684;<code>css</code>&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x5728;&#x6807;&#x7B7E;&#x4E0A;&#x52A0;&#x5165;<code>className</code>&#x5C5E;&#x6027;&#xFF0C;&#x653E;&#x5165;<code>fontawesome</code>&#x7684;&#x6837;&#x5F0F;</p>
+<p><strong>index.jsx</strong></p>
+<pre><code>import React from &quot;react&quot;;
+import ReactDOM from &quot;react-dom&quot;;
+import &quot;../css/index.css&quot;;
+import &quot;../css/index.scss&quot;;
+import &quot;font-awesome/css/font-awesome.min.css&quot;;//&#x6B64;&#x5904;&#x4E3A;&#x6DFB;&#x52A0;&#x4EE3;&#x7801;
+
+ReactDOM.render(
+  &lt;div&gt;
+    &lt;i className=&quot;fa fa-address-book&quot;/&gt;//&#x6B64;&#x5904;&#x4E3A;&#x6DFB;&#x52A0;&#x4EE3;&#x7801;
+    &lt;h1&gt;Hello, Webpack!&lt;/h1&gt;
+  &lt;/div&gt;,
+  document.getElementById(&quot;root&quot;)
+);
+</code></pre><p>&#x8FD9;&#x65F6;&#x5019;&#x8FD0;&#x884C;webpack&#x4F1A;&#x5982;&#x4E0B;&#x9519;&#x8BEF;&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x6253;&#x5305;&#x914D;&#x7F6E;&#x91CC;&#x9762;&#x6CA1;&#x6709;&#x914D;&#x7F6E;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x6587;&#x4EF6;&#x7684;&#x89E3;&#x6790;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x7528;url-loader&#x5728;<code>rules</code>&#x4E2D;&#x6765;&#x8FDB;&#x884C;&#x5B57;&#x4F53;&#x6587;&#x4EF6;&#x7684;&#x914D;&#x7F6E;</p>
+<p><img src="https://i.loli.net/2019/04/16/5cb5bcec9faf5.png" alt="5cb5bcec9faf5"></p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>{
+        //font-awesome&#x5B57;&#x4F53;&#x6587;&#x4EF6;&#x5904;&#x7406;
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: &quot;url-loader&quot;,
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      }
+</code></pre><p>&#x8FD9;&#x6837;&#x8FD0;&#x884C;&#x4E4B;&#x540E;&#x4F1A;&#x53D1;&#x73B0;dist&#x76EE;&#x5F55;&#x4E0B;&#x589E;&#x52A0;&#x4E86;&#x5B57;&#x4F53;&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x6253;&#x5F00;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6548;&#x679C;<img src="https://i.loli.net/2019/04/16/5cb5bddfd2eca.png" alt="5cb5bddfd2eca"></p>
+<h3 id="&#x516C;&#x5171;&#x6A21;&#x5757;&#x63D0;&#x51FA;commonschunkplugin">&#x516C;&#x5171;&#x6A21;&#x5757;&#x63D0;&#x51FA;(CommonsChunkPlugin)</h3>
+<p>&#x8BE5;&#x63D2;&#x4EF6;&#x662F;webpack&#x5185;&#x90E8;&#x7684;&#x63D2;&#x67B6;&#xFF0C;&#x76F4;&#x63A5;&#x5728;webpack.config.js&#x76F4;&#x63A5;&#x914D;&#x7F6E;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x76F4;&#x63A5;&#x914D;&#x7F6E;</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>new webpack.optimize.CommonsChunkPlugin({
+  name: &apos;commons&apos;,
+  // (the commons chunk name)
+
+  filename: &apos;commons.js&apos;,
+  // (the filename of the commons chunk)
+
+  // minChunks: 3,
+  // (Modules must be shared between 3 entries)
+
+  // chunks: [&quot;pageA&quot;, &quot;pageB&quot;],
+  // (Only use these entries)
+});
+//&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5982;&#x679C;&#x50CF;&#x4E0A;&#x9762;&#x8FD9;&#x79CD;&#x914D;&#x7F6E;&#x7684;&#x8BDD;&#xFF0C;&#x62A5;&#x5F02;&#x5E38;&#xFF1A;Error: webpack.optimize.CommonsChunkPlugin has //been removed, please use config.optimization.splitChunks instead.
+//&#x65B0;&#x7248;&#x672C;&#x914D;&#x7F6E;&#x5728;entry&#x540C;&#x76EE;&#x5F55;&#x914D;&#x7F6E;&#x4E3A;
+optimization: {
+    //&#x62BD;&#x53D6;&#x516C;&#x5171;&#x7684;dm
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          name: &quot;commons&quot;,
+          chunks: &quot;initial&quot;,
+          minChunks: 2
+        }
+      }
+    }
+  }
+</code></pre><p>&#x914D;&#x7F6E;&#x4ECB;&#x7ECD;</p>
+<pre><code>// optimization: {
+  //   splitChunks: {
+  //     chunks: &quot;initial&quot;,         // &#x5FC5;&#x987B;&#x4E09;&#x9009;&#x4E00;&#xFF1A; &quot;initial&quot; | &quot;all&quot;(&#x9ED8;&#x8BA4;&#x5C31;&#x662F;all) | &quot;async&quot;
+  //     minSize: 0,                // &#x6700;&#x5C0F;&#x5C3A;&#x5BF8;&#xFF0C;&#x9ED8;&#x8BA4;0
+  //     minChunks: 1,              // &#x6700;&#x5C0F; chunk &#xFF0C;&#x9ED8;&#x8BA4;1
+  //     maxAsyncRequests: 1,       // &#x6700;&#x5927;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x6570;&#xFF0C; &#x9ED8;&#x8BA4;1
+  //     maxInitialRequests: 1,    // &#x6700;&#x5927;&#x521D;&#x59CB;&#x5316;&#x8BF7;&#x6C42;&#x4E66;&#xFF0C;&#x9ED8;&#x8BA4;1
+  //     name: () =&gt; {},              // &#x540D;&#x79F0;&#xFF0C;&#x6B64;&#x9009;&#x9879;&#x8BFE;&#x63A5;&#x6536; function
+  //     cacheGroups: {                 // &#x8FD9;&#x91CC;&#x5F00;&#x59CB;&#x8BBE;&#x7F6E;&#x7F13;&#x5B58;&#x7684; chunks
+  //       priority: &quot;0&quot;,                // &#x7F13;&#x5B58;&#x7EC4;&#x4F18;&#x5148;&#x7EA7; false | object |
+  //       vendor: {                   // key &#x4E3A;entry&#x4E2D;&#x5B9A;&#x4E49;&#x7684; &#x5165;&#x53E3;&#x540D;&#x79F0;
+  //         chunks: &quot;initial&quot;,        // &#x5FC5;&#x987B;&#x4E09;&#x9009;&#x4E00;&#xFF1A; &quot;initial&quot; | &quot;all&quot; | &quot;async&quot;(&#x9ED8;
+  &#x8BA4;&#x5C31;&#x662F;&#x5F02;&#x6B65;)
+  //         test: /react|lodash/,     // &#x6B63;&#x5219;&#x89C4;&#x5219;&#x9A8C;&#x8BC1;&#xFF0C;&#x5982;&#x679C;&#x7B26;&#x5408;&#x5C31;&#x63D0;&#x53D6; chunk
+  //         name: &quot;vendor&quot;,           // &#x8981;&#x7F13;&#x5B58;&#x7684; &#x5206;&#x9694;&#x51FA;&#x6765;&#x7684; chunk &#x540D;&#x79F0;
+  //         minSize: 0,
+  //         minChunks: 1,
+  //         enforce: true,
+  //         maxAsyncRequests: 1,       // &#x6700;&#x5927;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x6570;&#xFF0C; &#x9ED8;&#x8BA4;1
+  //         maxInitialRequests: 1,    // &#x6700;&#x5927;&#x521D;&#x59CB;&#x5316;&#x8BF7;&#x6C42;&#x4E66;&#xFF0C;&#x9ED8;&#x8BA4;1
+  //         reuseExistingChunk: true   // &#x53EF;&#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x91CD;&#x7528;&#x8BE5;chunk&#xFF08;&#x67E5;&#x770B;&#x6E90;&#x7801;&#x6CA1;&#x6709;&#x53D1;&#x73B0;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;
+  //       }
+  //     }
+  //   }
+  // }
+</code></pre><h3 id="&#x4F7F;&#x7528;webpack-dev-server">&#x4F7F;&#x7528;webpack-dev-server</h3>
+<p><code>webpack-dev-server</code>&#x4E3A;&#x60A8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;Web&#x670D;&#x52A1;&#x5668;&#x548C;&#x4F7F;&#x7528;&#x5B9E;&#x65F6;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x7684;&#x80FD;&#x529B;&#x3002;</p>
+<h4 id="&#x5B89;&#x88C5;webpack-dev-server">&#x5B89;&#x88C5;webpack-dev-server</h4>
+<pre><code>yarn global add webpack-dev-server --dev
+//&#x5B89;&#x88C5;&#x6210;&#x529F;&#x4E4B;&#x540E;&#x8FD0;&#x884C;&#x547D;&#x4EE4;
+webpack-dev-server//&#x8FD0;&#x884C;&#x4E4B;&#x540E;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;localhost:8080&#x67E5;&#x770B;
+</code></pre><p>&#x6253;&#x5F00;&#x4E4B;&#x540E;&#x53D1;&#x73B0;&#x56FE;&#x7247;&#x548C;&#x5B57;&#x4F53;&#x6587;&#x4EF6;&#x627E;&#x4E0D;&#x5230;&#xFF0C;&#x5728;<code>output</code>&#x4E2D;&#x6DFB;&#x52A0;<code>pubicPath</code>&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x8868;&#x793A;&#x5C06;index.html&#x5F15;&#x5165;&#x7684;css&#x548C;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x90FD;&#x52A0;&#x4E0A;<code>dist</code>&#x8FD9;&#x5C42;&#x76EE;&#x5F55;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x5F15;&#x5165;&#xFF0C;&#x6253;&#x5305;&#x4E4B;&#x540E;&#x8BBF;&#x95EE;localhost:8080/dist/index.html,&#x73B0;&#x5728;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x8BE5;&#x7F51;&#x9875;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x4FEE;&#x6539;&#x6837;&#x5F0F;&#x6216;&#x8005;&#x5185;&#x5BB9;&#xFF0C;&#x7F51;&#x9875;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x3002;</p>
+<p><strong>webpack.config.js</strong></p>
+<pre><code>output: {
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    publicPath: &quot;/dist/&quot;,
+    filename: &quot;js/index.js&quot;
+  }
+  ...
+  devServer: {
+      port:8086,
+      contentBase: &apos;./dist&apos;//&#x8FD9;&#x4E2A;&#x8DDF;publicPath&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x6837;&#x7684;&#x4F5C;&#x7528;
+  }
+</code></pre><p>&#x6B64;&#x6559;&#x7A0B;&#x672C;&#x4EBA;demo &#x5730;&#x5740;(develop&#x5206;&#x652F;&#x4EE3;&#x7801;)&#xFF1A;[<a href="https://github.com/coffeelife/WebpackStudy/tree/develop" target="_blank">https://github.com/coffeelife/WebpackStudy/tree/develop</a>]</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="H5常见router.html" class="navigation navigation-prev " aria-label="Previous page: H5常见router">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Web安全之CSRF和XSS.html" class="navigation navigation-next " aria-label="Next page: Web安全之CSRF和XSS">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"webpack使用学习","level":"1.8","depth":1,"next":{"title":"Web安全之CSRF和XSS","level":"1.9","depth":1,"path":"Web安全之CSRF和XSS.md","ref":"Web安全之CSRF和XSS.md","articles":[]},"previous":{"title":"H5常见router","level":"1.7","depth":1,"path":"H5常见router.md","ref":"H5常见router.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"webpack使用学习.md","mtime":"2019-04-17T06:04:56.657Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T08:12:52.534Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

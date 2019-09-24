@@ -1,0 +1,1927 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Android开发工具之OKHttp日志抓取（仿IOS DBDebugToolkit) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Android开发工具之环境切换.html" />
+    
+    
+    <link rel="prev" href="Android组件化开发.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Android组件化开发.html">
+            
+                <a href="Android组件化开发.html">
+            
+                    
+                    Android组件化开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="Android开发工具之OKHttp日志抓取.html">
+            
+                <a href="Android开发工具之OKHttp日志抓取.html">
+            
+                    
+                    Android开发工具之OKHttp日志抓取（仿IOS DBDebugToolkit)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Android开发工具之环境切换.html">
+            
+                <a href="Android开发工具之环境切换.html">
+            
+                    
+                    Android开发工具之环境切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="热更新在Cordova平台的实践.html">
+            
+                <a href="热更新在Cordova平台的实践.html">
+            
+                    
+                    热更新(HotCode)在Cordova平台的实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ES6新特性学习.html">
+            
+                <a href="ES6新特性学习.html">
+            
+                    
+                    ES6新特性学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="H5常见router.html">
+            
+                <a href="H5常见router.html">
+            
+                    
+                    H5常见router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="webpack使用学习.html">
+            
+                <a href="webpack使用学习.html">
+            
+                    
+                    webpack使用学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Web安全之CSRF和XSS.html">
+            
+                <a href="Web安全之CSRF和XSS.html">
+            
+                    
+                    Web安全之CSRF和XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Android开发工具之OKHttp日志抓取（仿IOS DBDebugToolkit)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="android&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x4E4B;okhttp&#x65E5;&#x5FD7;&#x6293;&#x53D6;&#xFF08;&#x4EFF;ios-dbdebugtoolkit">Android&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x4E4B;OKHttp&#x65E5;&#x5FD7;&#x6293;&#x53D6;&#xFF08;&#x4EFF;IOS DBDebugToolkit)</h1>
+<h2 id="&#x58F0;&#x660E;">&#x58F0;&#x660E;</h2>
+<p>&#x672C;&#x6587;&#x7AE0;&#x57FA;&#x4E8E;OkHttp&#x57FA;&#x7840;&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4EFF;IOS&#x8C03;&#x8BD5;&#x5DE5;&#x5177;DBDebugToolkit&#x7684;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#x6293;&#x53D6;&#x529F;&#x80FD;&#xFF0C;&#x539F;&#x7406;&#x5341;&#x5206;&#x7B80;&#x5355;&#xFF0C;&#x5BF9;OkHttp&#x8BBE;&#x7F6E;&#x62E6;&#x622A;&#x5668;&#xFF0C;&#x5728;&#x62E6;&#x622A;&#x5668;&#x4E2D;&#x62E6;&#x622A;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x548C;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#xFF0C;&#x7136;&#x540E;&#x5B58;&#x50A8;&#x5230;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6700;&#x540E;&#x518D;&#x4ECE;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x76F8;&#x5E94;&#x7684;&#x4FE1;&#x606F;&#x5C55;&#x793A;&#xFF0C;&#x65B9;&#x4FBF;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x548C;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x8FDB;&#x884C;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x8C03;&#x8BD5;&#x3002;</p>
+<h3 id="ios-dbdebugtoolkit&#x8C03;&#x8BD5;&#x5DE5;&#x5177;">IOS DBDebugToolkit&#x8C03;&#x8BD5;&#x5DE5;&#x5177;</h3>
+<p>IOS DBDebugToolkit git&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/dbukowski/DBDebugToolkit" target="_blank">https://github.com/dbukowski/DBDebugToolkit</a></p>
+<p>&#x672C;&#x6587;github&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/coffeelife/HttpLogCode.git" target="_blank">https://github.com/coffeelife/HttpLogCode.git</a></p>
+<p>&#x622A;&#x56FE; &#xFF08;&#x8C03;&#x8BD5;&#x9875;&#x9762;&#xFF09;</p>
+<p><img src="https://i.loli.net/2019/08/28/7Ir6u85PhABlsTc.jpg" alt="7Ir6u85PhABlsTc"></p>
+<p>&#x622A;&#x56FE; &#xFF08;&#x8BE6;&#x60C5;&#x9875;&#x9762;&#xFF09;</p>
+<p><img src="https://i.loli.net/2019/08/29/WzOCgZh26xNBlKu.jpg" alt="WzOCgZh26xNBlKu"></p>
+<p><img src="https://i.loli.net/2019/08/29/Gqe9d3azyJswkVf.jpg" alt="Gqe9d3azyJswkVf"></p>
+<p><img src="https://i.loli.net/2019/08/29/NwoPQ5vhWq61RcZ.jpg" alt="NwoPQ5vhWq61RcZ"></p>
+<p>&#x622A;&#x56FE;&#x7ED3;&#x675F;</p>
+<h2 id="&#x5F00;&#x7BC7;">&#x5F00;&#x7BC7;</h2>
+<p>&#x622A;&#x56FE;&#x7ED3;&#x675F;&#xFF0C;&#x4EE5;&#x4E0A;&#x622A;&#x56FE;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8FD9;&#x662F;IOS&#x7684;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#xFF0C;Android&#x5E76;&#x6CA1;&#x6709;&#x7C7B;&#x4F3C;&#x7684;&#x5F00;&#x6E90;&#x5DE5;&#x5177;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x7684;&#x8FD9;&#x6837;&#x5DE5;&#x5177;&#xFF0C;&#x65B9;&#x4FBF;&#x6D4B;&#x8BD5;&#x6216;&#x8005;&#x540E;&#x7AEF;&#x751A;&#x81F3;&#x81EA;&#x5DF1;&#x6765;&#x67E5;&#x770B;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x60C5;&#x51B5;&#x3002;(Ps:&#x907F;&#x514D;&#x6D4B;&#x8BD5;&#x6216;&#x8005;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x603B;&#x6709;&#x4EBA;&#x627E;&#x4F60;&#xFF0C;&#x8BF4;&#x8FD9;&#x91CC;&#x6211;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF0C;&#x6D4B;&#x8BD5;&#x6765;&#x627E;&#x4F60;&#x8BF4;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x4E0D;&#x5E94;&#x8BE5;&#x8FD9;&#x4E48;&#x663E;&#x793A;&#xFF0C;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x544A;&#x8BC9;&#x4ED6;&#x4EEC;&#xFF0C;&#x4F60;&#x770B;&#x770B;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#xFF0C;&#x770B;&#x770B;&#x6570;&#x636E;&#x662F;&#x600E;&#x4E48;&#x6837;&#x7684;&#xFF09;&#x3002;</p>
+<h2 id="&#x539F;&#x7406;">&#x539F;&#x7406;</h2>
+<p>&#x6700;&#x5F00;&#x59CB;&#x4E5F;&#x8BB2;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E1C;&#x897F;&#x5E76;&#x4E0D;&#x590D;&#x6742;&#xFF0C;&#x672C;&#x9879;&#x76EE;&#x662F;&#x901A;&#x8FC7;OkHttp&#x4F5C;&#x4E3A;&#x8BF7;&#x6C42;&#x57FA;&#x7840;&#xFF0C;OkHttp&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x62E6;&#x622A;&#x5668;&#xFF0C;&#x8FD9;&#x4E2A;&#x62E6;&#x622A;&#x5668;&#x5C31;&#x662F;&#x5B9E;&#x73B0;&#x8BE5;&#x529F;&#x80FD;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x539F;&#x7406;&#xFF1A;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x7ED9;&#x6211;&#x4EEC;App&#x7684;OkHttp&#x8BF7;&#x6C42;&#x8BBE;&#x7F6E;&#x62E6;&#x622A;&#x5668;&#xFF0C;&#x62E6;&#x622A;&#x53D1;&#x51FA;&#x53BB;&#x7684;&#x8BF7;&#x6C42;&#x548C;&#x8FD4;&#x56DE;&#x7684;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#xFF0C;&#x5C06;&#x7ED3;&#x679C;&#x6253;&#x5370;&#x5728;log&#x91CC;&#x9762;&#xFF0C;&#x65B9;&#x4FBF;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x8C03;&#x8BD5;&#xFF0C;&#x5E76;&#x5C06;&#x7ED3;&#x679C;&#x4FDD;&#x5B58;&#x5728;&#x4E00;&#x4E2A;bean&#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x4FDD;&#x5B58;&#x5230;&#x6587;&#x4EF6;&#x5F53;&#x4E2D;&#xFF08;&#x6211;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x4FDD;&#x5B58;&#x5728;&#x4E86;sp&#x4E2D;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x5199;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x9875;&#x9762;&#x5C06;&#x81EA;&#x5DF1;&#x4FDD;&#x5B58;&#x7684;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x6570;&#x636E;list&#x663E;&#x793A;&#x5230;&#x9875;&#x9762;&#x4E2D;&#x3002;&#x4E0B;&#x9762;&#x4E0A;&#x4EE3;&#x7801;&#xFF0C;&#x6700;&#x540E;&#x4E0A;&#x622A;&#x56FE;&#x3002;</p>
+<h2 id="&#x4EE3;&#x7801;&#x7F16;&#x5199;">&#x4EE3;&#x7801;&#x7F16;&#x5199;</h2>
+<h3 id="&#x5EFA;&#x7ACB;&#x7F51;&#x7EDC;&#x62E6;&#x622A;&#x5668;">&#x5EFA;&#x7ACB;&#x7F51;&#x7EDC;&#x62E6;&#x622A;&#x5668;</h3>
+<p><code>HttpLogInterceptor.java</code>&#xFF08;&#x5168;&#x90E8;&#xFF09;</p>
+<pre><code>/**
+ * Created by ccx on 2018/07/11
+ */
+public class HttpLogInterceptor implements Interceptor {
+    private static final Charset UTF8 = Charset.forName(&quot;UTF-8&quot;);
+
+    public enum Level {
+        /**
+         * No logs.
+         */
+        NONE,
+        /**
+         * Logs request and response lines.
+         *
+         * &lt;p&gt;Example:
+         * &lt;pre&gt;{@code
+         * --&gt; POST /greeting http/1.1 (3-byte body)
+         *
+         * &lt;-- 200 OK (22ms, 6-byte body)
+         * }&lt;/pre&gt;
+         */
+        BASIC,
+        /**
+         * Logs request and response lines and their respective headers.
+         *
+         * &lt;p&gt;Example:
+         * &lt;pre&gt;{@code
+         * --&gt; POST /greeting http/1.1
+         * Host: example.com
+         * Content-Type: plain/text
+         * Content-Length: 3
+         * --&gt; END POST
+         *
+         * &lt;-- 200 OK (22ms)
+         * Content-Type: plain/text
+         * Content-Length: 6
+         * &lt;-- END HTTP
+         * }&lt;/pre&gt;
+         */
+        HEADERS,
+        /**
+         * Logs request and response lines and their respective headers and bodies (if present).
+         *
+         * &lt;p&gt;Example:
+         * &lt;pre&gt;{@code
+         * --&gt; POST /greeting http/1.1
+         * Host: example.com
+         * Content-Type: plain/text
+         * Content-Length: 3
+         *
+         * Hi?
+         * --&gt; END POST
+         *
+         * &lt;-- 200 OK (22ms)
+         * Content-Type: plain/text
+         * Content-Length: 6
+         *
+         * Hello!
+         * &lt;-- END HTTP
+         * }&lt;/pre&gt;
+         */
+        BODY
+    }
+
+    public interface Logger {
+        void log(String message);
+
+        void log(String tag, String message);
+
+        void json(String tag, String message);
+
+        /**
+         * A {@link HttpLogInterceptor.Logger} defaults output appropriate for the current platform.
+         */
+        HttpLogInterceptor.Logger DEFAULT = new HttpLogInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                com.gjhealth.library.utils.log.Logger.t(&quot;http&quot;).d(message);
+            }
+
+            @Override
+            public void log(String tag, String message) {
+                com.gjhealth.library.utils.log.Logger.t(&quot;http&quot; + tag).d(message);
+            }
+
+            @Override
+            public void json(String tag, String message) {
+                com.gjhealth.library.utils.log.Logger.t(tag).json(message);
+            }
+        };
+    }
+
+    public HttpLogInterceptor() {
+        this(HttpLogInterceptor.Logger.DEFAULT);
+    }
+
+    public HttpLogInterceptor(HttpLogInterceptor.Logger logger) {
+        this.logger = logger;
+    }
+
+    private final HttpLogInterceptor.Logger logger;
+
+    private volatile HttpLogInterceptor.Level level = HttpLogInterceptor.Level.NONE;
+
+    /**
+     * Change the level at which this interceptor logs.
+     */
+    public HttpLogInterceptor setLevel(HttpLogInterceptor.Level level) {
+        if (level == null) throw new NullPointerException(&quot;level == null. Use Level.NONE instead.&quot;);
+        this.level = level;
+        return this;
+    }
+
+    public HttpLogInterceptor.Level getLevel() {
+        return level;
+    }
+
+    @Override
+    public Response intercept(Chain chain) throws IOException {
+        HttpLogInterceptor.Level level = this.level;
+        long startNs = System.nanoTime();
+
+        Request request = chain.request();
+        HttpCacheBean bean = new HttpCacheBean();
+        bean.requestTime = DateFormatUtils.getCurrentDateTime();
+        if (level == HttpLogInterceptor.Level.NONE) {
+            return chain.proceed(request);
+        }
+
+        boolean logBody = level == HttpLogInterceptor.Level.BODY;
+        boolean logHeaders = logBody || level == HttpLogInterceptor.Level.HEADERS;
+
+        RequestBody requestBody = request.body();
+        boolean hasRequestBody = requestBody != null;
+
+        Connection connection = chain.connection();
+        Protocol protocol = connection != null ? connection.protocol() : Protocol.HTTP_1_1;
+        String requestStartMessage = &quot;--&gt; &quot; + request.method() + &apos; &apos; + request.url() + &apos; &apos; + protocol;
+        bean.method = request.method();
+        bean.url = request.url().toString();
+        bean.protocol = protocol + &quot;&quot;;
+        if (!logHeaders &amp;&amp; hasRequestBody) {
+            requestStartMessage += &quot; (&quot; + requestBody.contentLength() + &quot;-byte body)&quot;;
+            bean.reqContentLength = requestStartMessage;
+        }
+        logger.log(requestStartMessage);
+        bean.requestMsg = requestStartMessage;
+        if (logHeaders) {
+//            if (hasRequestBody) {
+//                // Request body headers are only present when installed as a network interceptor. Force
+//                // them to be included (when available) so there values are known.
+//                if (requestBody.contentType() != null) {
+//                    logger.log(&quot;Content-Type: &quot; + requestBody.contentType());
+//                }
+//                if (requestBody.contentLength() != -1) {
+//                    logger.log(&quot;Content-Length: &quot; + requestBody.contentLength());
+//                }
+//            }
+
+            Headers headers = request.headers();
+//            StringBuffer sbReq = new StringBuffer();
+            if (headers.size() &gt; 0) {
+                JsonObject jsonHeaders = new JsonObject();
+                for (int i = 0, count = headers.size(); i &lt; count; i++) {
+                    String value = headers.value(i);
+                    if (value != null) {
+                        value = URLDecoder.decode(value, &quot;UTF-8&quot;);
+                    }
+                    jsonHeaders.addProperty(headers.name(i), value);
+//                    sbReq.append(headers.name(i) + &quot;:&quot; + value + &quot;\n&quot;);
+                }
+                logger.json(&quot;httphead-req&quot;, jsonHeaders.toString());
+                bean.reqHeaders = jsonHeaders.toString();
+            }
+
+            if (!logBody || !hasRequestBody) {
+//                logger.log(&quot;--&gt; END &quot; + request.method());
+            } else if (bodyEncoded(request.headers())) {
+//                logger.log(&quot;--&gt; END &quot; + request.method() + &quot; (encoded body omitted)&quot;);
+            } else {
+                Buffer buffer = new Buffer();
+                requestBody.writeTo(buffer);
+
+                Charset charset = UTF8;
+                MediaType contentType = requestBody.contentType();
+                if (contentType != null) {
+                    charset = contentType.charset(UTF8);
+                }
+                if (isPlaintext(buffer)) {
+                    logger.json(&quot;httprequest&quot;, buffer.clone().readString(charset));
+                    bean.requestBody = buffer.readString(charset);
+                } else {
+                    logger.log(&quot;--&gt; END &quot; + request.method() + &quot; (binary &quot;
+                            + requestBody.contentLength() + &quot;-byte body omitted)&quot;);
+                }
+                bean.reqContentType = contentType.toString();
+            }
+        }
+        Response response;
+        try {
+            response = chain.proceed(request);
+        } catch (Exception e) {
+            logger.log(&quot;&lt;-- HTTP FAILED: &quot; + e);
+            bean.error = e.toString();
+            throw e;
+        }
+        long tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
+
+        ResponseBody responseBody = response.body();
+        long contentLength = responseBody.contentLength();
+        String bodySize = contentLength != -1 ? contentLength + &quot;-byte&quot; : &quot;unknown-length&quot;;
+        logger.log(&quot;&lt;-- &quot; + response.code() + &apos; &apos; + response.message() + &apos; &apos;
+                + response.request().url() + &quot; (&quot; + tookMs + &quot;ms&quot; + (!logHeaders ? &quot;, &quot;
+                + bodySize + &quot; body&quot; : &quot;&quot;) + &apos;)&apos;);
+        bean.responseMsg = &quot;&lt;-- &quot; + response.code() + &apos; &apos; + response.message() + &apos; &apos;
+                + response.request().url() + &quot; (&quot; + tookMs + &quot;ms&quot; + (!logHeaders ? &quot;, &quot;
+                + bodySize + &quot; body&quot; : &quot;&quot;) + &apos;)&apos;;
+        bean.resContentLength = bodySize;
+        bean.code = response.code();
+        bean.msg = response.message();
+        bean.time = tookMs + &quot;ms&quot;;
+
+        if (logHeaders) {
+//            StringBuffer sbRes = new StringBuffer();
+            Headers headers = response.headers();
+            JsonObject jsonHeaders = new JsonObject();
+            for (int i = 0, count = headers.size(); i &lt; count; i++) {
+                String value = headers.value(i);
+                if (value != null) {
+                    value = URLDecoder.decode(value, &quot;UTF-8&quot;);
+                }
+                jsonHeaders.addProperty(headers.name(i), value);
+//                sbRes.append(headers.name(i) + &quot;:&quot; + value + &quot;\n&quot;);
+//                logger.log(headers.name(i) + &quot;: &quot; + headers.value(i));
+
+            }
+            logger.json(&quot;httphead-rsp&quot;, jsonHeaders.toString());
+            bean.resHeaders = jsonHeaders.toString();
+
+            if (!logBody || !HttpHeaders.hasBody(response)) {
+
+            } else if (bodyEncoded(response.headers())) {
+                logger.log(&quot;&lt;-- END HTTP (encoded body omitted)&quot;);
+            } else if (isPlaintext(responseBody.contentType())) {
+                BufferedSource source = responseBody.source();
+                source.request(Long.MAX_VALUE); // Buffer the entire body.
+                Buffer buffer = source.buffer();
+
+                Charset charset = UTF8;
+                MediaType contentType = responseBody.contentType();
+                if (contentType != null) {
+                    try {
+                        charset = contentType.charset(UTF8);
+                    } catch (UnsupportedCharsetException e) {
+                        logger.log(&quot;&quot;);
+                        logger.log(&quot;Couldn&apos;t decode the response body; charset is likely malformed.&quot;);
+                        logger.log(&quot;&lt;-- END HTTP&quot;);
+
+                        return response;
+                    }
+                }
+                bean.resContentType = contentType.toString();
+
+//                if (!isPlaintext(buffer)) {
+//                    logger.log(&quot;&lt;-- END HTTP (binary &quot; + buffer.size() + &quot;-byte body omitted)&quot;);
+//                    return response;
+//                }
+
+                if (contentLength != 0) {
+//                    logger.log(&quot;&quot;);
+                    logger.log(&quot;body&quot;, buffer.clone().readString(charset));
+                    bean.responseBody = buffer.clone().readString(charset);
+                }
+
+                logger.log(&quot;&lt;-- END HTTP (&quot; + buffer.size() + &quot;-byte body)&quot;);
+            }
+        }
+
+        HttpLogManager.saveLogBean(bean);
+        return response;
+    }
+
+    private static boolean isPlaintext(MediaType mediaType) {
+        if (mediaType == null) return false;
+        if (mediaType.type() != null &amp;&amp; mediaType.type().equals(&quot;text&quot;)) {
+            return true;
+        }
+        String subtype = mediaType.subtype();
+        if (subtype != null) {
+            subtype = subtype.toLowerCase();
+            if (subtype.contains(&quot;x-www-form-urlencoded&quot;) || subtype.contains(&quot;json&quot;) || subtype.contains(&quot;xml&quot;) || subtype.contains(&quot;html&quot;)) //
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * Returns true if the body in question probably contains human readable text. Uses a small sample
+     * of code points to detect unicode control characters commonly used in binary file signatures.
+     */
+    static boolean isPlaintext(Buffer buffer) {
+        try {
+            Buffer prefix = new Buffer();
+            long byteCount = buffer.size() &lt; 64 ? buffer.size() : 64;
+            buffer.copyTo(prefix, 0, byteCount);
+            for (int i = 0; i &lt; 16; i++) {
+                if (prefix.exhausted()) {
+                    break;
+                }
+                int codePoint = prefix.readUtf8CodePoint();
+                if (Character.isISOControl(codePoint) &amp;&amp; !Character.isWhitespace(codePoint)) {
+                    return false;
+                }
+            }
+            return true;
+        } catch (EOFException e) {
+            return false; // Truncated UTF-8 sequence.
+        }
+    }
+
+    private boolean bodyEncoded(Headers headers) {
+        String contentEncoding = headers.get(&quot;Content-Encoding&quot;);
+        return contentEncoding != null &amp;&amp; !contentEncoding.equalsIgnoreCase(&quot;identity&quot;);
+    }
+}
+</code></pre><p>&#x5185;&#x90E8;&#x679A;&#x4E3E;&#x7C7B;Level</p>
+<pre><code>public enum Level {
+ /**
+ * No logs.
+ */
+ NONE,
+ /**
+ * Logs request and response lines.
+ *
+ * &lt;p&gt;Example:
+ * &lt;pre&gt;{@code
+ * --&gt; POST /greeting http/1.1 (3-byte body)
+ *
+ * &lt;-- 200 OK (22ms, 6-byte body)
+ * }&lt;/pre&gt;
+ */
+ BASIC,
+ /**
+ * Logs request and response lines and their respective headers.
+ *
+ * &lt;p&gt;Example:
+ * &lt;pre&gt;{@code
+ * --&gt; POST /greeting http/1.1
+ * Host: example.com
+ * Content-Type: plain/text
+ * Content-Length: 3
+ * --&gt; END POST
+ *
+ * &lt;-- 200 OK (22ms)
+ * Content-Type: plain/text
+ * Content-Length: 6
+ * &lt;-- END HTTP
+ * }&lt;/pre&gt;
+ */
+ HEADERS,
+ /**
+ * Logs request and response lines and their respective headers and bodies (if present).
+ *
+ * &lt;p&gt;Example:
+ * &lt;pre&gt;{@code
+ * --&gt; POST /greeting http/1.1
+ * Host: example.com
+ * Content-Type: plain/text
+ * Content-Length: 3
+ *
+ * Hi?
+ * --&gt; END POST
+ *
+ * &lt;-- 200 OK (22ms)
+ * Content-Type: plain/text
+ * Content-Length: 6
+ *
+ * Hello!
+ * &lt;-- END HTTP
+ * }&lt;/pre&gt;
+ */
+ BODY
+ }
+ //&#x62E6;&#x622A;&#x4EE3;&#x7801;&#x5185;&#x90E8;&#x7247;&#x6BB5; Level&#x4E3A;NONE&#xFF0C;&#x4E0D;&#x8FDB;&#x884C;&#x65E5;&#x5FD7;&#x6253;&#x5370;
+if (level == HttpLogInterceptor.Level.NONE) {
+ return chain.proceed(request);
+ }
+</code></pre><p>&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x679A;&#x4E3E;&#x7C7B;&#x578B;<code>Level</code>&#xFF0C;&#x8FD9;&#x4E2A;&#x7C7B;&#x7528;&#x6765;&#x6807;&#x6CE8;log&#x548C;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x8BB0;&#x5F55;&#x7C7B;&#x578B;&#xFF0C;&#x7528;&#x6765;&#x533A;&#x5206;&#x6253;&#x5305;&#x7C7B;&#x578B;&#x5BF9;&#x5E94;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;Log&#x6253;&#x5370;&#x548C;&#x662F;&#x5426;&#x8BB0;&#x5F55;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#xFF0C;&#x5F53;&#x6253;debug&#x548C;beta&#x5305;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x6253;&#x5370;log&#x548C;&#x8BB0;&#x5F55;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x5F53;&#x6253;release&#x5305;&#x65F6;&#xFF0C;&#x56E0;&#x4E3A;&#x662F;&#x7EBF;&#x4E0A;&#xFF0C;&#x5C31;&#x5C06;log&#x548C;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#x529F;&#x80FD;&#x5173;&#x95ED;&#x3002;</p>
+<p>&#x5728;Okhttp&#x4E2D;&#x6DFB;&#x52A0;&#x62E6;&#x622A;&#x5668;HttpLogInterceptor</p>
+<pre><code> OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        //log&#x76F8;&#x5173;
+        HttpLogInterceptor loggingInterceptor = new HttpLogInterceptor().setLevel(
+                !GlobalEnv.isRelease() ? HttpLogInterceptor.Level.BODY : HttpLogInterceptor.Level.NONE);
+                               //&#x6DFB;&#x52A0;OkGo&#x9ED8;&#x8BA4;debug&#x65E5;&#x5FD7;
+        builder.addInterceptor(loggingInterceptor);
+</code></pre><p>&#x4EE3;&#x7801;&#x8BB2;&#x89E3;:&#x65B0;&#x5EFA;okhttp builder&#xFF0C;&#x7136;&#x540E;&#x65B0;&#x5EFA;HttpLogInterceptor&#x62E6;&#x622A;&#x5668;&#xFF0C;&#x5224;&#x65AD;app&#x5305;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x679C;&#x662F;release&#x5305;&#x5C31;&#x5173;&#x95ED;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#x529F;&#x80FD;&#xFF0C;&#x6700;&#x540E;&#x7ED9;OkHttp&#x6DFB;&#x52A0;&#x62E6;&#x622A;&#x5668;</p>
+<p>&#x6838;&#x5FC3;&#x4EE3;&#x7801;&#x90E8;&#x5206;&#xFF08;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#xFF09;</p>
+<pre><code>@Override
+ public Response intercept(Chain chain) throws IOException {
+ HttpLogInterceptor.Level level = this.level;
+ long startNs = System.nanoTime();
+ Request request = chain.request();
+ HttpCacheBean bean = new HttpCacheBean();
+ bean.requestTime = DateFormatUtils.getCurrentDateTime();
+ if (level == HttpLogInterceptor.Level.NONE) {
+ return chain.proceed(request);
+ }
+ boolean logBody = level == HttpLogInterceptor.Level.BODY;
+ boolean logHeaders = logBody || level == HttpLogInterceptor.Level.HEADERS;
+ RequestBody requestBody = request.body();
+ boolean hasRequestBody = requestBody != null;
+ Connection connection = chain.connection();
+ Protocol protocol = connection != null ? connection.protocol() : Protocol.HTTP_1_1;
+ String requestStartMessage = &quot;--&gt; &quot; + request.method() + &apos; &apos; + request.url() + &apos; &apos; + protocol;
+ bean.method = request.method();
+ bean.url = request.url().toString();
+ bean.protocol = protocol + &quot;&quot;;
+ if (!logHeaders &amp;&amp; hasRequestBody) {
+ requestStartMessage += &quot; (&quot; + requestBody.contentLength() + &quot;-byte body)&quot;;
+ bean.reqContentLength = requestStartMessage;
+ }
+ logger.log(requestStartMessage);
+ bean.requestMsg = requestStartMessage;
+ if (logHeaders) {
+// if (hasRequestBody) {
+// // Request body headers are only present when installed as a network interceptor. Force
+// // them to be included (when available) so there values are known.
+// if (requestBody.contentType() != null) {
+// logger.log(&quot;Content-Type: &quot; + requestBody.contentType());
+// }
+// if (requestBody.contentLength() != -1) {
+// logger.log(&quot;Content-Length: &quot; + requestBody.contentLength());
+// }
+// }
+ Headers headers = request.headers();
+// StringBuffer sbReq = new StringBuffer();
+ if (headers.size() &gt; 0) {
+ JsonObject jsonHeaders = new JsonObject();
+ for (int i = 0, count = headers.size(); i &lt; count; i++) {
+ String value = headers.value(i);
+ if (value != null) {
+ value = URLDecoder.decode(value, &quot;UTF-8&quot;);
+ }
+ jsonHeaders.addProperty(headers.name(i), value);
+// sbReq.append(headers.name(i) + &quot;:&quot; + value + &quot;\n&quot;);
+ }
+ logger.json(&quot;httphead-req&quot;, jsonHeaders.toString());
+ bean.reqHeaders = jsonHeaders.toString();
+ }
+ if (!logBody || !hasRequestBody) {
+// logger.log(&quot;--&gt; END &quot; + request.method());
+ } else if (bodyEncoded(request.headers())) {
+// logger.log(&quot;--&gt; END &quot; + request.method() + &quot; (encoded body omitted)&quot;);
+ } else {
+ Buffer buffer = new Buffer();
+ requestBody.writeTo(buffer);
+ Charset charset = UTF8;
+ MediaType contentType = requestBody.contentType();
+ if (contentType != null) {
+ charset = contentType.charset(UTF8);
+ }
+ if (isPlaintext(buffer)) {
+ logger.json(&quot;httprequest&quot;, buffer.clone().readString(charset));
+ bean.requestBody = buffer.readString(charset);
+ } else {
+ logger.log(&quot;--&gt; END &quot; + request.method() + &quot; (binary &quot;
+ + requestBody.contentLength() + &quot;-byte body omitted)&quot;);
+ }
+ bean.reqContentType = contentType.toString();
+ }
+ }
+ Response response;
+ try {
+ response = chain.proceed(request);
+ } catch (Exception e) {
+ logger.log(&quot;&lt;-- HTTP FAILED: &quot; + e);
+ bean.error = e.toString();
+ throw e;
+ }
+ long tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
+ ResponseBody responseBody = response.body();
+ long contentLength = responseBody.contentLength();
+ String bodySize = contentLength != -1 ? contentLength + &quot;-byte&quot; : &quot;unknown-length&quot;;
+ logger.log(&quot;&lt;-- &quot; + response.code() + &apos; &apos; + response.message() + &apos; &apos;
+ + response.request().url() + &quot; (&quot; + tookMs + &quot;ms&quot; + (!logHeaders ? &quot;, &quot;
+ + bodySize + &quot; body&quot; : &quot;&quot;) + &apos;)&apos;);
+ bean.responseMsg = &quot;&lt;-- &quot; + response.code() + &apos; &apos; + response.message() + &apos; &apos;
+ + response.request().url() + &quot; (&quot; + tookMs + &quot;ms&quot; + (!logHeaders ? &quot;, &quot;
+ + bodySize + &quot; body&quot; : &quot;&quot;) + &apos;)&apos;;
+ bean.resContentLength = bodySize;
+ bean.code = response.code();
+ bean.msg = response.message();
+ bean.time = tookMs + &quot;ms&quot;;
+ if (logHeaders) {
+// StringBuffer sbRes = new StringBuffer();
+ Headers headers = response.headers();
+ JsonObject jsonHeaders = new JsonObject();
+ for (int i = 0, count = headers.size(); i &lt; count; i++) {
+ String value = headers.value(i);
+ if (value != null) {
+ value = URLDecoder.decode(value, &quot;UTF-8&quot;);
+ }
+ jsonHeaders.addProperty(headers.name(i), value);
+// sbRes.append(headers.name(i) + &quot;:&quot; + value + &quot;\n&quot;);
+// logger.log(headers.name(i) + &quot;: &quot; + headers.value(i));
+ }
+ logger.json(&quot;httphead-rsp&quot;, jsonHeaders.toString());
+ bean.resHeaders = jsonHeaders.toString();
+ if (!logBody || !HttpHeaders.hasBody(response)) {
+ } else if (bodyEncoded(response.headers())) {
+ logger.log(&quot;&lt;-- END HTTP (encoded body omitted)&quot;);
+ } else if (isPlaintext(responseBody.contentType())) {
+ BufferedSource source = responseBody.source();
+ source.request(Long.MAX_VALUE); // Buffer the entire body.
+ Buffer buffer = source.buffer();
+ Charset charset = UTF8;
+ MediaType contentType = responseBody.contentType();
+ if (contentType != null) {
+ try {
+ charset = contentType.charset(UTF8);
+ } catch (UnsupportedCharsetException e) {
+ logger.log(&quot;&quot;);
+ logger.log(&quot;Couldn&apos;t decode the response body; charset is likely malformed.&quot;);
+ logger.log(&quot;&lt;-- END HTTP&quot;);
+ return response;
+ }
+ }
+ bean.resContentType = contentType.toString();
+// if (!isPlaintext(buffer)) {
+// logger.log(&quot;&lt;-- END HTTP (binary &quot; + buffer.size() + &quot;-byte body omitted)&quot;);
+// return response;
+// }
+ if (contentLength != 0) {
+// logger.log(&quot;&quot;);
+ logger.log(&quot;body&quot;, buffer.clone().readString(charset));
+ bean.responseBody = buffer.clone().readString(charset);
+ }
+ logger.log(&quot;&lt;-- END HTTP (&quot; + buffer.size() + &quot;-byte body)&quot;);
+ }
+ }
+ HttpLogManager.saveLogBean(bean);
+ return response;
+ }
+</code></pre><p>&#x6B64;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x662F;&#x62E6;&#x622A;&#x5668;&#x62E6;&#x622A;&#x5230;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x4E4B;&#x540E;&#x7684;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Log&#x65E5;&#x5FD7;Bean&#x5BF9;&#x8C61;&#xFF08;HttpCacheBean)&#xFF0C;&#x901A;&#x8FC7;Request request = chain.request();&#x5F97;&#x5230;&#x8BF7;&#x6C42;&#x8BE6;&#x60C5;&#xFF0C;&#x5E76;&#x8D4B;&#x503C;&#x7ED9;log&#x65E5;&#x5FD7;bean &#x5BF9;&#x8C61;&#xFF0C;&#x4E3B;&#x8981;&#x5305;&#x62EC;&#x8BF7;&#x6C42;url&#x3001;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x65F6;&#x95F4;time&#xFF08;&#x901A;&#x8FC7;&#x5F97;&#x5230;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#xFF09;&#x3001;&#x8BF7;&#x6C42;&#x5934;reqHeaders&#x3001;&#x8BF7;&#x6C42;body&#x6570;&#x636E;requestBody&#x3001;&#x8BF7;&#x6C42;&#x7C7B;&#x578B;method&#x3001;&#x8BF7;&#x6C42;&#x534F;&#x8BAE;protocol&#x7B49;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x4E3B;&#x8981;&#x901A;&#x8FC7;response = chain.proceed(request);&#x5F97;&#x5230;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x4E4B;&#x540E;&#xFF0C;&#x4F9D;&#x65E7;&#x590D;&#x5236;&#x7ED9;log&#x65E5;&#x5FD7;bean &#x5BF9;&#x8C61;&#xFF0C;&#x4E3B;&#x8981;&#x5305;&#x62EC;&#x8BA1;&#x7B97;&#x7684;&#x8BF7;&#x6C42;&#x65F6;&#x957F;requestTime&#x3001;&#x8BF7;&#x6C42;&#x72B6;&#x6001;&#x7801;code&#xFF08;200&#x3001;400&#x3001;401&#x3001;500&#x7B49;&#xFF09;&#x3001;&#x8BF7;&#x6C42;&#x9519;&#x8BEF;error&#x3001;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;&#x957F;&#x5EA6;reqContentLength&#x3001;&#x8BF7;&#x6C42;&#x8FD4;&#x56DE;msg responseMsg&#x3001;&#x8FD4;&#x56DE;body&#x6570;&#x636E;responseBody&#x7B49;&#x3002;</p>
+<p><code>HttpCacheBean.java</code></p>
+<pre><code>public class HttpCacheBean implements Serializable {
+    public static String TAG = HttpCacheBean.class.getSimpleName();
+    public String url;
+    public String requestTime;
+    public int code;
+    public String time;
+    public String reqHeaders;
+    public String resHeaders;
+    public String requestBody;
+    public String protocol;
+    public String method;
+    public String msg;
+    public String responseBody;
+    public String reqContentType;
+    public String resContentType;
+    public String error;
+    public String reqContentLength;
+    public String resContentLength;
+    public String requestMsg;
+    public String responseMsg;
+}
+</code></pre><p>&#x6700;&#x540E;&#xFF0C;&#x5C06;bean &#x5BF9;&#x8C61;&#x4FDD;&#x5B58;&#x5230;sp&#x4E2D;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x9762;&#x5199;&#x4E86;&#x4E00;&#x4E2A;manager&#x7C7B;&#xFF0C;&#x6765;&#x4FDD;&#x5B58;&#x548C;&#x8BFB;&#x53D6;&#x8BE5;&#x6587;&#x4EF6;</p>
+<pre><code>HttpLogManager.saveLogBean(bean);
+</code></pre><p><code>HttpManager.java</code></p>
+<pre><code>package cn.api.gjhealth.cstore.http;
+
+import android.text.TextUtils;
+import com.gjhealth.library.http.model.HttpCacheBean;
+import com.gjhealth.library.utils.ArrayUtils;
+import com.gjhealth.library.utils.SharedUtil;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import cn.api.gjhealth.cstore.app.BaseApp;
+import cn.api.gjhealth.cstore.utils.jsonutils.GsonUtil;
+
+public class HttpLogManager {
+    public static List&lt;HttpCacheBean&gt; getLogLists(String keyWords) {
+        List&lt;HttpCacheBean&gt; listBeans = null;
+        String json = SharedUtil.instance(BaseApp.getContext()).getString(HttpCacheBean.TAG);
+        if (GsonUtil.isGoodJson(json)) listBeans = GsonUtil.getEntityList(json, HttpCacheBean.class);
+        if (GsonUtil.isBadJson(json) || listBeans == null) listBeans = new ArrayList&lt;&gt;();
+        if (TextUtils.isEmpty(keyWords)) {
+            Collections.reverse(listBeans);
+            return listBeans;
+        } else {
+            List&lt;HttpCacheBean&gt; listBeansTemp = new ArrayList&lt;&gt;();
+            if (!ArrayUtils.isEmpty(listBeans)) {
+                for (HttpCacheBean bean : listBeans) {
+                    if (bean != null &amp;&amp; !TextUtils.isEmpty(bean.url)) {
+                        try {
+                            URL url = new URL(URLDecoder.decode(bean.url));
+                            if (url.getPath().contains(keyWords)) {
+                                listBeansTemp.add(bean);
+                            }
+                        } catch (MalformedURLException e) {
+                        }
+                    }
+                }
+            }
+            Collections.reverse(listBeansTemp);
+            return listBeansTemp;
+        }
+    }
+
+    public static void saveLogBean(HttpCacheBean bean) {
+        List&lt;HttpCacheBean&gt; httpCacheBeans = null;
+        String json = SharedUtil.instance(BaseApp.getContext()).getString(HttpCacheBean.TAG);
+        if (GsonUtil.isGoodJson(json))
+            httpCacheBeans = GsonUtil.getEntityList(json, HttpCacheBean.class);
+        if (GsonUtil.isBadJson(json) || httpCacheBeans == null) httpCacheBeans = new ArrayList&lt;&gt;();
+        httpCacheBeans.add(bean);
+        if (!ArrayUtils.isEmpty(httpCacheBeans) &amp;&amp; httpCacheBeans.size() &gt; 100) {
+            httpCacheBeans = httpCacheBeans.subList(httpCacheBeans.size() - 100, httpCacheBeans.size());
+        }
+        SharedUtil.instance(BaseApp.getContext()).saveObject(HttpCacheBean.TAG, httpCacheBeans);
+    }
+}
+</code></pre><p>&#x56E0;&#x4E3A;&#x6211;&#x662F;list&#x663E;&#x793A;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x6211;&#x89C9;&#x5F97;&#x5F88;&#x4E45;&#x4E4B;&#x524D;&#x7684;&#x6570;&#x636E;&#x90FD;&#x662F;&#x65E0;&#x7528;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5728;&#x4FDD;&#x5B58;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x662F;&#x53D6;&#x6570;&#x636E;&#x7684;&#x6700;&#x540E;&#x7684;&#x4E00;&#x767E;&#x6761;&#x6765;&#x5B58;&#x50A8;&#xFF0C;&#x7136;&#x540E;recycleview&#x663E;&#x793A;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x662F;&#x76F4;&#x63A5;&#x53D6;&#x6240;&#x6709;&#x6570;&#x636E;&#x663E;&#x793A;&#x3002;</p>
+<p>getLogLists&#x91CC;&#x9762;&#x6709;&#x4E2A;keywords&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x65B9;&#x4FBF;&#x7528;&#x4E8E;&#x641C;&#x7D22;&#x67E5;&#x8BE2;&#x7684;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x4F20;&#x7A7A;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;&#x5168;&#x90E8;&#x6570;&#x636E;&#x3002;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x63A5;&#x53E3;url&#x6765;&#x5339;&#x914D;&#x67E5;&#x8BE2;&#x63A5;&#x53E3;</p>
+<p><code>GsonUtil.java</code>&#x5DE5;&#x5177;&#x7C7B;&#x6269;&#x5C55;</p>
+<pre><code>package cn.api.gjhealth.cstore.utils.jsonutils;
+
+import android.text.TextUtils;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
+
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by lc on 2017/5/17.
+ * Gson&#x89E3;&#x6790;&#x5DE5;&#x5177;&#x7C7B;
+ */
+
+public class GsonUtil {
+    // &#x662F;&#x5426;json&#x6570;&#x636E;
+    public static boolean isGoodJson(String json) {
+        if (TextUtils.isEmpty(json)) {
+            return false;
+        }
+        try {
+            new JsonParser().parse(json);
+            return true;
+        } catch (JsonParseException e) {
+            return false;
+        }
+    }
+
+    public static boolean isBadJson(String json) {
+        return !isGoodJson(json);
+    }
+
+    // &#x662F;&#x5426;&#x5B58;&#x5728;&#x6307;&#x5B9A;key
+    public static boolean fieldIsNull(JsonObject command, String methodName) {
+
+        return GsonUtil.getKeyValue(command, methodName) == null;
+    }
+
+    /**
+     * &#x89E3;&#x6790;&#x5355;&#x4E2A;
+     *
+     * @param jsonStr
+     * @param entityClass
+     * @param &lt;T&gt;
+     * @return
+     */
+    public static &lt;T&gt; T getEntity(String jsonStr, Class&lt;T&gt; entityClass) {
+        Gson gson = new Gson();
+        T entity = null;
+        entity = gson.fromJson(jsonStr, entityClass);
+        return entity;
+    }
+
+    /**
+     * &#x89E3;&#x6790;list&#x96C6;&#x5408;
+     *
+     * @param jsonStr
+     * @param entityClass
+     * @param &lt;T&gt;
+     * @return
+     */
+    public static &lt;T&gt; List&lt;T&gt; getEntityList(String jsonStr, Class&lt;T&gt; entityClass) {
+        Gson gson = new Gson();
+        List&lt;T&gt; list = new ArrayList&lt;T&gt;();
+        JsonArray jsonArray = new JsonParser().parse(jsonStr).getAsJsonArray();
+        for (JsonElement element : jsonArray) {
+            list.add(gson.fromJson(element, entityClass));
+        }
+        return list;
+    }
+
+    // Gson&#x89E3;&#x6790;&#x5668;
+    public static Gson gson = new GsonBuilder()
+            .enableComplexMapKeySerialization()
+            .setExclusionStrategies(new FooAnnotationExclusionStrategy())//&#x8FC7;&#x6EE4;&#x4E0D;&#x4E0A;&#x4F20;&#x7684;&#x5B57;&#x6BB5;&#x503C;
+            .serializeNulls()// &#x652F;&#x6301;Map&#x7684;key&#x4E3A;&#x590D;&#x6742;&#x5BF9;&#x8C61;&#x7684;&#x5F62;&#x5F0F;
+            .setDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;) // &#x65F6;&#x95F4;&#x8F6C;&#x5316;&#x4E3A;&#x7279;&#x5B9A;&#x683C;&#x5F0F;
+            .setPrettyPrinting().create();
+
+    /****************** json&#x62C6;&#x5206; ***************************************/
+
+    /**
+     * &#x4ECE;&#x7236;JsonObject&#x5BF9;&#x8C61;&#x4E2D;&#x83B7;&#x53D6;&#x5B50;JsonObject&#x5BF9;&#x8C61;
+     *
+     * @param obj
+     * @param key
+     * @return
+     */
+    public static JsonObject getJsonObject(JsonObject obj, String key) {
+        JsonElement element = obj.get(key);
+        return element.getAsJsonObject();
+    }
+
+    /**
+     * &#x4ECE;&#x7236;JsonObject&#x5BF9;&#x8C61;&#x4E2D;&#x83B7;&#x53D6;&#x5B50;JsonArray&#x5BF9;&#x8C61;
+     *
+     * @param obj
+     * @param key
+     * @return
+     */
+    public static JsonArray getJsonArray(JsonObject obj, String key) {
+        JsonElement element = obj.get(key);
+        return element.getAsJsonArray();
+    }
+
+    /**
+     * &#x5F97;&#x5230;&#x6839;JsonObject
+     *
+     * @param jsonStr
+     * @return
+     */
+    public static JsonObject getRootJsonObject(String jsonStr) {
+        JsonObject obj = new JsonParser().parse(jsonStr).getAsJsonObject();
+        return obj;
+    }
+
+    /**
+     * &#x5F97;&#x5230;&#x6839;JsonArray
+     *
+     * @param jsonStr
+     * @return
+     */
+    public static JsonArray getRootJsonArray(String jsonStr) {
+        JsonArray obj = new JsonParser().parse(jsonStr).getAsJsonArray();
+        return obj;
+    }
+
+    /**
+     * &#x4ECE;JsonObject&#x5BF9;&#x8C61;&#x4E2D;&#x83B7;&#x53D6;&#x952E;&#x503C;
+     *
+     * @param obj
+     * @param key
+     * @return
+     */
+    public static JsonElement getKeyValue(JsonObject obj, String key) {
+        JsonElement element = obj.get(key);
+        return element;
+    }
+
+    /**
+     * JsonArrary----&gt;&gt;&gt;List&lt;JsonObject&gt;
+     *
+     * @param jsonArray
+     * @return
+     */
+    public static List&lt;JsonObject&gt; JsonArrayToList(JsonArray jsonArray) {
+        List&lt;JsonObject&gt; obj = new ArrayList&lt;JsonObject&gt;();
+        for (int i = 0; i &lt; jsonArray.size(); i++) {
+            obj.add(jsonArray.get(i).getAsJsonObject());
+        }
+        return obj;
+    }
+
+    public Gson getGson() {
+        return gson;
+    }
+
+    /****************** bean-jsonString&#x914D;&#x5408;builder&#x4F7F;&#x7528; ***************************************/
+
+    // TODO &#x7B80;&#x5355;bean,&#x5E26;&#x6CDB;&#x578B;&#x7684;List------&gt;&gt;&gt;&gt;&gt;String
+    public static &lt;T&gt; String toJsonString(List&lt;T&gt; json) {
+        return gson.toJson(json);
+    }
+
+    // TODO &#x7B80;&#x5355;bean,&#x5E26;&#x6CDB;&#x578B;&#x7684;List------&gt;&gt;&gt;&gt;&gt;String
+    public static &lt;T&gt; String toJsonString(T json) {
+        return gson.toJson(json);
+    }
+
+    /****************** bean-jsonobject&#x914D;&#x5408;builder&#x4F7F;&#x7528; ***************************************/
+    // TODO bean--------&gt;&gt;&gt;&gt;jsonObject
+    public static &lt;T&gt; JsonObject beanToJsonObject(T json) {
+        return getRootJsonObject(toJsonString(json));
+    }
+
+    // TODO List&lt;bean&gt;------&gt;&gt;&gt;&gt;&gt;jsonArrary
+    public static &lt;T&gt; JsonArray ListToJsonArrary(List&lt;T&gt; json) {
+        return getRootJsonArray(toJsonString(json));
+    }
+
+    /********************* json--bean&#x914D;&#x5408;Gson&#x89E3;&#x6790; *************************************/
+    // TODO &#x8F6C;&#x6362;JSONObject&#x5BF9;&#x8C61;&#x4E2D;&#x7684;JSONObject&#x4E3A;Bean
+    public static &lt;T&gt; T toBean(JsonObject obj, String key, Class&lt;T&gt; type) {
+        return gson.fromJson(obj.get(key).toString(), type);
+    }
+
+    // TODO &#x8F6C;&#x6362;JSONObject&#x5BF9;&#x8C61;&#x4E2D;&#x7684;JsonArray&#x4E3A;List&lt;Bean&gt;
+    public static &lt;T&gt; List&lt;T&gt; toList(JsonObject obj, String key, Class&lt;T&gt; type) {
+        return JsonArrayToListBean(obj.get(key).getAsJsonArray(), type);
+    }
+
+    // TODO &#x76F4;&#x63A5;&#x628A;JsonArrary&#x5BF9;&#x8C61;&#x8F6C;&#x5316;&#x4E3A;List&lt;Bean&gt;
+    public static &lt;T&gt; List&lt;T&gt; JsonArrayToListBean(JsonArray jsonArray,
+                                                  Class&lt;T&gt; type) {
+        List&lt;T&gt; obj = new ArrayList&lt;T&gt;();
+        for (int i = 0; i &lt; jsonArray.size(); i++) {
+            obj.add(gson.fromJson(jsonArray.get(i).toString(), type));
+        }
+        return obj;
+    }
+
+    // TODO &#x76F4;&#x63A5;&#x628A;json&#x5BF9;&#x8C61;&#x8F6C;&#x5316;&#x4E3A;bean
+    public static &lt;T&gt; T JsonObjectToBean(JsonObject jsonObject, Class&lt;T&gt; type) {
+        return gson.fromJson(jsonObject.toString(), type);
+    }
+
+    // &#x68C0;&#x67E5;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5B58;&#x5728;
+    public static boolean checkJsonObejct(JsonObject root, String key) {
+        if ((!getKeyValue(root, key).isJsonNull())
+                &amp;&amp; getKeyValue(root, key).isJsonObject()) {
+            return true;
+        }
+        return false;
+
+    }
+
+    // &#x68C0;&#x67E5;&#x6570;&#x7EC4;&#x662F;&#x5426;&#x5B58;&#x5728;
+    public static boolean checkJsonArray(JsonObject root, String key) {
+        if ((!getKeyValue(root, key).isJsonNull())
+                &amp;&amp; getKeyValue(root, key).isJsonArray()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static JsonArray getRootJsonArrayByInputStream(Reader jsonStr) {
+        JsonArray obj = new JsonParser().parse(jsonStr).getAsJsonArray();
+        return obj;
+    }
+}
+</code></pre><h2 id="&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x663E;&#x793A;">&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x663E;&#x793A;</h2>
+<p>&#x663E;&#x793A;&#x9875;&#x9762;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x770B;&#x6548;&#x679C;&#xFF0C;&#x76F4;&#x63A5;&#x5230;&#x6700;&#x4E0B;&#x9762;&#x770B;UI&#x6548;&#x679C;&#x56FE;&#x3002;</p>
+<p>&#x9875;&#x9762;&#x5C31;&#x4E00;&#x4E2A;&#x641C;&#x7D22;&#x6846;&#x52A0;&#x4E00;&#x4E2A;recycleview&#x5217;&#x8868;&#x663E;&#x793A;&#xFF0C;&#x663E;&#x793A;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;url&#x548C;&#x8BF7;&#x6C42;&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x70B9;&#x51FB;&#x641C;&#x7D22;&#xFF0C;&#x5B9E;&#x65F6;&#x663E;&#x793A;&#x641C;&#x7D22;&#x7ED3;&#x679C;&#x3002;&#x76F4;&#x63A5;&#x8D34;&#x4EE3;&#x7801;</p>
+<p><code>HttpListActivity.java</code></p>
+<pre><code>public class HttpListActivity extends BaseSwipeBackActivity {
+    @Bind(R.id.index_app_name)
+    TextView indexAppName;
+    @Bind(R.id.recycler_view)
+    RecyclerView recyclerView;
+    @Bind(R.id.smart_rl)
+    SmartRefreshLayout refreshLayout;
+    @Bind(R.id.et_name)
+    EditText etName;
+    private HttpListAdapter adapter;
+    private String mKeyWords = &quot;&quot;;
+    List&lt;HttpCacheBean&gt; mListBeans;
+
+    @Override
+    protected void onInitialization(Bundle bundle) {
+    }
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            adapter.setNewData(mListBeans);
+            refreshLayout.finishRefresh();
+        }
+    };
+
+    @Override
+    protected void initView(Bundle bundle) {
+        indexAppName.setText(&quot;Http&#x8BF7;&#x6C42;Log&#x65E5;&#x5FD7;&quot;);
+        initList();
+        setListDemo();
+        etName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                mKeyWords = charSequence.toString().trim();
+                setListDemo();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+    }
+
+    private void setListDemo() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mListBeans = HttpLogManager.getLogLists(mKeyWords);
+                mHandler.sendEmptyMessage(0);
+            }
+        }).start();
+    }
+
+
+    private void initList() {
+        ListEmptyView emptyView = new ListEmptyView(getContext());
+        adapter = new HttpListAdapter();
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(HttpCacheBean.TAG, (HttpCacheBean) adapter.getItem(position));
+                gStartActivity(HttpDetailsActivity.class, bundle);
+            }
+        });
+        adapter.setEmptyView(emptyView);
+        refreshLayout.setEnableLoadMore(false);
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                setListDemo();
+            }
+        });
+    }
+
+    @Override
+    protected void initData(Bundle bundle) {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_httplog_layout;
+    }
+
+
+    @OnClick(R.id.img_back)
+    public void onViewClicked() {
+        finish();
+    }
+}
+</code></pre><p><code>&#x6CE8;&#x610F;:&#x8FD9;&#x91CC;&#x56E0;&#x4E3A;&#x6709;&#x4E9B;&#x8BF7;&#x6C42;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x91CF;&#x592A;&#x5927;&#xFF0C;&#x76F4;&#x63A5;&#x67E5;&#x8BE2;100&#x6761;&#x663E;&#x793A;&#x9875;&#x9762;&#x4F1A;&#x5361;&#x4F4F;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x7528;&#x4E86;handler&#x8FDB;&#x884C;&#x8017;&#x65F6;&#x5904;&#x7406;&#xFF0C;&#x663E;&#x793A;&#x66F4;&#x52A0;&#x6D41;&#x7545;</code></p>
+<p><code>activity_http_layout.xml</code></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:background=&quot;@color/bg_color&quot;
+    android:orientation=&quot;vertical&quot;&gt;
+
+    &lt;include layout=&quot;@layout/titlebar_base_layout&quot; /&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/et_name&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_margin=&quot;@dimen/dimen_8dp&quot;
+        android:background=&quot;@color/color_EDEDED&quot;
+        android:focusable=&quot;true&quot;
+        android:focusableInTouchMode=&quot;true&quot;
+        android:hint=&quot;&#x63A5;&#x53E3;&#x540D;&#x79F0;&quot;
+        android:padding=&quot;@dimen/dimen_10dp&quot;
+        android:textSize=&quot;@dimen/dimen_14dp&quot; /&gt;
+
+    &lt;com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id=&quot;@+id/smart_rl&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot;&gt;
+
+        &lt;android.support.v7.widget.RecyclerView
+            android:id=&quot;@+id/recycler_view&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_below=&quot;@+id/title_bar&quot; /&gt;
+    &lt;/com.scwang.smartrefresh.layout.SmartRefreshLayout&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><p>http&#x65E5;&#x5FD7;&#x8BE6;&#x60C5;&#x663E;&#x793A;&#x9875;&#x9762;</p>
+<p> <code>HttpDetailsActivity.java</code></p>
+<pre><code>public class HttpDetailsActivity extends BaseSwipeBackActivity {
+    HttpCacheBean httpCacheBean;
+    @Bind(R.id.ll_back)
+    LinearLayout llBack;
+    @Bind(R.id.index_app_name)
+    TextView indexAppName;
+    @Bind(R.id.tv_title_right)
+    TextView tvTitleRight;
+    @Bind(R.id.tv_req_allUrl)
+    TextView tvReqAllUrl;
+    @Bind(R.id.tv_req_url)
+    TextView tvReqUrl;
+    @Bind(R.id.tv_req_code)
+    TextView tvReqCode;
+    @Bind(R.id.tv_req_type)
+    TextView tvReqType;
+    @Bind(R.id.tv_req_header)
+    TextView tvReqHeader;
+    @Bind(R.id.tv_req_data)
+    TextView tvReqData;
+    @Bind(R.id.ll_request)
+    LinearLayout llRequest;
+    @Bind(R.id.tv_res_allUrl)
+    TextView tvResAllUrl;
+    @Bind(R.id.tv_res_url)
+    TextView tvResUrl;
+    @Bind(R.id.tv_res_time)
+    TextView tvResTime;
+    @Bind(R.id.tv_res_code)
+    TextView tvResCode;
+    @Bind(R.id.tv_res_type)
+    TextView tvResType;
+    @Bind(R.id.tv_res_header)
+    TextView tvResHeader;
+    @Bind(R.id.tv_res_error)
+    TextView tvResError;
+    @Bind(R.id.tv_res_body)
+    TextView tvResBody;
+    @Bind(R.id.ll_response)
+    LinearLayout llResponse;
+    @Bind(R.id.tv_content_type)
+    TextView tvContentType;
+    @Bind(R.id.tv_req_time)
+    TextView tvReqTime;
+
+    @Override
+    protected void onInitialization(Bundle bundle) {
+        httpCacheBean = (HttpCacheBean) bundle.getSerializable(HttpCacheBean.TAG);
+    }
+
+    @Override
+    protected void initView(Bundle bundle) {
+        indexAppName.setText(&quot;&#x8BF7;&#x6C42;&#x8BE6;&#x60C5;&quot;);
+
+    }
+
+    @Override
+    protected void initData(Bundle bundle) {
+        if (httpCacheBean != null) {
+            if (!TextUtils.isEmpty(httpCacheBean.url) &amp;&amp; !TextUtils.isEmpty(httpCacheBean.method)) {
+                if (httpCacheBean.method.equals(&quot;GET&quot;)) {
+                    try {
+                        URL url = new URL(URLDecoder.decode(httpCacheBean.url));
+                        httpCacheBean.requestBody = url.getQuery();
+                    } catch (MalformedURLException e) {
+                    }
+                }
+
+            }
+            tvReqTime.setText(httpCacheBean.requestTime);
+            tvReqAllUrl.setText(TextUtils.isEmpty(httpCacheBean.requestMsg) ? &quot;--&quot; : URLDecoder.decode(httpCacheBean.requestMsg));
+            tvReqUrl.setText(TextUtils.isEmpty(httpCacheBean.url) ? &quot;--&quot; : URLDecoder.decode(httpCacheBean.url));
+            tvReqCode.setText(TextUtils.isEmpty(httpCacheBean.code + &quot;&quot;) ? &quot;--&quot; : httpCacheBean.code + &quot;&quot;);
+            tvReqHeader.setText(TextUtils.isEmpty(httpCacheBean.reqHeaders) ? &quot;--&quot; : StringUtil.formatJson(httpCacheBean.reqHeaders));
+            tvReqData.setText(TextUtils.isEmpty(httpCacheBean.requestBody) ? &quot;--&quot; : StringUtil.formatJson(httpCacheBean.requestBody));
+            tvReqType.setText(TextUtils.isEmpty(httpCacheBean.method) ? &quot;--&quot; : httpCacheBean.method);
+            tvContentType.setText(TextUtils.isEmpty(httpCacheBean.reqContentType) ? &quot;--&quot; : httpCacheBean.reqContentType);
+            tvResAllUrl.setText(TextUtils.isEmpty(httpCacheBean.responseMsg) ? &quot;--&quot; : URLDecoder.decode(httpCacheBean.responseMsg));
+            tvResUrl.setText(TextUtils.isEmpty(httpCacheBean.url) ? &quot;--&quot; : URLDecoder.decode(httpCacheBean.url));
+            tvResCode.setText(TextUtils.isEmpty(httpCacheBean.code + &quot;&quot;) ? &quot;--&quot; : httpCacheBean.code + &quot;&quot;);
+            tvResHeader.setText(TextUtils.isEmpty(httpCacheBean.resHeaders) ? &quot;--&quot; : StringUtil.formatJson(httpCacheBean.resHeaders));
+            tvResBody.setText(TextUtils.isEmpty(httpCacheBean.responseBody) ? &quot;--&quot; : httpCacheBean.responseBody);
+            tvResTime.setText(TextUtils.isEmpty(httpCacheBean.time) ? &quot;--&quot; : httpCacheBean.time);
+            tvResType.setText(TextUtils.isEmpty(httpCacheBean.resContentType) ? &quot;--&quot; : httpCacheBean.resContentType);
+            tvResError.setText(TextUtils.isEmpty(httpCacheBean.error) ? &quot;--&quot; : httpCacheBean.error);
+            if (httpCacheBean.code &gt;= 200 &amp;&amp; httpCacheBean.code &lt; 300) {
+                tvReqCode.setTextColor(Color.parseColor(&quot;#00FF00&quot;));
+                tvResCode.setTextColor(Color.parseColor(&quot;#00FF00&quot;));
+            }else if (httpCacheBean.code &gt;= 400) {
+                tvReqCode.setTextColor(Color.parseColor(&quot;#FF0000&quot;));
+                tvResCode.setTextColor(Color.parseColor(&quot;#FF0000&quot;));
+            } else {
+                tvReqCode.setTextColor(Color.parseColor(&quot;#0000FF&quot;));
+                tvResCode.setTextColor(Color.parseColor(&quot;#0000FF&quot;));
+            }
+        }
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_http_details_layout;
+    }
+
+    @OnClick(R.id.ll_back)
+    public void onViewClicked() {
+        finish();
+    }
+}
+</code></pre><p><code>activity_http_details_layout.xml</code></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:background=&quot;@color/bg_color&quot;
+    android:orientation=&quot;vertical&quot;&gt;
+
+    &lt;include layout=&quot;@layout/titlebar_base_simple_layout&quot; /&gt;
+
+    &lt;android.support.v4.widget.NestedScrollView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:scrollbars=&quot;none&quot;&gt;
+
+        &lt;LinearLayout
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:orientation=&quot;vertical&quot;&gt;
+
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:background=&quot;@color/color_EDEDED&quot;
+                android:padding=&quot;@dimen/dimen_5dp&quot;
+                android:text=&quot;Request:&quot;
+                android:textSize=&quot;15dp&quot; /&gt;
+
+            &lt;LinearLayout
+                android:id=&quot;@+id/ll_request&quot;
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:layout_marginTop=&quot;@dimen/dimen_5dp&quot;
+                android:orientation=&quot;vertical&quot;&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8BF7;&#x6C42;&#x65F6;&#x95F4;:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_req_time&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8BF7;&#x6C42;&#x6574;&#x4F53;:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_req_allUrl&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8BF7;&#x6C42;Url:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_req_url&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8BF7;&#x6C42;&#x6570;&#x636E;:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_req_data&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x72B6;&#x6001;&#x7801;:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_req_code&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8BF7;&#x6C42;&#x7C7B;&#x578B;:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_req_type&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8BF7;&#x6C42;ContentType:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_content_type&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8BF7;&#x6C42;&#x5934;:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_req_header&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+            &lt;/LinearLayout&gt;
+
+            &lt;TextView
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:layout_marginTop=&quot;@dimen/dimen_10dp&quot;
+                android:background=&quot;@color/color_EDEDED&quot;
+                android:padding=&quot;@dimen/dimen_5dp&quot;
+                android:text=&quot;Response:&quot;
+                android:textSize=&quot;15dp&quot; /&gt;
+
+            &lt;LinearLayout
+                android:id=&quot;@+id/ll_response&quot;
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:orientation=&quot;vertical&quot;
+                android:padding=&quot;@dimen/dimen_5dp&quot;&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8FD4;&#x56DE;&#x8BF7;&#x6C42;&#x6574;&#x4F53;:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_res_allUrl&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8FD4;&#x56DE;&#x8BF7;&#x6C42;Url:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_res_url&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8FD4;&#x56DE;&#x8BF7;&#x6C42;&#x65F6;&#x95F4;:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_res_time&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x72B6;&#x6001;&#x7801;:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_res_code&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;&#x7C7B;&#x578B;:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_res_type&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x8FD4;&#x56DE;&#x5934;:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_res_header&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;&#x9519;&#x8BEF;&#x4FE1;&#x606F;error:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_res_error&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:text=&quot;body:&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+                &lt;TextView
+                    android:id=&quot;@+id/tv_res_body&quot;
+                    android:layout_width=&quot;match_parent&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:layout_margin=&quot;@dimen/dimen_5dp&quot;
+                    android:lineSpacingMultiplier=&quot;1.2&quot;
+                    android:background=&quot;@color/color_EDEDED&quot;
+                    android:padding=&quot;@dimen/dimen_5dp&quot;
+                    android:textIsSelectable=&quot;true&quot;
+                    android:textColor=&quot;@color/color_4A4A4A&quot;
+                    android:textSize=&quot;12dp&quot; /&gt;
+
+
+            &lt;/LinearLayout&gt;
+
+        &lt;/LinearLayout&gt;
+
+    &lt;/android.support.v4.widget.NestedScrollView&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p><code>HttpListAdapter.java</code></p>
+<pre><code>public class HttpListAdapter extends BaseQuickAdapter&lt;HttpCacheBean, BaseViewHolder&gt; {
+
+    public HttpListAdapter() {
+        super(R.layout.item_http_view);
+    }
+
+    @Override
+    protected void convert(BaseViewHolder helper, HttpCacheBean item) {
+        helper.setText(R.id.tv_code, TextUtils.isEmpty(item.code + &quot;&quot;) ? &quot;none&quot; : item.code + &quot;&quot;);
+        helper.setText(R.id.tv_method, TextUtils.isEmpty(item.method) ? &quot;none&quot; : item.method);
+        helper.setText(R.id.tv_url, TextUtils.isEmpty(item.url) ? &quot;--&quot; : URLDecoder.decode(item.url));
+    }
+}
+</code></pre><p><code>item_http_view.xml</code></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:orientation=&quot;vertical&quot;
+    android:padding=&quot;10dp&quot;&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/tv_method&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:textColor=&quot;@color/white&quot;
+            android:background=&quot;@color/gray&quot;
+            android:paddingLeft=&quot;@dimen/dimen_10dp&quot;
+            android:paddingRight=&quot;@dimen/dimen_10dp&quot;
+            android:textSize=&quot;14dp&quot; /&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/tv_code&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginLeft=&quot;@dimen/dimen_5dp&quot;
+            android:textColor=&quot;@color/white&quot;
+            android:paddingLeft=&quot;@dimen/dimen_10dp&quot;
+            android:paddingRight=&quot;@dimen/dimen_10dp&quot;
+            android:background=&quot;@color/color_FA6469&quot;
+            android:textSize=&quot;14dp&quot; /&gt;
+
+    &lt;/LinearLayout&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/tv_url&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:textColor=&quot;@color/color_2D2D2D&quot;
+        android:textSize=&quot;14dp&quot; /&gt;
+
+    &lt;View
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;@dimen/dimen_1dp&quot;
+        android:background=&quot;@color/color_EDEDED&quot;/&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><p>&#x5168;&#x90E8;&#x4EE3;&#x7801;&#x7C98;&#x8D34;&#x5B8C;&#x6BD5;&#x3002;&#x5927;&#x5BB6;&#x5B66;&#x4E60;&#x501F;&#x9274;&#xFF0C;&#x672C;&#x6587;&#x7AE0;&#x90FD;&#x662F;&#x81EA;&#x5DF1;&#x7814;&#x7A76;&#x521B;&#x4F5C;&#xFF0C;&#x6709;&#x7455;&#x75B5;&#xFF0C;&#x8BF7;&#x5927;&#x5BB6;&#x591A;&#x591A;&#x5305;&#x6DB5;&#xFF0C;&#x5171;&#x540C;&#x5B66;&#x4E60;&#x8FDB;&#x6B65;&#x3002;</p>
+<p>&#x672C;&#x6587;&#x53EA;&#x622A;&#x53D6;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x4E0A;&#x4F20;&#x5230;github&#xFF0C;&#x5C5E;&#x4E8E;&#x9879;&#x76EE;&#x96C6;&#x6210;&#x7684;&#xFF0C;&#x6CA1;&#x6709;&#x65F6;&#x95F4;&#x5206;&#x79BB;&#xFF0C;&#x8981;&#x501F;&#x9274;&#x79FB;&#x6B65;github&#x9879;&#x76EE;&#x4E0B;&#x8F7D;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#xFF0C;&#x5408;&#x5E76;&#x5230;&#x81EA;&#x5DF1;&#x5206;&#x652F;&#x3002;</p>
+<p>Android&#x7248;&#x622A;&#x56FE;</p>
+<p><img src="https://i.loli.net/2019/08/29/6hQXy5dakfYvSNR.jpg" alt="6hQXy5dakfYvSNR"></p>
+<p><img src="https://i.loli.net/2019/08/29/XZGoiMsjElhYqng.jpg" alt="XZGoiMsjElhYqng"></p>
+<p><img src="https://i.loli.net/2019/08/29/6YucS8HtDky49vr.jpg" alt="6YucS8HtDky49vr"></p>
+<p><img src="https://i.loli.net/2019/08/29/LZBykW7hmobq4nN.jpg" alt="LZBykW7hmobq4nN"></p>
+<p>github&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/coffeelife/HttpLogCode.git" target="_blank">https://github.com/coffeelife/HttpLogCode.git</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Android组件化开发.html" class="navigation navigation-prev " aria-label="Previous page: Android组件化开发">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Android开发工具之环境切换.html" class="navigation navigation-next " aria-label="Next page: Android开发工具之环境切换">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Android开发工具之OKHttp日志抓取（仿IOS DBDebugToolkit)","level":"1.3","depth":1,"next":{"title":"Android开发工具之环境切换","level":"1.4","depth":1,"path":"Android开发工具之环境切换.md","ref":"Android开发工具之环境切换.md","articles":[]},"previous":{"title":"Android组件化开发","level":"1.2","depth":1,"path":"Android组件化开发.md","ref":"Android组件化开发.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Android开发工具之OKHttp日志抓取.md","mtime":"2019-08-29T09:49:19.152Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T08:12:52.534Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
