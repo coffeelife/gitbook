@@ -370,7 +370,7 @@
     <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
 
     <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-    <!-- L2Dwidget.js L2D网页动画人物 -->
+    <!-- L2Dwidget.js L2D网页动画人物
     <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
     <script>
       L2Dwidget.init({
@@ -391,6 +391,17 @@
         mobile: { show: true, scale: 0.5 },
         react: { opacityDefault: 0.7, opacityOnHover: 0.2 }
       })
+    </script> -->
+    <script src="../live2d/autoload.js"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        console.log('window', window)
+        setTimeout(() => {
+          document.getElementById('waifu').style = ''
+          document.getElementById('waifu').style = 'left:initial;right:30px;bottom:0px'
+        }, 300)
+        // live2d_settings['waifuEdgeSide'] = 'right: 30px'
+      }
     </script>
     <!--
 	其他可选的模型：
@@ -485,7 +496,8 @@
           y = { x: null, y: null, max: 2e4 }
         ;(m.id = l),
           (m.style.cssText =
-            'position:fixed;top:0;left:0;z-index:' + d.z + ';opacity:' + d.o),
+            'position:fixed;pointer-events:none;top:0;left:0;z-index:10;opacity:' +
+            d.o),
           e('body')[0].appendChild(m),
           o(),
           (window.onresize = o),
