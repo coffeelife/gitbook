@@ -392,13 +392,15 @@
         react: { opacityDefault: 0.7, opacityOnHover: 0.2 }
       })
     </script> -->
-    <script src="../live2d/autoload.js"></script>
+    <!-- <script src="../live2d/autoload.js"></script> -->
+    <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
     <script type="text/javascript">
       window.onload = function () {
         console.log('window', window)
         setTimeout(() => {
           document.getElementById('waifu').style = ''
-          document.getElementById('waifu').style = 'left:initial;right:30px;bottom:0px'
+          document.getElementById('waifu').style =
+            'left:initial;right:30px;bottom:0px'
         }, 300)
         // live2d_settings['waifuEdgeSide'] = 'right: 30px'
       }
