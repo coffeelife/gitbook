@@ -1,0 +1,854 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>路由系统重构文档 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="前端干货：JS的执行顺序.html" />
+    
+    
+    <link rel="prev" href="Web安全问题之CSRF和XSS.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Android组件化开发.html">
+            
+                <a href="Android组件化开发.html">
+            
+                    
+                    Android组件化开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Android开发工具之OKHttp日志抓取.html">
+            
+                <a href="Android开发工具之OKHttp日志抓取.html">
+            
+                    
+                    Android开发工具之OKHttp日志抓取（仿IOS DBDebugToolkit)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Android开发工具之环境切换.html">
+            
+                <a href="Android开发工具之环境切换.html">
+            
+                    
+                    Android开发工具之环境切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="热更新在Cordova平台的实践.html">
+            
+                <a href="热更新在Cordova平台的实践.html">
+            
+                    
+                    热更新(HotCode)在Cordova平台的实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ES6新特性学习.html">
+            
+                <a href="ES6新特性学习.html">
+            
+                    
+                    ES6新特性学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="H5常见router.html">
+            
+                <a href="H5常见router.html">
+            
+                    
+                    H5常见router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="webpack使用学习.html">
+            
+                <a href="webpack使用学习.html">
+            
+                    
+                    webpack使用学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Web安全问题之CSRF和XSS.html">
+            
+                <a href="Web安全问题之CSRF和XSS.html">
+            
+                    
+                    Web安全问题之CSRF和XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10" data-path="路由系统重构文档.html">
+            
+                <a href="路由系统重构文档.html">
+            
+                    
+                    路由系统重构文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="前端干货：JS的执行顺序.html">
+            
+                <a href="前端干货：JS的执行顺序.html">
+            
+                    
+                    前端干货：JS的执行顺序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="前端学习之路.html">
+            
+                <a href="前端学习之路.html">
+            
+                    
+                    前端学习之路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="热更新HotCode在Cordova平台的实践.html">
+            
+                <a href="热更新HotCode在Cordova平台的实践.html">
+            
+                    
+                    热更新(HotCode)在Cordova平台的实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="Android开发工具之OKHttp日志抓取之升级版.html">
+            
+                <a href="Android开发工具之OKHttp日志抓取之升级版.html">
+            
+                    
+                    Android开发工具之OKHttp日志抓取之升级版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="Android原生Table组件开发整理.html">
+            
+                <a href="Android原生Table组件开发整理.html">
+            
+                    
+                    Android原生Table组件开发整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="Gitlab.html">
+            
+                <a href="Gitlab.html">
+            
+                    
+                    Gitlab CI/CD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="RN中场景一之RN和原生交互.html">
+            
+                <a href="RN中场景一之RN和原生交互.html">
+            
+                    
+                    RN中场景一之RN和原生交互
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="Taro小程序开发学习.html">
+            
+                <a href="Taro小程序开发学习.html">
+            
+                    
+                    Taro小程序开发学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="Taro小程序dva框架开发学习.html">
+            
+                <a href="Taro小程序dva框架开发学习.html">
+            
+                    
+                    Taro小程序dva框架开发学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >路由系统重构文档</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x8DEF;&#x7531;&#x7CFB;&#x7EDF;&#x91CD;&#x6784;&#x6587;&#x6863;">&#x8DEF;&#x7531;&#x7CFB;&#x7EDF;&#x91CD;&#x6784;&#x6587;&#x6863;</h2>
+<p>&#x8DEF;&#x7531;&#x7CFB;&#x7EDF;&#x6539;&#x9020;&#x4E3B;&#x8981;&#x662F;&#x5305;&#x62EC;&#x8DEF;&#x7531;&#x914D;&#x7F6E;<code>src/router.js</code>&#x3001;&#x8DEF;&#x7531;&#x7BA1;&#x7406;<code>src/framework/MRouter.ts</code>&#x3001;&#x9875;&#x9762;&#x4F7F;&#x7528;<code>src/app.tsx</code>&#x4E09;&#x90E8;&#x5206;</p>
+<h3 id="&#x8DEF;&#x7531;&#x914D;&#x7F6E;srcrouterjs">&#x8DEF;&#x7531;&#x914D;&#x7F6E;<code>src/router.js</code></h3>
+<h4 id="1&#x8DEF;&#x7531;&#x52A8;&#x753B;&#x679A;&#x4E3E;animationtype">1.&#x8DEF;&#x7531;&#x52A8;&#x753B;&#x679A;&#x4E3E;<code>animationType</code></h4>
+<pre><code>const animationType = {
+  default: &apos;default&apos;,
+  fade: &apos;fade&apos;,
+  fade_from_bottom: &apos;fade_from_bottom&apos;,
+  flip: &apos;flip&apos;,
+  none: &apos;none&apos;,
+  simple_push: &apos;simple_push&apos;,
+  slide_from_bottom: &apos;slide_from_bottom&apos;,
+  slide_from_right: &apos;slide_from_right&apos;,
+  slide_from_left: &apos;slide_from_left&apos;
+}
+</code></pre><h3 id="2&#x8DEF;&#x7531;&#x5C4F;&#x5E55;&#x5C4F;&#x5E55;&#x65B9;&#x5411;&#x679A;&#x4E3E;orientationtype">2.&#x8DEF;&#x7531;&#x5C4F;&#x5E55;&#x5C4F;&#x5E55;&#x65B9;&#x5411;&#x679A;&#x4E3E;<code>orientationType</code></h3>
+<pre><code>const orientationType = {
+  default: &apos;default&apos;,
+  all: &apos;all&apos;,
+  portrait: &apos;portrait&apos;,
+  portrait_up: &apos;portrait_up&apos;,
+  portrait_down: &apos;portrait_down&apos;,
+  landscape: &apos;landscape&apos;,
+  landscape_left: &apos;landscape_left&apos;,
+  landscape_right: &apos;landscape_right&apos;
+}
+</code></pre><h4 id="3&#x9ED8;&#x8BA4;&#x8DEF;&#x7531;&#x914D;&#x7F6E;screenconfig">3.&#x9ED8;&#x8BA4;&#x8DEF;&#x7531;&#x914D;&#x7F6E;<code>screenConfig</code></h4>
+<pre><code>const screenConfig: NativeStackNavigationOptions = {
+  headerShown: true,
+  headerShadowVisible: false,
+  headerTitleAlign: &apos;center&apos;,
+  headerBackTitle: &apos;&apos;,
+  headerBackVisible: false,
+  headerBackTitleVisible: false,
+  headerTintColor: &apos;#3D3F43&apos;,
+  animation: animationType.slide_from_right,
+  orientation: orientationType.portrait,
+  headerStyle: {
+    backgroundColor: &apos;#fff&apos;,
+    // @ts-ignore
+    borderBottomWidth: 0
+  },
+  headerTitleStyle: {
+    fontSize: 18,
+    fontWeight: &apos;500&apos;,
+    color: &apos;#3D3F43&apos;
+  }
+};
+</code></pre><h4 id="&#x81EA;&#x5B9A;&#x4E49;headertitlegetheadertitle">&#x81EA;&#x5B9A;&#x4E49;HeaderTitle<code>getHeaderTitle</code></h4>
+<pre><code>const getHeaderTitle = (text) =&gt; {
+  return (
+    &lt;View style={{
+      height: 28,
+      marginBottom: 8,
+      // backgroundColor: &apos;#f00&apos;,
+      justifyContent: &apos;center&apos;,
+      alignItems: &apos;center&apos;
+    }}&gt;
+      &lt;UIText style={[{
+        fontSize: 18,
+        fontWeight: &apos;500&apos;
+      }, { color: &apos;#3D3F43&apos; }]}&gt;{text}&lt;/UIText&gt;
+    &lt;/View&gt;
+  );
+};
+</code></pre><h4 id="screen-option&#x751F;&#x6210;getoptions">screen option&#x751F;&#x6210;<code>getOptions</code></h4>
+<pre><code>const getOptions = (param: NativeStackNavigationOptions) =&gt; {
+  const options: NativeStackNavigationOptions = {
+    ...screenConfig,
+    ...param,
+    headerLeft: () =&gt; &lt;HeaderBackArrow /&gt;,
+    headerTitle: () =&gt; getHeaderTitle(param.title || &apos;&apos;)
+  };
+  return options;
+};
+</code></pre><h4 id="&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;routers">&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;<code>routers</code></h4>
+<p><em>&#x8DEF;&#x7531;&#x4E2D;&#x5305;&#x62EC;<code>name</code>&#x3001;<code>options</code>&#x3001;<code>compenent</code>&#x4E09;&#x90E8;&#x5206;</em></p>
+<p><em><code>name</code>&#x4EE3;&#x8868;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x540D;&#x79F0;</em></p>
+<p><em><code>options</code>&#x4EE3;&#x8868;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x4E3B;&#x8981;&#x5305;&#x62EC;<code>title``anmimation``headerShown``gestureEnabled</code>&#x7B49;&#x914D;&#x7F6E;&#x9879;&#xFF0C;&#x5177;&#x4F53;&#x6709;&#x54EA;&#x4E9B;&#x914D;&#x7F6E;&#x9879;&#x53C2;&#x8003;<code>NativeStackNavigationOptions</code>&#x7C7B;</em></p>
+<p> <em><code>component</code>&#x4EE3;&#x8868;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x7684;&#x7EC4;&#x4EF6;</em></p>
+<pre><code>const routers = {
+  Login: { name: &apos;Login&apos;, options: getOptions({ animation: animationType.slide_from_bottom, headerShown: false }), component: Login },
+  Info: { name: &apos;Info&apos;, options: getOptions({}), component: Info },
+  Tabbar: { name: &apos;Tabbar&apos;, options: getOptions({ animation: animationType.slide_from_right }), component: Tabbar },
+  Agreement: { name: &apos;Agreement&apos;, options: getOptions({}), component: Agreement },
+  ...
+}
+</code></pre><h3 id="&#x8DEF;&#x7531;&#x7BA1;&#x7406;srcframeworkmrouterts">&#x8DEF;&#x7531;&#x7BA1;&#x7406;<code>src/framework/MRouter.ts</code></h3>
+<h4 id="1&#x8DEF;&#x7531;ref&#x8BBE;&#x7F6E;">1.&#x8DEF;&#x7531;ref&#x8BBE;&#x7F6E;</h4>
+<pre><code>let _navigator: any;
+
+/**
+ * &#x8BBE;&#x7F6E;&#x8DEF;&#x7531;ref
+ * @param navigatorRef &#x8DEF;&#x7531;ref
+ */
+function setNavigator(navigatorRef: any) {
+  _navigator = navigatorRef;
+  logInfo(&apos;setNavigator&apos;);
+}
+</code></pre><h4 id="2&#x6253;&#x5F00;&#x65B0;&#x9875;&#x9762;">2.&#x6253;&#x5F00;&#x65B0;&#x9875;&#x9762;</h4>
+<p><strong>&#x4E3B;&#x8981;<code>newPage</code>&#x53C2;&#x6570;&#x4F7F;&#x7528;&#xFF0C;&#x53EF;&#x5F00;&#x542F;&#x65B0;&#x9875;&#x9762;&#x4E0D;&#x4F1A;&#x56DE;&#x8DF3;&#x65E7;&#x9875;&#x9762;</strong></p>
+<pre><code>/**
+ * &#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x65B0;&#x9875;&#x9762;
+ * @param name &#x8DEF;&#x7531;&#x540D;&#x79F0;
+ * @param params &#x8DEF;&#x7531;&#x53C2;&#x6570;
+ * @param newPage &#x662F;&#x5426;&#x5F00;&#x542F;&#x65B0;&#x9875;&#x9762; &#x9ED8;&#x8BA4;false
+ */
+function open(name: string, params?: any, newPage?: boolean) {
+  let index = indexOfRouteByName(name);
+  let route = getRouteInfoByName(name);
+  let item: any = {
+    key: route?.key || name,
+    name: name,
+    path: name,
+    params: params || null
+  };
+  console.log(&apos;newPage&apos;, newPage, index);
+  if (newPage || index === -1) item.key = name + generateRandom();
+
+  _navigator.dispatch(CommonActions.navigate(item));
+  logInfo(&apos;open&apos;, name);
+}
+</code></pre><h4 id="3&#x91CD;&#x7F6E;&#x8DEF;&#x7531;&#x6808;">3.&#x91CD;&#x7F6E;&#x8DEF;&#x7531;&#x6808;</h4>
+<pre><code>/**
+ * &#x5C06;&#x8DEF;&#x7531;name&#x91CD;&#x7F6E;&#x5230;&#x9996;&#x9875; &#x5E76;&#x4E14;&#x6E05;&#x7A7A;&#x8DEF;&#x7531;&#x6808;
+ * @param name &#x8DEF;&#x7531;&#x540D;&#x79F0;
+ * @param params &#x8DEF;&#x7531;&#x53C2;&#x6570;
+ */
+function home(name: string, params?: object) {
+  try {
+    let item = {
+      name: name,
+      path: name,
+      params: params,
+      key: name + generateRandom()
+    };
+
+    _navigator.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [item]
+      })
+    );
+  } catch (e) {
+    errorHandler.noRoute(name);
+  }
+  logInfo(&apos;home&apos;, name);
+}
+</code></pre><h4 id="4&#x8DEF;&#x7531;&#x66FF;&#x6362;">4.&#x8DEF;&#x7531;&#x66FF;&#x6362;</h4>
+<pre><code>/**
+ * &#x5C06;&#x6808;&#x9876;&#x7684;&#x8DEF;&#x7531;&#x66FF;&#x6362;&#x4E3A;${name}&#x8DEF;&#x7531;
+ * @param name &#x8DEF;&#x7531;&#x540D;&#x79F0;
+ * @param params &#x8DEF;&#x7531;&#x53C2;&#x6570;
+ */
+function replace(name: string, params?: any) {
+  let routers = _navigator.getRootState().routes || [];
+  let index = indexOfRouteByName(name);
+  if (name &amp;&amp; index &gt; -1) {
+    let item = {
+      index,
+      name: name,
+      path: name,
+      key: routers[index].key
+    };
+    if (index &gt; -1) routers = routers.slice(0, index);
+    routers.push(item);
+    _navigator.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: routers
+      })
+    );
+  } else {
+    routers.pop();
+    let item = {
+      name: name,
+      params: params,
+      path: name,
+      key: name + generateRandom()
+    };
+    routers.push(item);
+    _navigator.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: routers
+      })
+    );
+  }
+  logInfo(&apos;replace&apos;, name);
+}
+</code></pre><h4 id="&#x8DEF;&#x7531;&#x8FD4;&#x56DE;">&#x8DEF;&#x7531;&#x8FD4;&#x56DE;</h4>
+<p><strong>&#x4E3B;&#x8981;<code>name</code>&#x53C2;&#x6570;&#xFF0C;&#x4E0D;&#x4F20;&#x5C31;&#x9ED8;&#x8BA4;&#x5F80;&#x56DE;&#x8DF3;&#x8F6C;&#x4E00;&#x9875;&#xFF0C;&#x4F20;&#x4E86;&#x5C31;&#x8C03;&#x7528;<code>open</code>&#x65B9;&#x6CD5;&#x8DF3;&#x8F6C;&#x5230;&#x539F;&#x6765;&#x5C31;&#x6709;&#x7684;&#x90A3;&#x4E00;&#x9875;</strong></p>
+<pre><code>/**
+ * &#x8DEF;&#x7531;&#x56DE;&#x9000;
+ * @param name &#x8DEF;&#x7531;&#x540D;&#x79F0;
+ * @param params &#x56DE;&#x8C03;&#x53C2;&#x6570;
+ */
+function back(name?: string, params?: any) {
+  let index = -1;
+  let route = null;
+  if (name) {
+    index = indexOfRouteByName(name);
+    route = getRouteInfoByName(name);
+  } else {
+    route = _navigator.getRootState().routes[_navigator.getRootState().routes.length - 1];
+  }
+
+  if (index &gt; -1) {
+    open(route.name, params);
+  } else {
+    close();
+  }
+
+  params &amp;&amp;
+    _navigator.dispatch(
+      CommonActions.setParams({
+        params: params,
+        key: route &amp;&amp; route.key,
+        source: route &amp;&amp; route.key
+      })
+    );
+
+  logInfo(&apos;back&apos;, name);
+}
+</code></pre><h4 id="&#x5173;&#x95ED;&#x5F53;&#x524D;&#x8DEF;&#x7531;">&#x5173;&#x95ED;&#x5F53;&#x524D;&#x8DEF;&#x7531;</h4>
+<pre><code>/**
+ * &#x5173;&#x95ED;&#x5F53;&#x524D;&#x8DEF;&#x7531;
+ */
+function close() {
+  if (_navigator.canGoBack()) {
+    _navigator.dispatch(CommonActions.goBack());
+  }
+  logInfo(&apos;close&apos;);
+}
+</code></pre><h4 id="&#x83B7;&#x53D6;&#x8DEF;&#x7531;name&#x5728;&#x8DEF;&#x7531;&#x6808;&#x4E2D;&#x5F53;&#x524D;&#x7684;&#x4F4D;&#x7F6E;">&#x83B7;&#x53D6;&#x8DEF;&#x7531;name&#x5728;&#x8DEF;&#x7531;&#x6808;&#x4E2D;&#x5F53;&#x524D;&#x7684;&#x4F4D;&#x7F6E;</h4>
+<p><strong>&#x67E5;&#x627E;&#x7684;&#x987A;&#x5E8F;&#x662F;&#x4ECE;&#x540E;&#x5F80;&#x524D;&#x627E;</strong></p>
+<pre><code>/**
+ * &#x83B7;&#x53D6;&#x8DEF;&#x7531;name&#x5728;&#x8DEF;&#x7531;&#x6808;&#x4E2D;&#x5F53;&#x524D;&#x7684;&#x4F4D;&#x7F6E;  &#x4ECE;&#x540E;&#x5F80;&#x524D;&#x67E5;&#x627E;
+ * @param name &#x8DEF;&#x7531;&#x540D;&#x79F0;
+ * @returns &#x8FD4;&#x56DE;index
+ */
+function indexOfRouteByName(name: string) {
+  let routers = _navigator.getRootState().routes || [];
+  let index = -1;
+  let routeIndex = routers.length;
+  console.log(&apos;indexOfRouteByName&apos;, name, routeIndex, routers);
+  while (routeIndex &gt; 0) {
+    routeIndex--;
+    let route = routers[routeIndex];
+    if (route.name === name) {
+      index = routeIndex;
+      break;
+    }
+  }
+  return index;
+}
+</code></pre><h4 id="&#x6839;&#x636E;&#x9875;&#x9762;&#x540D;&#x5B57;&#x83B7;&#x53D6;&#x9875;&#x9762;&#x6240;&#x5728;&#x8DEF;&#x7531;&#x7684;&#x4FE1;&#x606F;">&#x6839;&#x636E;&#x9875;&#x9762;&#x540D;&#x5B57;&#x83B7;&#x53D6;&#x9875;&#x9762;&#x6240;&#x5728;&#x8DEF;&#x7531;&#x7684;&#x4FE1;&#x606F;</h4>
+<pre><code>/**
+ * &#x6839;&#x636E;&#x9875;&#x9762;&#x540D;&#x5B57;&#x83B7;&#x53D6;&#x9875;&#x9762;&#x6240;&#x5728;&#x8DEF;&#x7531;&#x7684;&#x4FE1;&#x606F;
+ * @param  {String} name &#x9875;&#x9762;&#x540D;&#x5B57;
+ * @return {{name,key,path,params}}      &#x9875;&#x9762;&#x6240;&#x5728;&#x8DEF;&#x7531;,&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5219;&#x8FD4;&#x56DE; null
+ */
+function getRouteInfoByName(name: string) {
+  let routers = _navigator.getRootState().routes || [];
+  let routeIndex = routers.length;
+  while (routeIndex) {
+    routeIndex--;
+    let route = routers[routeIndex];
+    if (route.name === name) {
+      return route;
+    }
+  }
+  return routers[routers.length];
+}
+</code></pre><h3 id="apptsx&#x914D;&#x7F6E;">App.tsx&#x914D;&#x7F6E;</h3>
+<h4 id="1&#x8DEF;&#x7531;navigationref&#x5BF9;&#x8C61;&#x83B7;&#x53D6;&#x4F20;&#x9012;">1.&#x8DEF;&#x7531;<code>navigationRef</code>&#x5BF9;&#x8C61;&#x83B7;&#x53D6;&#x4F20;&#x9012;</h4>
+<pre><code>function App() {
+  const navigationRef = useNavigationContainerRef();
+
+  return (
+    &lt;SafeAreaProvider&gt;
+      &lt;NavigationContainer ref={navigationRef}&gt;
+        &lt;NavigatorFn navigationRef={navigationRef} /&gt;
+      &lt;/NavigationContainer&gt;
+    &lt;/SafeAreaProvider&gt;
+  );
+}
+</code></pre><h4 id="2mrouter&#x521D;&#x59CB;&#x5316;">2.<code>MRouter</code>&#x521D;&#x59CB;&#x5316;</h4>
+<pre><code>useEffect(() =&gt; {
+    MRouter.setNavigator(navigationRef);
+    ...
+  }, []);
+</code></pre><h4 id="3&#x8DEF;&#x7531;&#x52A8;&#x6001;&#x751F;&#x6210;">3.&#x8DEF;&#x7531;&#x52A8;&#x6001;&#x751F;&#x6210;</h4>
+<pre><code>&lt;RootStack.Navigator
+        // initialRouteName=&quot;Root&quot;
+        // backBehavior=&quot;history&quot;
+        screenOptions={{
+          headerShown: false,
+          orientation: &apos;portrait&apos;
+        }}&gt;
+        {routers &amp;&amp;
+          Object.keys(routers).map((key, index) =&gt; {
+            return (
+              &lt;RootStack.Screen
+                key={index}
+                name={routers[key].name}
+                options={routers[key].options}
+                getComponent={() =&gt; routers[key].component}
+              /&gt;
+            );
+          })}
+ &lt;/RootStack.Navigator&gt;
+</code></pre><h4 id="4&#x6839;&#x636E;&#x73B0;&#x6709;&#x9879;&#x76EE;&#x6539;&#x9020;">4.&#x6839;&#x636E;&#x73B0;&#x6709;&#x9879;&#x76EE;&#x6539;&#x9020;</h4>
+<pre><code>useEffect(() =&gt; {
+    AsyncStorage.getItem(&apos;token&apos;)
+      .then(token =&gt; {
+        dispatch(setToken({ token }));
+        if (!token) {
+          MRouter.home(routers.Login.name);
+        }
+      })
+      .catch(err =&gt; {
+        MRouter.home(routers.Login.name);
+      });
+  }, [token]);
+
+  // if (isLoading) {
+  //   return &lt;&gt;&lt;/&gt;;
+  // }
+  useEffect(() =&gt; {
+    switch (status) {
+      case &apos;welcome&apos;: // &#x8FDB;&#x5165;&#x91CF;&#x8868;&#x9875;
+        MRouter.home(routers.Feature.name);
+        break;
+      case &apos;scale&apos;:
+        MRouter.home(routers.Scale.name);
+        break;
+      case &apos;report&apos;:
+        MRouter.home(routers.Report.name);
+        break;
+      case &apos;course&apos;:
+        MRouter.home(routers.Tabbar.name);
+        break;
+      default:
+        MRouter.home(routers.Loading.name);
+        break;
+    }
+  }, [status]);
+</code></pre><h3 id="mrouter&#x4F7F;&#x7528;&#x8865;&#x5145;&#x8BF4;&#x660E;"><code>MRouter</code>&#x4F7F;&#x7528;&#x8865;&#x5145;&#x8BF4;&#x660E;</h3>
+<p><em><code>MRouter</code>&#x4F7F;&#x7528;&#x5728;&#x4EFB;&#x4F55;&#x9875;&#x9762;&#x548C;&#x7EC4;&#x4EF6;&#x90FD;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#xFF0C;&#x4E0D;&#x7528;&#x5C42;&#x5C42;&#x4F20;&#x9012;</em></p>
+<p><em><code>MRouter</code>&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x672C;&#x6240;&#x6709;&#x573A;&#x666F;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;</em></p>
+<p><em><code>MRouter</code>&#x4E0E;&#x539F;&#x6765;<code>navigation</code>&#x7684;<code>navigate</code>&#x3001;<code>replace</code>&#x7B49;&#x65B9;&#x6CD5;&#x517C;&#x5BB9;&#xFF0C;&#x8DEF;&#x7531;&#x6808;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x914D;&#x5408;&#x4F7F;&#x7528;</em></p>
+<h4 id="mrouter&#x4F7F;&#x7528;&#x8BF4;&#x660E;"><code>MRouter</code>&#x4F7F;&#x7528;&#x8BF4;&#x660E;</h4>
+<pre><code>//MRouter&#x6253;&#x5F00;&#x65B0;&#x9875;&#x9762;
+//&#x901A;&#x8FC7;&#x5B57;&#x7B26;&#x4E32;Login
+MRouter.open(&#x2018;Login&#x2019;)   
+//&#x901A;&#x8FC7;&#x8DEF;&#x7531;&#x7CFB;&#x7EDF;&#x7684;name
+MRouter.open(routers.Login.name)   
+//&#x901A;&#x8FC7;&#x7B2C;&#x4E8C;&#x53C2;&#x6570;&#x4F20;&#x9012;params
+MRouter.open(routers.Login.name, { name: &apos;abc&apos;, key: 1 })  
+//&#x901A;&#x8FC7;&#x7B2C;&#x4E8C;&#x53C2;&#x6570;&#x4F20;&#x9012;params &#x901A;&#x8FC7;&#x7B2C;&#x4E09;&#x53C2;&#x6570;&#x786E;&#x8BA4;&#x662F;&#x5426;&#x5F00;&#x542F;&#x65B0;&#x9875;&#x9762;
+//&#x7B2C;&#x4E09;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;false,&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x6808;&#x5B58;&#x5728;&#x8BE5;&#x9875;&#x9762;&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x8DF3;&#x8F6C;&#x56DE;&#x5B58;&#x5728;&#x7684;&#x9875;&#x9762; &#x8BBE;&#x7F6E;&#x4E3A;true&#xFF0C;&#x6BCF;&#x6B21;&#x90FD;&#x5F00;&#x542F;&#x65B0;&#x9875;&#x9762;
+MRouter.open(routers.Login.name, { name: &apos;abc&apos;, key: 1 }, true)  
+
+
+//&#x53C2;&#x6570;&#x83B7;&#x53D6;
+//Component&#x83B7;&#x53D6; &#x76F4;&#x63A5;&#x4ECE;this.props&#x4E2D;&#x83B7;&#x53D6;
+const { params } = this.props;
+const { name, key } = params;
+//&#x4ECE;hooks&#x4E2D;&#x83B7;&#x53D6;
+const route = useRoute();
+const name = _.get(route, &apos;params.name&apos;, &apos;MegoDemo Params&apos;);
+
+
+//MRouter&#x91CD;&#x7F6E;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x6808; &#x5E76;&#x5C06;&#x9875;&#x9762;&#x4E3A;&#x67D0;&#x4E2A;&#x9875;&#x9762; &#x540C;open&#x53EF;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;
+MRouter.home(routers.Login.name)
+MRouter.home(routers.Login.name, { key: 2, name: &apos;bcd&apos; })
+
+
+//MRouter&#x66FF;&#x6362;&#x8DEF;&#x7531;&#x6808;&#x9876;&#x7684;&#x8DEF;&#x7531;
+MRouter.replace(routers.Login.name)
+MRouter.replace(routers.Login.name, { key: 2, name: &apos;bcd&apos; })
+
+
+//MRouter&#x5173;&#x95ED;&#x9875;&#x9762;
+//&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;&#x4E0A;&#x4E00;&#x9875;
+MRouter.back()
+//&#x8FD4;&#x56DE;&#x8DEF;&#x7531;&#x540D;&#x79F0;&#x4E3A;name&#x7684;&#x9875;&#x9762; &#x53EF;&#x4F20;&#x9012;&#x53C2;&#x6570;
+//&#x9ED8;&#x8BA4;&#x8C03;&#x7528;&#x7684;&#x662F;open&#x65B9;&#x6CD5; &#x5982;&#x679C;&#x9875;&#x9762;&#x5B58;&#x5728;&#x5C31;&#x8FD4;&#x56DE;&#x5230;&#x5B58;&#x5728;&#x7684;&#x9875;&#x9762; &#x53EF;&#x4F20;&#x9012;&#x53C2;&#x6570;
+MRouter.back(routers.Login.name)
+MRouter.back(routers.Login.name, { key: 2, name: &apos;bcd&apos; })
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Web安全问题之CSRF和XSS.html" class="navigation navigation-prev " aria-label="Previous page: Web安全问题之CSRF和XSS">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="前端干货：JS的执行顺序.html" class="navigation navigation-next " aria-label="Next page: 前端干货：JS的执行顺序">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"路由系统重构文档","level":"1.10","depth":1,"next":{"title":"前端干货：JS的执行顺序","level":"1.11","depth":1,"path":"前端干货：JS的执行顺序.md","ref":"前端干货：JS的执行顺序.md","articles":[]},"previous":{"title":"Web安全问题之CSRF和XSS","level":"1.9","depth":1,"path":"Web安全问题之CSRF和XSS.md","ref":"Web安全问题之CSRF和XSS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"路由系统重构文档.md","mtime":"2022-12-27T09:09:08.496Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-27T07:03:27.764Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

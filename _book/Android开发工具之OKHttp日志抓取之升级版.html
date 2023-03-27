@@ -1,0 +1,1665 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Android开发工具之OKHttp日志抓取之升级版 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Android原生Table组件开发整理.html" />
+    
+    
+    <link rel="prev" href="热更新HotCode在Cordova平台的实践.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Android组件化开发.html">
+            
+                <a href="Android组件化开发.html">
+            
+                    
+                    Android组件化开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Android开发工具之OKHttp日志抓取.html">
+            
+                <a href="Android开发工具之OKHttp日志抓取.html">
+            
+                    
+                    Android开发工具之OKHttp日志抓取（仿IOS DBDebugToolkit)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Android开发工具之环境切换.html">
+            
+                <a href="Android开发工具之环境切换.html">
+            
+                    
+                    Android开发工具之环境切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="热更新在Cordova平台的实践.html">
+            
+                <a href="热更新在Cordova平台的实践.html">
+            
+                    
+                    热更新(HotCode)在Cordova平台的实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ES6新特性学习.html">
+            
+                <a href="ES6新特性学习.html">
+            
+                    
+                    ES6新特性学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="H5常见router.html">
+            
+                <a href="H5常见router.html">
+            
+                    
+                    H5常见router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="webpack使用学习.html">
+            
+                <a href="webpack使用学习.html">
+            
+                    
+                    webpack使用学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Web安全问题之CSRF和XSS.html">
+            
+                <a href="Web安全问题之CSRF和XSS.html">
+            
+                    
+                    Web安全问题之CSRF和XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="路由系统重构文档.html">
+            
+                <a href="路由系统重构文档.html">
+            
+                    
+                    路由系统重构文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="前端干货：JS的执行顺序.html">
+            
+                <a href="前端干货：JS的执行顺序.html">
+            
+                    
+                    前端干货：JS的执行顺序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="前端学习之路.html">
+            
+                <a href="前端学习之路.html">
+            
+                    
+                    前端学习之路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="热更新HotCode在Cordova平台的实践.html">
+            
+                <a href="热更新HotCode在Cordova平台的实践.html">
+            
+                    
+                    热更新(HotCode)在Cordova平台的实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.14" data-path="Android开发工具之OKHttp日志抓取之升级版.html">
+            
+                <a href="Android开发工具之OKHttp日志抓取之升级版.html">
+            
+                    
+                    Android开发工具之OKHttp日志抓取之升级版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="Android原生Table组件开发整理.html">
+            
+                <a href="Android原生Table组件开发整理.html">
+            
+                    
+                    Android原生Table组件开发整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="Gitlab.html">
+            
+                <a href="Gitlab.html">
+            
+                    
+                    Gitlab CI/CD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="RN中场景一之RN和原生交互.html">
+            
+                <a href="RN中场景一之RN和原生交互.html">
+            
+                    
+                    RN中场景一之RN和原生交互
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="Taro小程序开发学习.html">
+            
+                <a href="Taro小程序开发学习.html">
+            
+                    
+                    Taro小程序开发学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="Taro小程序dva框架开发学习.html">
+            
+                <a href="Taro小程序dva框架开发学习.html">
+            
+                    
+                    Taro小程序dva框架开发学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Android开发工具之OKHttp日志抓取之升级版</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="android&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x4E4B;okhttp&#x65E5;&#x5FD7;&#x6293;&#x53D6;&#x4E4B;&#x5347;&#x7EA7;&#x7248;">Android&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x4E4B;OKHttp&#x65E5;&#x5FD7;&#x6293;&#x53D6;&#x4E4B;&#x5347;&#x7EA7;&#x7248;</h1>
+<h2 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h2>
+<p>&#x524D;&#x9762;&#x8BB2;&#x5230;&#x8FC7;&#x6709;&#x5173;&#x4E8E;OkHttp&#x6846;&#x67B6;&#x6A21;&#x5F0F;&#x4E0B;&#x7684;&#x65E5;&#x5FD7;&#x6253;&#x5370;&#x5DE5;&#x5177;&#xFF0C;Android&#x6CA1;&#x6709;&#x50CF;IOS DBDebugToolkit&#x8FD9;&#x6837;&#x7684;&#x5DE5;&#x5177;&#x6846;&#x67B6;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x81EA;&#x5DF1;&#x5199;&#x4E86;&#x4E00;&#x4E2A;http&#x65E5;&#x5FD7;&#x8C03;&#x8BD5;&#x7C7B;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x5728;&#x624B;&#x673A;&#x672C;&#x5730;&#x8BB0;&#x5F55;app&#x7684;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#x3002;</p>
+<p>&#x524D;&#x9762;&#x5199;&#x7684;&#x7B97;&#x662F;1.0&#x7248;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x6CA1;&#x60F3;&#x82B1;&#x592A;&#x591A;&#x65F6;&#x95F4;&#x53BB;&#x641E;&#x8FD9;&#x4E2A;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x9762;&#x67E5;&#x770B;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#xFF0C;&#x5F53;&#x6D4B;&#x8BD5;&#x6709;bug&#x63D0;&#x51FA;&#x6765;&#x7684;&#x65F6;&#x5019;&#x5148;&#x770B;&#x770B;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#x662F;&#x5426;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x65B9;&#x4FBF;&#x81EA;&#x5DF1;&#x548C;&#x6D4B;&#x8BD5;&#x6392;&#x67E5;&#x95EE;&#x9898;&#xFF0C;&#x6BCF;&#x6B21;&#x901A;&#x8FC7;AS&#x5DE5;&#x5177;&#x6765;&#x770B;&#x6253;&#x5370;&#x7684;log&#x6216;&#x8005;debug&#x8C03;&#x8BD5;&#x6BD4;&#x8F83;&#x6D6A;&#x8D39;&#x65F6;&#x95F4;&#x548C;&#x7CBE;&#x529B;&#xFF0C;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x65E0;&#x6CD5;&#x590D;&#x73B0;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="&#x95EE;&#x9898;">&#x95EE;&#x9898;</h2>
+<h3 id="10&#x7248;&#x672C;&#x95EE;&#x9898;">1.0&#x7248;&#x672C;&#x95EE;&#x9898;</h3>
+<p>1.0&#x662F;&#x53EA;&#x63D0;&#x4F9B;&#x4E86;&#x601D;&#x8DEF;&#xFF0C;&#x7136;&#x540E;&#x6839;&#x636E;&#x601D;&#x8DEF;&#x5927;&#x81F4;&#x5199;&#x4E86;&#x4E00;&#x7248;&#xFF0C;&#x5728;&#x6700;&#x540E;&#x4E5F;&#x8BF4;&#x660E;&#x4E86;&#x4E00;&#x4E9B;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;</p>
+<p>1.&#x7531;&#x4E8E;&#x662F;&#x901A;&#x8FC7;sp&#x6765;&#x4FDD;&#x5B58;&#x7684;&#x6570;&#x636E;&#xFF0C;sp&#x662F;&#x53EA;&#x80FD;&#x5B58;&#x50A8;&#x5C11;&#x91CF;&#x6570;&#x636E;&#x624D;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x5728;&#x65F6;&#x95F4;&#x573A;&#x666F;&#x4E2D;json&#x6570;&#x636E;&#x8FC7;&#x5927;&#x6216;&#x8005;&#x63D0;&#x4EA4;&#x56FE;&#x7247;&#x6216;&#x8005;&#x97F3;&#x89C6;&#x9891;&#x6570;&#x636E;&#x65F6;&#x4F1A;&#x8F6C;&#x6362;&#x627F;&#x6210;&#x6D41;&#x63D0;&#x4EA4;&#x5230;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x8FD9;&#x90E8;&#x5206;&#x8BF7;&#x6C42;&#x4E5F;&#x4F1A;&#x88AB;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#xFF0C;&#x73B0;&#x5728;&#x56FE;&#x7247;&#x4E00;&#x822C;&#x90FD;1M&#x4EE5;&#x4E0A;&#xFF08;&#x538B;&#x7F29;&#x4E4B;&#x540E;&#x4E5F;&#x5F97;&#x51E0;&#x767E;k)&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;sp&#x5B58;&#x50A8;&#x5D29;&#x6389;&#x3002;</p>
+<p>2.&#x5728;&#x8BB0;&#x5F55;okhttp&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x6211;&#x7528;&#x4E86;&#x201C;&#x968F;&#x7F18;&#x201D;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#xFF0C;&#x6709;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x5C31;&#x76F4;&#x63A5;&#x8D70;&#x4FDD;&#x5B58;sp&#xFF0C;&#x56E0;&#x4E3A;&#x662F;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#xFF0C;&#x4F1A;&#x6709;&#x540C;&#x65F6;&#x8BF7;&#x6C42;n&#x6B21;&#x7684;&#x60C5;&#x51B5;&#x5B58;&#x5728;&#xFF0C;&#x8FD9;&#x6837;sp&#x5E76;&#x6CA1;&#x6709;&#x4FDD;&#x5B58;&#x6210;&#x529F;&#x5C31;&#x5DF2;&#x7ECF;&#x5F00;&#x59CB;&#x4E86;&#x4E0B;&#x4E00;&#x6B21;&#x4FDD;&#x5B58;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4E2D;&#x95F4;&#x5C31;&#x4F1A;&#x6709;&#x6F0F;&#x6389;&#x7684;&#x60C5;&#x51B5;&#xFF08;&#x5B9E;&#x9645;&#x8FD0;&#x884C;&#x4E5F;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x80FD;&#x5077;&#x61D2;&#x54C8;&#xFF09;&#x3002;</p>
+<p>3.sp&#x4FDD;&#x5B58;&#x64CD;&#x4F5C;&#x5E76;&#x6CA1;&#x6709;&#x8D70;&#x5B50;&#x7EBF;&#x7A0B;&#xFF0C;&#x8FD9;&#x6837;&#x4FDD;&#x5B58;&#x574F;&#x5904;&#x5C31;&#x5728;&#x4E8E;&#x548C;&#x5B9E;&#x9645;&#x7684;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x4E00;&#x8D77;&#x5728;&#x53D1;&#x751F;&#xFF0C;app&#x8FD0;&#x884C;&#x4F1A;&#x53D8;&#x6162;&#xFF0C;&#x5F71;&#x54CD;&#x5B9E;&#x9645;&#x6548;&#x7387;&#xFF08;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x624D;&#x4F1A;&#x8D70;&#x8FD9;&#x4E2A;&#xFF0C;&#x5F53;&#x7136;&#x5BF9;&#x4E8E;&#x6211;&#x8FD9;&#x79CD;&#x7A0B;&#x5E8F;&#x5458;&#x611F;&#x89C9;&#x4E0D;&#x6DF1;&#x523B;&#xFF09;&#x3002;</p>
+<h3 id="&#x4F18;&#x5316;&#x65B9;&#x6848;">&#x4F18;&#x5316;&#x65B9;&#x6848;</h3>
+<p>1.&#x89E3;&#x51B3;sp&#x4F7F;&#x7528;&#x95EE;&#x9898;&#xFF0C;&#x8BE5;&#x7248;&#x672C;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x65E5;&#x5FD7;&#x65B9;&#x6CD5;</p>
+<p>2.&#x89E3;&#x51B3;&#x65E5;&#x5FD7;&#x6570;&#x636E;&#x592A;&#x5927;&#x8FD8;&#x6709;&#x6F0F;&#x6389;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x8BE5;&#x7248;&#x672C;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5355;&#x4F8B;&#xFF08;&#x5176;&#x5B9E;&#x6211;&#x5BF9;&#x5355;&#x4F8B;&#x7528;&#x7684;&#x4E0D;&#x597D;&#xFF09;&#x52A0;&#x961F;&#x5217;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x89E3;&#x51B3;&#x8BE5;&#x95EE;&#x9898;&#xFF0C;&#x8BA9;&#x6240;&#x6709;&#x7684;&#x8BF7;&#x6C42;&#x5148;&#x52A0;&#x5165;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#x5F53;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x5FAA;&#x73AF;&#x961F;&#x5217;&#x4EFB;&#x52A1;&#xFF0C;&#x6709;&#x4EFB;&#x52A1;&#x52A0;&#x5165;&#x961F;&#x5217;&#xFF0C;&#x5B8C;&#x6210;&#x4EFB;&#x52A1;&#x8E22;&#x51FA;&#x961F;&#x5217;&#xFF0C;&#x6CA1;&#x6709;&#x4EFB;&#x52A1;&#x5C31;&#x4E0D;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>3.&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x8FD9;&#x6B21;&#x90FD;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x5B50;&#x7EBF;&#x7A0B;&#x4E2D;&#x6765;&#x8FDB;&#x884C;&#xFF0C;&#x6BCF;&#x6B21;&#x53EA;&#x4F1A;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x5B50;&#x7EBF;&#x7A0B;&#x6765;&#x4FDD;&#x5B58;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#xFF0C;&#x5C06;&#x4EFB;&#x52A1;&#x4ECE;&#x961F;&#x5217;&#x4E2D;&#x53D6;&#x51FA;&#x6765;&#xFF0C;&#x653E;&#x5165;&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#xFF0C;&#x5F53;&#x4FDD;&#x5B58;&#x65E5;&#x5FD7;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x5C06;&#x8BE5;&#x4EFB;&#x52A1;&#x7ED3;&#x675F;&#xFF0C;&#x7EE7;&#x7EED;&#x4E0B;&#x4E00;&#x6B21;&#x961F;&#x5217;&#x4EFB;&#x52A1;&#xFF0C;&#x8FD9;&#x6837;&#x51CF;&#x5C11;&#x5185;&#x5B58;&#x635F;&#x8017;&#xFF0C;&#x4E5F;&#x89E3;&#x51B3;&#x4E86;&#x6F0F;&#x6389;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="&#x5177;&#x4F53;&#x5B9E;&#x73B0;">&#x5177;&#x4F53;&#x5B9E;&#x73B0;</h2>
+<p>&#x770B;&#x7406;&#x8BBA;&#x6BD4;&#x8F83;&#x67AF;&#x71E5;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x770B;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5427;&#xFF01;</p>
+<h3 id="&#x521B;&#x5EFA;httplogmanager">&#x521B;&#x5EFA;HttpLogManager</h3>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;HttpLogManager&#x6587;&#x4EF6;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x548C;&#x4E3B;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x89E3;&#x8026;&#xFF0C;&#x628A;httplog&#x65E5;&#x5FD7;&#x5904;&#x7406;&#x64CD;&#x4F5C;&#x90FD;&#x5C01;&#x88C5;&#x5230;&#x4E00;&#x4E2A;&#x7C7B;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x90A3;&#x4E2A;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x90A3;&#x4E2A;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;</p>
+<p><code>HttpLogManager.java</code></p>
+<pre><code>public class HttpLogManager {
+    private static HttpLogManager httpLogManager = null;
+
+    public static HttpLogManager instance() {
+        if (httpLogManager == null)
+            httpLogManager = new HttpLogManager();
+
+        return httpLogManager;
+    }
+
+    //&#x5F97;&#x5230;&#x901A;&#x8FC7;&#x641C;&#x7D22;&#x5173;&#x952E;&#x5B57;&#x7684;&#x65E5;&#x5FD7;&#x5217;&#x8868;
+    public static List&lt;HttpCacheBean&gt; getShowLogLists(String keyWords) {
+        List&lt;HttpCacheBean&gt; listBeans = getLogLists();
+        if (TextUtils.isEmpty(keyWords)) {
+            Collections.reverse(listBeans);
+            return listBeans;
+        } else {
+            List&lt;HttpCacheBean&gt; listBeansTemp = new ArrayList&lt;&gt;();
+            if (!ArrayUtils.isEmpty(listBeans)) {
+                for (HttpCacheBean bean : listBeans) {
+                    if (bean != null &amp;&amp; !TextUtils.isEmpty(bean.url)) {
+                        try {
+                            URL url = new URL(URLDecoder.decode(bean.url));
+                            if (url.getPath().contains(keyWords)) {
+                                listBeansTemp.add(bean);
+                            }
+                        } catch (MalformedURLException e) {
+                        }
+                    }
+                }
+            }
+            Collections.reverse(listBeansTemp);
+            return listBeansTemp;
+        }
+    }
+
+    //&#x5F97;&#x5230;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;list
+    public static List&lt;HttpCacheBean&gt; getLogLists() {
+        List&lt;HttpCacheBean&gt; listBeans = null;
+        String json = readLog();
+        if (GsonUtil.isGoodJson(json))
+            listBeans = GsonUtil.getEntityList(json, HttpCacheBean.class);
+        else
+            listBeans = new ArrayList&lt;&gt;();
+        return listBeans;
+    }
+
+    //&#x4FDD;&#x5B58;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;
+    public static void saveLogBean(HttpCacheBean bean) {
+        postLog(bean);
+        //&#x5224;&#x65AD;&#x8FD0;&#x884C;&#x73AF;&#x5883; &#x662F;&#x5426;&#x5728;&#x672C;&#x5730;&#x751F;&#x6210;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;
+        if (GlobalEnv.getEnvModel() != GlobalEnv.ENV_RELEASE) {
+            ActionLog.recordActionInfoLog(bean);
+        } else {
+            //postLog(bean);&#x5982;&#x679C;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x540E;&#x53F0; &#x53EF;&#x4EE5;&#x628A;&#x65E5;&#x5FD7;&#x4E0A;&#x4F20;&#x5230;&#x81EA;&#x5DF1;&#x7684;&#x540E;&#x53F0;
+        }
+    }
+
+    //&#x83B7;&#x53D6;&#x6C49;&#x5B57;&#x89E3;&#x7801;&#x8FC7;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;
+    public static String readLog() {
+        String json = null;
+        try {
+            json = FileUtils.readFileToString(ActionLog.getFilePath());
+        } catch (IOException e) {
+            json = &quot;&quot;;
+        }
+        return json;
+    }
+}
+</code></pre><h3 id="&#x7F16;&#x5199;&#x65E5;&#x5FD7;&#x4FDD;&#x5B58;&#x961F;&#x5217;">&#x7F16;&#x5199;&#x65E5;&#x5FD7;&#x4FDD;&#x5B58;&#x961F;&#x5217;</h3>
+<p>&#x5199;&#x5B8C;httplog&#x65E5;&#x5FD7;&#x7BA1;&#x7406;&#x7C7B;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x8981;&#x5904;&#x7406;&#x7684;&#x5C31;&#x662F;&#x540C;&#x65F6;&#x53D1;&#x8D77;&#x591A;&#x4E2A;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x5982;&#x4F55;&#x5C06;&#x8FD9;&#x4E9B;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#x5B58;&#x50A8;&#x8D77;&#x6765;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x5199;&#x4E86;&#x4E00;&#x4E2A;ActionLog&#x65E5;&#x5FD7;&#x7C7B;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4EFF;android&#x624B;&#x673A;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x8BE5;&#x7C7B;&#x4F7F;&#x7528;&#x961F;&#x5217;<code>ConcurrentLinkedQueue</code>&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x53D1;&#x8D77;&#x7684;&#x8BF7;&#x6C42;&#x653E;&#x5230;&#x4E00;&#x4E2A;app&#x7684;&#x5168;&#x5C40;&#x961F;&#x5217;&#x5F53;&#x4E2D;&#xFF0C;&#x8BE5;&#x7C7B;&#x4F7F;&#x7528;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x5168;&#x5C40;&#x53EA;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x7C7B;&#x5B58;&#x5728;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x7684;&#x597D;&#x5904;&#x5C31;&#x662F;&#x6BCF;&#x6B21;&#x4E00;&#x6709;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x4E0D;&#x7528;&#x5173;&#x5FC3;&#x4E0A;&#x6B21;&#x8BB0;&#x5F55;&#x8BB0;&#x5F55;&#x6210;&#x529F;&#x72B6;&#x6001;&#xFF0C;&#x76F4;&#x63A5;&#x52A0;&#x5165;&#x961F;&#x5217;&#x5F53;&#x4E2D;&#xFF0C;&#x6839;&#x636E;&#x5148;&#x8FDB;&#x5148;&#x51FA;&#x7684;&#x539F;&#x5219;&#xFF0C;&#x5FAA;&#x73AF;&#x961F;&#x5217;&#x4F9D;&#x6B21;&#x8FDB;&#x884C;log&#x65E5;&#x5FD7;&#x5B58;&#x50A8;&#xFF1B;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#x9009;&#x62E9;&#x5B58;&#x50A8;&#x5230;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x5F53;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6587;&#x4EF6;&#x5C31;&#x521B;&#x5EFA;&#xFF0C;&#x7136;&#x540E;&#x4FDD;&#x5B58;&#x5230;&#x6587;&#x4EF6;&#x5F53;&#x4E2D;&#xFF0C;&#x4E0D;&#x7BA1;&#x8BE5;&#x961F;&#x5217;&#x4FDD;&#x5B58;&#x6210;&#x529F;&#x5931;&#x8D25;&#x90FD;&#x5C06;&#x76EE;&#x524D;&#x961F;&#x5217;&#x7ED3;&#x675F;&#x3002;</p>
+<p><code>ActionLog.java</code></p>
+<pre><code>/**
+ * &#x884C;&#x4E3A;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;
+ *
+ * @author Administrator
+ */
+public class ActionLog {
+    private static String filePath = &quot;&quot;;
+    //&#x65E5;&#x5FD7;&#x961F;&#x5217;
+    public static ConcurrentLinkedQueue tempQueue = new ConcurrentLinkedQueue&lt;&gt;();
+
+    /**
+     * &#x8BB0;&#x5F55;&#x884C;&#x4E3A;&#x4FE1;&#x606F;
+     * &#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x521B;&#x5EFA;&#x65E5;&#x5FD7;&#x5DE5;&#x5177;&#x7C7B;
+     * @param bean
+     */
+    public static synchronized void recordActionInfoLog(HttpCacheBean bean) {
+        tempQueue.offer(bean);
+        if (!WriteThread.isWriteThreadLive) {
+            new WriteThread().start();
+        }
+    }
+
+    /**
+     * &#x6253;&#x5F00;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5E76;&#x5199;&#x5165;&#x65E5;&#x5FD7;
+     *
+     * @return
+     **/
+    public static void recordStringLog(String text) {// &#x65B0;&#x5EFA;&#x6216;&#x6253;&#x5F00;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;
+        filePath = getFilePath();
+        File file = new File(filePath);
+        if (!file.exists()) {
+            file.getParentFile().mkdirs();
+            try {
+                file.createNewFile();
+                Logger.d(&quot;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#xFF1A;&#x5728;&quot; + filePath + &quot;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x6210;&#x529F;&#xFF01;&quot;);
+            } catch (IOException e) {
+                Logger.d(&quot;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#xFF1A;&#x5728;&quot; + filePath + &quot;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5931;&#x8D25;&#xFF01;&quot;);
+            }
+        }
+
+        //&#x5199;&#x65E5;&#x5FD7;&#x5230;SD&#x5361;
+        try {
+            FileUtils.writeStringToFile(text, filePath);
+            Logger.d(&quot;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#xFF1A;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#x5199;&#x5165;&#x6210;&#x529F;&#xFF01;&quot;, text);
+        } catch (IOException e) {
+            Logger.d(&quot;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#xFF1A;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#x5199;&#x5165;&#x5931;&#x8D25;&#xFF01;&quot;, text);
+        }
+        tempQueue.poll();//&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x5B8C;&#x6210;&#x5C31;&#x5C06;&#x961F;&#x5217;&#x7ED3;&#x675F;
+    }
+
+    /**
+     * &#x5224;&#x65AD;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;
+     *
+     * @return
+     */
+    public static boolean isExitLogFile() {
+        File file = new File(filePath);
+        if (file.exists() &amp;&amp; file.length() &gt; 3) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * &#x5220;&#x9664;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;
+     */
+    public static void deleteLogFile() {
+        if (TextUtils.isEmpty(filePath)) return;
+        File file = new File(filePath);
+        if (file.exists()) {
+            file.delete();
+        }
+    }
+
+    //&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
+    //&#x5224;&#x65AD;&#x5F53;&#x524D;&#x73AF;&#x5883; &#x6D4B;&#x8BD5; &#x9884;&#x53D1; &#x7EBF;&#x4E0A; &#x521B;&#x5EFA;&#x4E0D;&#x540C;&#x76EE;&#x5F55;&#x6587;&#x4EF6;
+    public static String getFilePath() {
+        if (Environment.getExternalStorageState().equals(
+                Environment.MEDIA_MOUNTED)) {// &#x4F18;&#x5148;&#x4FDD;&#x5B58;&#x5230;SD&#x5361;&#x4E2D;
+            filePath = Environment.getExternalStorageDirectory()
+                    .getAbsolutePath() + File.separator + &quot;HttpLog&quot; + (GlobalEnv.isRelease() ? &quot;Release&quot; : GlobalEnv.isBeta() ? &quot;Beta&quot; : &quot;Debug&quot;);
+        } else {// &#x5982;&#x679C;SD&#x5361;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x4FDD;&#x5B58;&#x5230;&#x672C;&#x5E94;&#x7528;&#x7684;&#x76EE;&#x5F55;&#x4E0B;
+            filePath = BaseApp.getContext().getFilesDir().getAbsolutePath()
+                    + File.separator + &quot;HttpLog&quot; + (GlobalEnv.isRelease() ? &quot;Release&quot; : GlobalEnv.isBeta() ? &quot;Beta&quot; : &quot;Debug&quot;);
+        }
+        return filePath;
+    }
+}
+</code></pre><h3 id="&#x521B;&#x5EFA;httplog&#x8BB0;&#x5F55;&#x7EBF;&#x7A0B;">&#x521B;&#x5EFA;Httplog&#x8BB0;&#x5F55;&#x7EBF;&#x7A0B;</h3>
+<p>&#x5728;&#x524D;&#x9762;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x5B50;&#x7EBF;&#x7A0B;&#x6765;&#x4E13;&#x95E8;&#x5904;&#x7406;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#xFF0C;&#x907F;&#x514D;&#x963B;&#x585E;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x548C;&#x4E3B;&#x7EBF;&#x7A0B;&#x4EFB;&#x52A1;&#xFF0C;&#x8BE5;&#x7C7B;&#x76F4;&#x63A5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B50;&#x7EBF;&#x7A0B;&#xFF0C;&#x5728;&#x5B50;&#x7EBF;&#x7A0B;&#x904D;&#x5386;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x961F;&#x5217;&#x4EFB;&#x52A1;&#xFF0C;&#x5C31;&#x6267;&#x884C;&#x4FDD;&#x5B58;&#x65E5;&#x5FD7;&#xFF0C;&#x6709;&#x5F02;&#x5E38;&#x629B;&#x51FA;&#x4E2D;&#x65AD;&#x8BE5;&#x961F;&#x5217;&#xFF0C;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x4E0B;&#x4E00;&#x961F;&#x5217;&#x4EFB;&#x52A1;&#x3002;</p>
+<p>``</p>
+<pre><code>public class WriteThread extends Thread {
+
+    public static boolean isWriteThreadLive = false;//&#x5199;&#x65E5;&#x5FD7;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x5728;&#x8FD0;&#x884C;&#x4E86;
+
+    public WriteThread() {
+        isWriteThreadLive = true;
+    }
+
+    @Override
+    public void run() {
+        isWriteThreadLive = true;
+        while (!ActionLog.tempQueue.isEmpty()) {//&#x5BF9;&#x5217;&#x4E0D;&#x7A7A;&#x65F6;
+            try {
+                HttpCacheBean bean = (HttpCacheBean) ActionLog.tempQueue.peek();
+                if (bean == null) {
+                    ActionLog.tempQueue.poll();
+                    return;
+                }
+                List&lt;HttpCacheBean&gt; httpCacheBeans = HttpLogManager.getLogLists();
+                httpCacheBeans.add(bean);
+                if (!ArrayUtils.isEmpty(httpCacheBeans) &amp;&amp; httpCacheBeans.size() &gt; 100) {
+                    httpCacheBeans = httpCacheBeans.subList(httpCacheBeans.size() - 100, httpCacheBeans.size());
+                }
+                //&#x5199;&#x65E5;&#x5FD7;&#x5230;SD&#x5361;
+                ActionLog.recordStringLog(GsonUtil.ListToJsonArrary(httpCacheBeans).toString());
+            } catch (Exception e) {
+                ActionLog.tempQueue.poll();//&#x5F02;&#x5E38;&#x4E2D;&#x65AD;&#x961F;&#x5217;&#x4EFB;&#x52A1;
+                Logger.d(&quot;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#xFF1A;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#x5199;&#x5165;&#x5931;&#x8D25;&#xFF01;&quot;);
+                break;
+            }
+        }
+        isWriteThreadLive = false;//&#x961F;&#x5217;&#x4E2D;&#x7684;&#x65E5;&#x5FD7;&#x90FD;&#x5199;&#x5B8C;&#x4E86;&#xFF0C;&#x5173;&#x95ED;&#x7EBF;&#x7A0B;&#xFF08;&#x4E5F;&#x53EF;&#x4EE5;&#x5E38;&#x5F00; &#x8981;&#x6D4B;&#x8BD5;&#x4E0B;&#xFF09;
+    }
+}
+</code></pre><h2 id="&#x4E3A;okhttp&#x8BBE;&#x7F6E;&#x62E6;&#x622A;&#x5668;">&#x4E3A;OkHttp&#x8BBE;&#x7F6E;&#x62E6;&#x622A;&#x5668;</h2>
+<p>&#x4E0A;&#x8FF0;&#x5DE5;&#x5177;&#x5199;&#x597D;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x4E3A;okhttp&#x8BBE;&#x7F6E;&#x62E6;&#x622A;&#x5668;&#x6765;&#x62E6;&#x622A;&#x6BCF;&#x4E00;&#x6B21;&#x7684;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x5E76;&#x8C03;&#x7528;HttpLogManager&#x6765;&#x8BB0;&#x5F55;&#x5BF9;&#x5E94;&#x7684;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#x60C5;&#x51B5;&#x3002;</p>
+<pre><code>public class HttpLogInterceptor implements Interceptor {
+    private static final Charset UTF8 = Charset.forName(&quot;UTF-8&quot;);
+
+    public enum Level {
+        /**
+         * No logs.
+         */
+        NONE,
+        /**
+         * Logs request and response lines.
+         *
+         * &lt;p&gt;Example:
+         * &lt;pre&gt;{@code
+         * --&gt; POST /greeting http/1.1 (3-byte body)
+         *
+         * &lt;-- 200 OK (22ms, 6-byte body)
+         * }&lt;/pre&gt;
+         */
+        BASIC,
+        /**
+         * Logs request and response lines and their respective headers.
+         *
+         * &lt;p&gt;Example:
+         * &lt;pre&gt;{@code
+         * --&gt; POST /greeting http/1.1
+         * Host: example.com
+         * Content-Type: plain/text
+         * Content-Length: 3
+         * --&gt; END POST
+         *
+         * &lt;-- 200 OK (22ms)
+         * Content-Type: plain/text
+         * Content-Length: 6
+         * &lt;-- END HTTP
+         * }&lt;/pre&gt;
+         */
+        HEADERS,
+        /**
+         * Logs request and response lines and their respective headers and bodies (if present).
+         *
+         * &lt;p&gt;Example:
+         * &lt;pre&gt;{@code
+         * --&gt; POST /greeting http/1.1
+         * Host: example.com
+         * Content-Type: plain/text
+         * Content-Length: 3
+         *
+         * Hi?
+         * --&gt; END POST
+         *
+         * &lt;-- 200 OK (22ms)
+         * Content-Type: plain/text
+         * Content-Length: 6
+         *
+         * Hello!
+         * &lt;-- END HTTP
+         * }&lt;/pre&gt;
+         */
+        BODY
+    }
+
+    public interface Logger {
+        void log(String message);
+
+        void log(String tag, String message);
+
+        void json(String tag, String message);
+
+        /**
+         * A {@link HttpLogInterceptor.Logger} defaults output appropriate for the current platform.
+         */
+        HttpLogInterceptor.Logger DEFAULT = new HttpLogInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                com.gjhealth.library.utils.log.Logger.t(&quot;http&quot;).d(message);
+            }
+
+            @Override
+            public void log(String tag, String message) {
+                com.gjhealth.library.utils.log.Logger.t(&quot;http&quot; + tag).d(message);
+            }
+
+            @Override
+            public void json(String tag, String message) {
+                com.gjhealth.library.utils.log.Logger.t(tag).json(message);
+            }
+        };
+    }
+
+    public HttpLogInterceptor() {
+        this(HttpLogInterceptor.Logger.DEFAULT);
+    }
+
+    public HttpLogInterceptor(HttpLogInterceptor.Logger logger) {
+        this.logger = logger;
+    }
+
+    private final HttpLogInterceptor.Logger logger;
+
+    private volatile HttpLogInterceptor.Level level = HttpLogInterceptor.Level.NONE;
+
+    /**
+     * Change the level at which this interceptor logs.
+     */
+    public HttpLogInterceptor setLevel(HttpLogInterceptor.Level level) {
+        if (level == null) throw new NullPointerException(&quot;level == null. Use Level.NONE instead.&quot;);
+        this.level = level;
+        return this;
+    }
+
+    public HttpLogInterceptor.Level getLevel() {
+        return level;
+    }
+
+    @Override
+    public Response intercept(Chain chain) throws IOException {
+        HttpLogInterceptor.Level level = this.level;
+        Request request = chain.request();
+        //&#x5982;&#x679C;&#x5F53;&#x524D;&#x8BBE;&#x7F6E;&#x65E5;&#x5FD7;&#x7C7B;&#x578B;&#x4E3A;NONE &#x5C31;&#x6309;&#x539F;&#x6765;&#x65B9;&#x5F0F;&#x8FD4;&#x56DE;
+        if (level == HttpLogInterceptor.Level.NONE) {
+            return chain.proceed(request);
+        }
+        //&#x5982;&#x679C;&#x5F53;&#x524D;&#x8BBE;&#x7F6E;&#x65E5;&#x5FD7;&#x7C7B;&#x578B;&#x4E3A;NONE&#x4EE5;&#x5916; &#x5C31;&#x6253;&#x5370;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#x5E76;&#x8BB0;&#x5F55;
+        long startNs = System.nanoTime();
+        HttpCacheBean bean = new HttpCacheBean();
+        bean.requestTime = DateFormatUtils.getCurrentDateTime();
+        boolean logBody = level == HttpLogInterceptor.Level.BODY;
+        boolean logHeaders = logBody || level == HttpLogInterceptor.Level.HEADERS;
+        RequestBody requestBody = request.body();
+        boolean hasRequestBody = requestBody != null;
+        Connection connection = chain.connection();
+        Protocol protocol = connection != null ? connection.protocol() : Protocol.HTTP_1_1;
+        String requestStartMessage = &quot;--&gt; &quot; + request.method() + &apos; &apos; + request.url() + &apos; &apos; + protocol;
+        bean.method = request.method();
+        bean.url = request.url().toString();
+        bean.protocol = protocol + &quot;&quot;;
+        if (!logHeaders &amp;&amp; hasRequestBody) {
+            requestStartMessage += &quot; (&quot; + requestBody.contentLength() + &quot;-byte body)&quot;;
+            bean.reqContentLength = requestStartMessage;
+        }
+        logger.log(requestStartMessage);
+        bean.requestMsg = requestStartMessage;
+        if (logHeaders) {
+            Headers headers = request.headers();
+            if (headers.size() &gt; 0) {
+                JsonObject jsonHeaders = new JsonObject();
+                for (int i = 0, count = headers.size(); i &lt; count; i++) {
+                    String value = headers.value(i);
+                    if (value != null) {
+                        value = URLDecoder.decode(value, &quot;UTF-8&quot;);
+                    }
+                    jsonHeaders.addProperty(headers.name(i), value);
+                }
+                String reqHeaders = jsonHeaders.toString();
+                logger.json(&quot;httphead-req&quot;, reqHeaders);
+                bean.reqHeaders = reqHeaders;
+            }
+
+            if (!logBody || !hasRequestBody) {
+                logger.log(&quot;--&gt; END &quot; + request.method());
+            } else if (bodyEncoded(request.headers())) {
+                logger.log(&quot;--&gt; END &quot; + request.method() + &quot; (encoded body omitted)&quot;);
+            } else {
+                Buffer buffer = new Buffer();
+                requestBody.writeTo(buffer);
+                Charset charset = UTF8;
+                MediaType contentType = requestBody.contentType();
+                if (contentType != null) {
+                    charset = contentType.charset(UTF8);
+                }
+                if (isPlaintext(buffer)) {
+                    String httpRequestBody = buffer.clone().readString(charset);
+                    logger.json(&quot;httprequest&quot;, httpRequestBody);
+                    bean.requestBody = httpRequestBody;
+                } else {
+                    logger.log(&quot;--&gt; END &quot; + request.method() + &quot; (binary &quot;
+                            + requestBody.contentLength() + &quot;-byte body omitted)&quot;);
+                }
+                bean.reqContentType = contentType.toString();
+            }
+        }
+        Response response;
+        try {
+            response = chain.proceed(request);
+        } catch (Exception e) {
+            logger.log(&quot;&lt;-- HTTP FAILED: &quot; + e);
+            bean.error = e.toString();
+            //&#x5982;&#x679C;&#x51FA;&#x73B0;&#x5F02;&#x5E38; &#x76F4;&#x63A5;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;
+            HttpLogManager.instance().saveLogBean(bean);
+            throw e;
+        }
+        long tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
+        ResponseBody responseBody = response.body();
+        long contentLength = responseBody.contentLength();
+        String bodySize = contentLength != -1 ? contentLength + &quot;-byte&quot; : &quot;unknown-length&quot;;
+        String response_msg = &quot;&lt;-- &quot; + response.code() + &apos; &apos; + response.message() + &apos; &apos;
+                + response.request().url() + &quot; (&quot; + tookMs + &quot;ms&quot; + (!logHeaders ? &quot;, &quot;
+                + bodySize + &quot; body&quot; : &quot;&quot;) + &apos;)&apos;;
+        logger.log(response_msg);
+        bean.responseMsg = response_msg;
+        bean.resContentLength = bodySize;
+        bean.code = response.code();
+        bean.msg = response.message();
+        bean.time = tookMs;
+        if (logHeaders) {
+            Headers headers = response.headers();
+            JsonObject jsonHeaders = new JsonObject();
+            for (int i = 0, count = headers.size(); i &lt; count; i++) {
+                String value = headers.value(i);
+                if (value != null) {
+                    value = URLDecoder.decode(value, &quot;UTF-8&quot;);
+                }
+                jsonHeaders.addProperty(headers.name(i), value);
+            }
+            String head_rsp = jsonHeaders.toString();
+            logger.json(&quot;httphead-rsp&quot;, head_rsp);
+            bean.resHeaders = head_rsp;
+            if (!logBody || !HttpHeaders.hasBody(response)) {
+
+            } else if (bodyEncoded(response.headers())) {
+                logger.log(&quot;&lt;-- END HTTP (encoded body omitted)&quot;);
+            } else if (isPlaintext(responseBody.contentType())) {
+                BufferedSource source = responseBody.source();
+                source.request(Long.MAX_VALUE); // Buffer the entire body.
+                Buffer buffer = source.buffer();
+                Charset charset = UTF8;
+                MediaType contentType = responseBody.contentType();
+                if (contentType != null) {
+                    try {
+                        charset = contentType.charset(UTF8);
+                    } catch (UnsupportedCharsetException e) {
+                        logger.log(&quot;&quot;);
+                        logger.log(&quot;Couldn&apos;t decode the response body; charset is likely malformed.&quot;);
+                        logger.log(&quot;&lt;-- END HTTP&quot;);
+                        return response;
+                    }
+                }
+                bean.resContentType = contentType.toString();
+                if (contentLength != 0) {
+                    String response_body = buffer.clone().readString(charset);
+                    logger.log(&quot;body&quot;, response_body);
+                    bean.responseBody = response_body;
+                }
+                logger.log(&quot;&lt;-- END HTTP (&quot; + buffer.size() + &quot;-byte body)&quot;);
+            }
+        }
+        //&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;
+        HttpLogManager.instance().saveLogBean(bean);
+        return response;
+    }
+
+    private static boolean isPlaintext(MediaType mediaType) {
+        if (mediaType == null) return false;
+        if (mediaType.type() != null &amp;&amp; mediaType.type().equals(&quot;text&quot;)) {
+            return true;
+        }
+        String subtype = mediaType.subtype();
+        if (subtype != null) {
+            subtype = subtype.toLowerCase();
+            if (subtype.contains(&quot;x-www-form-urlencoded&quot;) || subtype.contains(&quot;json&quot;) || subtype.contains(&quot;xml&quot;) || subtype.contains(&quot;html&quot;)) //
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * Returns true if the body in question probably contains human readable text. Uses a small sample
+     * of code points to detect unicode control characters commonly used in binary file signatures.
+     */
+    static boolean isPlaintext(Buffer buffer) {
+        try {
+            Buffer prefix = new Buffer();
+            long byteCount = buffer.size() &lt; 64 ? buffer.size() : 64;
+            buffer.copyTo(prefix, 0, byteCount);
+            for (int i = 0; i &lt; 16; i++) {
+                if (prefix.exhausted()) {
+                    break;
+                }
+                int codePoint = prefix.readUtf8CodePoint();
+                if (Character.isISOControl(codePoint) &amp;&amp; !Character.isWhitespace(codePoint)) {
+                    return false;
+                }
+            }
+            return true;
+        } catch (EOFException e) {
+            return false; // Truncated UTF-8 sequence.
+        }
+    }
+
+    private boolean bodyEncoded(Headers headers) {
+        String contentEncoding = headers.get(&quot;Content-Encoding&quot;);
+        return contentEncoding != null &amp;&amp; !contentEncoding.equalsIgnoreCase(&quot;identity&quot;);
+    }
+}
+</code></pre><h2 id="okhttp&#x6DFB;&#x52A0;&#x62E6;&#x622A;&#x5668;">OkHttp&#x6DFB;&#x52A0;&#x62E6;&#x622A;&#x5668;</h2>
+<p>&#x4E3A;OKHttp&#x8BF7;&#x6C42;&#x6DFB;&#x52A0;&#x62E6;&#x622A;&#x5668;&#x4EE3;&#x7801;</p>
+<pre><code> OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        //log&#x76F8;&#x5173;
+        //NONE&#x4EE3;&#x8868;&#x7684;&#x662F;&#x5F53;&#x524D;&#x73AF;&#x5883;&#x5982;&#x679C;release&#x5305;&#x5C31;&#x4E0D;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;
+        //&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x7684;&#x8BDD;&#x5C31;&#x8BB0;&#x5F55; &#x4E5F;&#x53EF;&#x4EE5;&#x66F4;&#x6539; &#x5982;&#x679C;&#x9700;&#x8981;&#x4F20;&#x5230;&#x540E;&#x7AEF; &#x5C31;&#x5F00;&#x8D77;&#x6765;BODY
+        HttpLogInterceptor loggingInterceptor = new HttpLogInterceptor().setLevel(
+                !GlobalEnv.isRelease() ? HttpLogInterceptor.Level.NONE : HttpLogInterceptor.Level.BODY);
+        builder.addInterceptor(new AddCookiesInterceptor());                                                         
+        //&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x8BBE;&#x7F6E;&#xFF0C;&#x9ED8;&#x8BA4;60&#x79D2;
+        builder.readTimeout(GHttp.DEFAULT_MILLISECONDS, TimeUnit.MILLISECONDS);      //&#x5168;&#x5C40;&#x7684;&#x8BFB;&#x53D6;&#x8D85;&#x65F6;&#x65F6;&#x95F4;
+        builder.writeTimeout(GHttp.DEFAULT_MILLISECONDS, TimeUnit.MILLISECONDS);     //&#x5168;&#x5C40;&#x7684;&#x5199;&#x5165;&#x8D85;&#x65F6;&#x65F6;&#x95F4;
+        builder.connectTimeout(GHttp.DEFAULT_MILLISECONDS, TimeUnit.MILLISECONDS);   //&#x5168;&#x5C40;&#x7684;&#x8FDE;&#x63A5;&#x8D85;&#x65F6;&#x65F6;&#x95F4;
+</code></pre><h2 id="&#x7528;&#x5230;&#x7684;&#x5DE5;&#x5177;&#x7C7B;">&#x7528;&#x5230;&#x7684;&#x5DE5;&#x5177;&#x7C7B;</h2>
+<p><code>GsonUtil.java</code></p>
+<pre><code>/**
+ * Created by lc on 2017/5/17.
+ * Gson&#x89E3;&#x6790;&#x5DE5;&#x5177;&#x7C7B;
+ */
+
+public class GsonUtil {
+    // &#x662F;&#x5426;json&#x6570;&#x636E;
+    public static boolean isGoodJson(String json) {
+        if (TextUtils.isEmpty(json)) {
+            return false;
+        }
+        try {
+            new JsonParser().parse(json);
+            return true;
+        } catch (JsonParseException e) {
+            return false;
+        }
+    }
+
+    public static boolean isBadJson(String json) {
+        return !isGoodJson(json);
+    }
+
+    // &#x662F;&#x5426;&#x5B58;&#x5728;&#x6307;&#x5B9A;key
+    public static boolean fieldIsNull(JsonObject command, String methodName) {
+
+        return GsonUtil.getKeyValue(command, methodName) == null;
+    }
+
+    /**
+     * &#x89E3;&#x6790;&#x5355;&#x4E2A;
+     *
+     * @param jsonStr
+     * @param entityClass
+     * @param &lt;T&gt;
+     * @return
+     */
+    public static &lt;T&gt; T getEntity(String jsonStr, Class&lt;T&gt; entityClass) {
+        Gson gson = new Gson();
+        T entity = null;
+        entity = gson.fromJson(jsonStr, entityClass);
+        return entity;
+    }
+
+    /**
+     * &#x89E3;&#x6790;list&#x96C6;&#x5408;
+     *
+     * @param jsonStr
+     * @param entityClass
+     * @param &lt;T&gt;
+     * @return
+     */
+    public static &lt;T&gt; List&lt;T&gt; getEntityList(String jsonStr, Class&lt;T&gt; entityClass) {
+        Gson gson = new Gson();
+        List&lt;T&gt; list = new ArrayList&lt;T&gt;();
+        JsonArray jsonArray = new JsonParser().parse(jsonStr).getAsJsonArray();
+        for (JsonElement element : jsonArray) {
+            list.add(gson.fromJson(element, entityClass));
+        }
+        return list;
+    }
+
+    // Gson&#x89E3;&#x6790;&#x5668;
+    public static Gson gson = new GsonBuilder()
+            .enableComplexMapKeySerialization()
+            .setExclusionStrategies(new FooAnnotationExclusionStrategy())//&#x8FC7;&#x6EE4;&#x4E0D;&#x4E0A;&#x4F20;&#x7684;&#x5B57;&#x6BB5;&#x503C;
+            .serializeNulls()// &#x652F;&#x6301;Map&#x7684;key&#x4E3A;&#x590D;&#x6742;&#x5BF9;&#x8C61;&#x7684;&#x5F62;&#x5F0F;
+            .setDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;) // &#x65F6;&#x95F4;&#x8F6C;&#x5316;&#x4E3A;&#x7279;&#x5B9A;&#x683C;&#x5F0F;
+            .setPrettyPrinting().create();
+
+    /****************** json&#x62C6;&#x5206; ***************************************/
+
+    /**
+     * &#x4ECE;&#x7236;JsonObject&#x5BF9;&#x8C61;&#x4E2D;&#x83B7;&#x53D6;&#x5B50;JsonObject&#x5BF9;&#x8C61;
+     *
+     * @param obj
+     * @param key
+     * @return
+     */
+    public static JsonObject getJsonObject(JsonObject obj, String key) {
+        JsonElement element = obj.get(key);
+        return element.getAsJsonObject();
+    }
+
+    /**
+     * &#x4ECE;&#x7236;JsonObject&#x5BF9;&#x8C61;&#x4E2D;&#x83B7;&#x53D6;&#x5B50;JsonArray&#x5BF9;&#x8C61;
+     *
+     * @param obj
+     * @param key
+     * @return
+     */
+    public static JsonArray getJsonArray(JsonObject obj, String key) {
+        JsonElement element = obj.get(key);
+        return element.getAsJsonArray();
+    }
+
+    /**
+     * &#x5F97;&#x5230;&#x6839;JsonObject
+     *
+     * @param jsonStr
+     * @return
+     */
+    public static JsonObject getRootJsonObject(String jsonStr) {
+        JsonObject obj = new JsonParser().parse(jsonStr).getAsJsonObject();
+        return obj;
+    }
+
+    /**
+     * &#x5F97;&#x5230;&#x6839;JsonArray
+     *
+     * @param jsonStr
+     * @return
+     */
+    public static JsonArray getRootJsonArray(String jsonStr) {
+        JsonArray obj = new JsonParser().parse(jsonStr).getAsJsonArray();
+        return obj;
+    }
+
+    /**
+     * &#x4ECE;JsonObject&#x5BF9;&#x8C61;&#x4E2D;&#x83B7;&#x53D6;&#x952E;&#x503C;
+     *
+     * @param obj
+     * @param key
+     * @return
+     */
+    public static JsonElement getKeyValue(JsonObject obj, String key) {
+        JsonElement element = obj.get(key);
+        return element;
+    }
+
+    /**
+     * JsonArrary----&gt;&gt;&gt;List&lt;JsonObject&gt;
+     *
+     * @param jsonArray
+     * @return
+     */
+    public static List&lt;JsonObject&gt; JsonArrayToList(JsonArray jsonArray) {
+        List&lt;JsonObject&gt; obj = new ArrayList&lt;JsonObject&gt;();
+        for (int i = 0; i &lt; jsonArray.size(); i++) {
+            obj.add(jsonArray.get(i).getAsJsonObject());
+        }
+        return obj;
+    }
+
+    public Gson getGson() {
+        return gson;
+    }
+
+    /****************** bean-jsonString&#x914D;&#x5408;builder&#x4F7F;&#x7528; ***************************************/
+
+    // TODO &#x7B80;&#x5355;bean,&#x5E26;&#x6CDB;&#x578B;&#x7684;List------&gt;&gt;&gt;&gt;&gt;String
+    public static &lt;T&gt; String toJsonString(List&lt;T&gt; json) {
+        return gson.toJson(json);
+    }
+
+    // TODO &#x7B80;&#x5355;bean,&#x5E26;&#x6CDB;&#x578B;&#x7684;List------&gt;&gt;&gt;&gt;&gt;String
+    public static &lt;T&gt; String toJsonString(T json) {
+        return gson.toJson(json);
+    }
+
+    /****************** bean-jsonobject&#x914D;&#x5408;builder&#x4F7F;&#x7528; ***************************************/
+    // TODO bean--------&gt;&gt;&gt;&gt;jsonObject
+    public static &lt;T&gt; JsonObject beanToJsonObject(T json) {
+        return getRootJsonObject(toJsonString(json));
+    }
+
+    // TODO List&lt;bean&gt;------&gt;&gt;&gt;&gt;&gt;jsonArrary
+    public static &lt;T&gt; JsonArray ListToJsonArrary(List&lt;T&gt; json) {
+        return getRootJsonArray(toJsonString(json));
+    }
+
+    /********************* json--bean&#x914D;&#x5408;Gson&#x89E3;&#x6790; *************************************/
+    // TODO &#x8F6C;&#x6362;JSONObject&#x5BF9;&#x8C61;&#x4E2D;&#x7684;JSONObject&#x4E3A;Bean
+    public static &lt;T&gt; T toBean(JsonObject obj, String key, Class&lt;T&gt; type) {
+        return gson.fromJson(obj.get(key).toString(), type);
+    }
+
+    // TODO &#x8F6C;&#x6362;JSONObject&#x5BF9;&#x8C61;&#x4E2D;&#x7684;JsonArray&#x4E3A;List&lt;Bean&gt;
+    public static &lt;T&gt; List&lt;T&gt; toList(JsonObject obj, String key, Class&lt;T&gt; type) {
+        return JsonArrayToListBean(obj.get(key).getAsJsonArray(), type);
+    }
+
+    // TODO &#x76F4;&#x63A5;&#x628A;JsonArrary&#x5BF9;&#x8C61;&#x8F6C;&#x5316;&#x4E3A;List&lt;Bean&gt;
+    public static &lt;T&gt; List&lt;T&gt; JsonArrayToListBean(JsonArray jsonArray,
+                                                  Class&lt;T&gt; type) {
+        List&lt;T&gt; obj = new ArrayList&lt;T&gt;();
+        for (int i = 0; i &lt; jsonArray.size(); i++) {
+            obj.add(gson.fromJson(jsonArray.get(i).toString(), type));
+        }
+        return obj;
+    }
+
+    // TODO &#x76F4;&#x63A5;&#x628A;json&#x5BF9;&#x8C61;&#x8F6C;&#x5316;&#x4E3A;bean
+    public static &lt;T&gt; T JsonObjectToBean(JsonObject jsonObject, Class&lt;T&gt; type) {
+        return gson.fromJson(jsonObject.toString(), type);
+    }
+
+    // &#x68C0;&#x67E5;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5B58;&#x5728;
+    public static boolean checkJsonObejct(JsonObject root, String key) {
+        if ((!getKeyValue(root, key).isJsonNull())
+                &amp;&amp; getKeyValue(root, key).isJsonObject()) {
+            return true;
+        }
+        return false;
+
+    }
+
+    // &#x68C0;&#x67E5;&#x6570;&#x7EC4;&#x662F;&#x5426;&#x5B58;&#x5728;
+    public static boolean checkJsonArray(JsonObject root, String key) {
+        if ((!getKeyValue(root, key).isJsonNull())
+                &amp;&amp; getKeyValue(root, key).isJsonArray()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static JsonArray getRootJsonArrayByInputStream(Reader jsonStr) {
+        JsonArray obj = new JsonParser().parse(jsonStr).getAsJsonArray();
+        return obj;
+    }
+
+}
+</code></pre><p><code>FileUtils.java</code></p>
+<pre><code>/**
+ * external storage
+ * &#x5916;&#x90E8;&#x5B58;&#x50A8;    Environment.getExternalStorageDirectory()    SD&#x6839;&#x76EE;&#x5F55;:/mnt/sdcard/ (6.0&#x540E;&#x5199;&#x5165;&#x9700;&#x8981;&#x7528;&#x6237;&#x6388;&#x6743;)
+ * context.getExternalFilesDir(dir)    &#x8DEF;&#x5F84;&#x4E3A;:/mnt/sdcard/Android/data/&lt; package name &gt;/files/&#x2026;
+ * context.getExternalCacheDir()    &#x8DEF;&#x5F84;&#x4E3A;:/mnt/sdcard/Android/data/&lt; package name &gt;/cach/&#x2026;
+ * internal storage
+ * &#x5185;&#x90E8;&#x5B58;&#x50A8;    context.getFilesDir()    &#x8DEF;&#x5F84;&#x662F;:/data/data/&lt; package name &gt;/files/&#x2026;
+ * context.getCacheDir()    &#x8DEF;&#x5F84;&#x662F;:/data/data/&lt; package name &gt;/cach/&#x2026;
+ */
+public class FileUtils {
+    private static final int WRITE_BUFFER_SIZE = 1024 * 8;
+
+    /**
+     * @param fileName
+     * @param content
+     * @throws Exception
+     * @desc &#x4FDD;&#x5B58;&#x5185;&#x5BB9;&#x5230;&#x6587;&#x4EF6;&#x4E2D;
+     */
+    public static void save(Context context, String fileName, String content, int module) {
+        try {
+            FileOutputStream os = context.openFileOutput(fileName, module);
+            os.write(content.getBytes());
+            os.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * @param fileName
+     * @return
+     * @desc &#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5185;&#x5BB9;
+     */
+    public static String read(Context context, String fileName) {
+
+        try {
+            FileInputStream fis = context.openFileInput(fileName);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] b = new byte[1024];
+            int len = 0;
+            while ((len = fis.read(b)) != -1) {
+                bos.write(b, 0, len);
+            }
+            byte[] data = bos.toByteArray();
+            fis.close();
+            bos.close();
+            return new String(data);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    /**
+     * @param context
+     * @param fileName
+     * @param content
+     * @throws IOException
+     * @desc &#x5C06;&#x6587;&#x672C;&#x5185;&#x5BB9;&#x4FDD;&#x5B58;&#x5230;sd&#x5361;&#x7684;&#x6587;&#x4EF6;&#x4E2D;
+     */
+    public static void saveToSDCard(Context context, String fileName, String content) throws IOException {
+
+        File file = new File(Environment.getExternalStorageDirectory(), fileName);
+        FileOutputStream fos = new FileOutputStream(file);
+        fos.write(content.getBytes());
+        fos.close();
+    }
+
+    /**
+     * @param fileName
+     * @return
+     * @throws IOException
+     * @desc &#x8BFB;&#x53D6;sd&#x5361;&#x6587;&#x4EF6;&#x5185;&#x5BB9;
+     */
+    public static String readSDCard(String fileName) throws IOException {
+
+        File file = new File(Environment.getExternalStorageDirectory(), fileName);
+        FileInputStream fis = new FileInputStream(file);
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int len = 0;
+        while ((len = fis.read(buffer)) != -1) {
+            bos.write(buffer, 0, len);
+        }
+        byte[] data = bos.toByteArray();
+        fis.close();
+        bos.close();
+
+        return new String(data);
+    }
+
+    /*&#x83B7;&#x53D6;&#x7F13;&#x5B58;&#x8DEF;&#x5F84;&#xFF0C;&#x5B58;&#x50A8;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x88AB;&#x4E00;&#x952E;&#x6E05;&#x7406;&#x548C;&#x5378;&#x8F7D;&#x6E05;&#x7406;*/
+    /*
+     * &#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5F53;SD&#x5361;&#x5B58;&#x5728;&#x6216;&#x8005;SD&#x5361;&#x4E0D;&#x53EF;&#x88AB;&#x79FB;&#x9664;&#x7684;&#x65F6;&#x5019;&#xFF0C;
+     * &#x5C31;&#x8C03;&#x7528;getExternalCacheDir()&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x7F13;&#x5B58;&#x8DEF;&#x5F84;&#xFF0C;
+     * &#x5426;&#x5219;&#x5C31;&#x8C03;&#x7528;getCacheDir()&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x7F13;&#x5B58;&#x8DEF;&#x5F84;&#x3002;
+     * &#x524D;&#x8005;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x5C31;&#x662F;/sdcard/Android/data/&lt;application package&gt;/cache &#x8FD9;&#x4E2A;&#x8DEF;&#x5F84;&#xFF0C;
+     * &#x800C;&#x540E;&#x8005;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x662F; /data/data/&lt;application package&gt;/cache &#x8FD9;&#x4E2A;&#x8DEF;&#x5F84;&#x3002;*/
+    public static File getDiskCacheDir(Context context, String uniqueName) {
+        String cachePath;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+                || !Environment.isExternalStorageRemovable()) {
+            cachePath = context.getExternalCacheDir().getPath();
+        } else {
+            cachePath = context.getCacheDir().getPath();
+        }
+        return new File(cachePath + File.separator + uniqueName);
+    }
+
+
+    public static File getDiskDir(Context context, String dir) {
+        String diskPath;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+                || !Environment.isExternalStorageRemovable()) {
+            return context.getExternalFilesDir(dir);
+        } else {
+            diskPath = context.getFilesDir().getPath();
+            File file = new File(diskPath + File.separator + dir);
+            if (!file.exists()) {//&#x5224;&#x65AD;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x662F;&#x5426;&#x5B58;&#x5728;  
+                file.mkdirs();
+            }
+            return file;
+        }
+    }
+
+
+    /*&#x8FD4;&#x56DE;&#x7F13;&#x5B58;&#x8DEF;&#x5F84;*/
+    public static File getDiskCacheDir(Context context) {
+        String cachePath;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+                || !Environment.isExternalStorageRemovable()) {
+            cachePath = context.getExternalCacheDir().getPath();
+        } else {
+            cachePath = context.getCacheDir().getPath();
+        }
+        return new File(cachePath);
+    }
+
+    public static File getFilesDir(Context context, String uniqueName) {
+        return new File(context.getFilesDir().getPath() + File.separator + uniqueName);
+    }
+
+    public static File getCacheDir(Context context, String uniqueName) {
+        return new File(context.getCacheDir().getPath() + File.separator + uniqueName);
+    }
+
+    /*&#x5224;&#x65AD;sd&#x5361;&#x53EF;&#x7528;*/
+    public static boolean hasSDCardMounted() {
+        String state = Environment.getExternalStorageState();
+        if (state != null &amp;&amp; state.equals(Environment.MEDIA_MOUNTED)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static String getFromAssets(Context context, String fileName) {
+        //&#x5C06;json&#x6570;&#x636E;&#x53D8;&#x6210;&#x5B57;&#x7B26;&#x4E32;
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            //&#x83B7;&#x53D6;assets&#x8D44;&#x6E90;&#x7BA1;&#x7406;&#x5668;
+            AssetManager assetManager = context.getAssets();
+            //&#x901A;&#x8FC7;&#x7BA1;&#x7406;&#x5668;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5E76;&#x8BFB;&#x53D6;
+            BufferedReader bf = new BufferedReader(new InputStreamReader(
+                    assetManager.open(fileName)));
+            String line;
+            while ((line = bf.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
+    }
+
+    public static String appendPathComponent(String basePath, String appendPathComponent) {
+        return new File(basePath, appendPathComponent).getAbsolutePath();
+    }
+
+    public static void copyDirectoryContents(String sourceDirectoryPath, String destinationDirectoryPath) throws IOException {
+        File sourceDir = new File(sourceDirectoryPath);
+        File destDir = new File(destinationDirectoryPath);
+        if (!destDir.exists()) {
+            destDir.mkdir();
+        }
+
+        for (File sourceFile : sourceDir.listFiles()) {
+            if (sourceFile.isDirectory()) {
+                copyDirectoryContents(
+                        appendPathComponent(sourceDirectoryPath, sourceFile.getName()),
+                        appendPathComponent(destinationDirectoryPath, sourceFile.getName()));
+            } else {
+                File destFile = new File(destDir, sourceFile.getName());
+                FileInputStream fromFileStream = null;
+                BufferedInputStream fromBufferedStream = null;
+                FileOutputStream destStream = null;
+                byte[] buffer = new byte[WRITE_BUFFER_SIZE];
+                try {
+                    fromFileStream = new FileInputStream(sourceFile);
+                    fromBufferedStream = new BufferedInputStream(fromFileStream);
+                    destStream = new FileOutputStream(destFile);
+                    int bytesRead;
+                    while ((bytesRead = fromBufferedStream.read(buffer)) &gt; 0) {
+                        destStream.write(buffer, 0, bytesRead);
+                    }
+                } finally {
+                    try {
+                        if (fromFileStream != null) fromFileStream.close();
+                        if (fromBufferedStream != null) fromBufferedStream.close();
+                        if (destStream != null) destStream.close();
+                    } catch (IOException e) {
+                        throw new IllegalArgumentException(&quot;Error closing IO resources.&quot;, e);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void deleteDirectoryAtPath(String directoryPath) {
+        if (directoryPath == null) {
+            return;
+        }
+        File file = new File(directoryPath);
+        if (file.exists()) {
+            deleteFileOrFolderSilently(file);
+        }
+    }
+
+    public static void deleteFileAtPathSilently(String path) {
+        deleteFileOrFolderSilently(new File(path));
+    }
+
+    public static void deleteFileOrFolderSilently(File file) {
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            for (File fileEntry : files) {
+                if (fileEntry.isDirectory()) {
+                    deleteFileOrFolderSilently(fileEntry);
+                } else {
+                    fileEntry.delete();
+                }
+            }
+        }
+
+        if (!file.delete()) {
+        }
+    }
+
+    public static boolean fileAtPathExists(String filePath) {
+        return new File(filePath).exists();
+    }
+
+    public static void moveFile(File fileToMove, String newFolderPath, String newFileName) {
+        File newFolder = new File(newFolderPath);
+        if (!newFolder.exists()) {
+            newFolder.mkdirs();
+        }
+
+        File newFilePath = new File(newFolderPath, newFileName);
+        if (!fileToMove.renameTo(newFilePath)) {
+            throw new IllegalArgumentException(&quot;Unable to move file from &quot; +
+                    fileToMove.getAbsolutePath() + &quot; to &quot; + newFilePath.getAbsolutePath() + &quot;.&quot;);
+        }
+    }
+
+    public static String readFileToString(String filePath) throws IOException {
+        FileInputStream fin = null;
+        BufferedReader reader = null;
+        try {
+            File fl = new File(filePath);
+            fin = new FileInputStream(fl);
+            reader = new BufferedReader(new InputStreamReader(fin));
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line).append(&quot;\n&quot;);
+            }
+
+            return sb.toString();
+        } finally {
+            if (reader != null) reader.close();
+            if (fin != null) fin.close();
+        }
+    }
+
+    public static void unzipFile(File zipFile, String destination) throws IOException {
+        FileInputStream fileStream = null;
+        BufferedInputStream bufferedStream = null;
+        ZipInputStream zipStream = null;
+        try {
+            fileStream = new FileInputStream(zipFile);
+            bufferedStream = new BufferedInputStream(fileStream);
+            zipStream = new ZipInputStream(bufferedStream);
+            ZipEntry entry;
+
+            File destinationFolder = new File(destination);
+            if (destinationFolder.exists()) {
+                deleteFileOrFolderSilently(destinationFolder);
+            }
+
+            destinationFolder.mkdirs();
+
+            byte[] buffer = new byte[WRITE_BUFFER_SIZE];
+            while ((entry = zipStream.getNextEntry()) != null) {
+                String fileName = entry.getName();
+                File file = new File(destinationFolder, fileName);
+                if (entry.isDirectory()) {
+                    file.mkdirs();
+                } else {
+                    File parent = file.getParentFile();
+                    if (!parent.exists()) {
+                        parent.mkdirs();
+                    }
+
+                    FileOutputStream fout = new FileOutputStream(file);
+                    try {
+                        int numBytesRead;
+                        while ((numBytesRead = zipStream.read(buffer)) != -1) {
+                            fout.write(buffer, 0, numBytesRead);
+                        }
+                    } finally {
+                        fout.close();
+                    }
+                }
+                long time = entry.getTime();
+                if (time &gt; 0) {
+                    file.setLastModified(time);
+                }
+            }
+        } finally {
+            try {
+                if (zipStream != null) zipStream.close();
+                if (bufferedStream != null) bufferedStream.close();
+                if (fileStream != null) fileStream.close();
+            } catch (IOException e) {
+                throw new IllegalArgumentException(&quot;Error closing IO resources.&quot;, e);
+            }
+        }
+    }
+
+    public static void writeStringToFile(String content, String filePath) throws IOException {
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter(filePath);
+            out.print(content);
+        } finally {
+            if (out != null) out.close();
+        }
+    }
+
+    /**
+     * &#x5220;&#x9664;&#x5355;&#x4E2A;&#x6587;&#x4EF6;
+     *
+     * @param filePath$Name &#x8981;&#x5220;&#x9664;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;
+     * @return &#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x5220;&#x9664;&#x6210;&#x529F;&#x8FD4;&#x56DE;true&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;false
+     */
+    public static boolean deleteSingleFile(Context context, String filePath$Name) {
+        File file = new File(filePath$Name);
+        // &#x5982;&#x679C;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x6240;&#x5BF9;&#x5E94;&#x7684;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x5220;&#x9664;
+        if (file.exists() &amp;&amp; file.isFile()) {
+            if (file.delete()) {
+                Logger.d(&quot;--Method--&quot;, &quot;Copy_Delete.deleteSingleFile: &#x5220;&#x9664;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&quot; + filePath$Name + &quot;&#x6210;&#x529F;&#xFF01;&quot;);
+                return true;
+            } else {
+                Logger.d(&quot;&#x5220;&#x9664;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&quot; + filePath$Name + &quot;&#x5931;&#x8D25;&#xFF01;&quot;, Toast.LENGTH_SHORT);
+                return false;
+            }
+        } else {
+            Logger.d(&quot;&#x5220;&#x9664;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x5931;&#x8D25;&#xFF1A;&quot; + filePath$Name + &quot;&#x4E0D;&#x5B58;&#x5728;&#xFF01;&quot;);
+            return false;
+        }
+    }
+
+    /**
+     * &#x5220;&#x9664;&#x76EE;&#x5F55;&#x53CA;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6587;&#x4EF6;
+     *
+     * @param filePath &#x8981;&#x5220;&#x9664;&#x7684;&#x76EE;&#x5F55;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
+     * @return &#x76EE;&#x5F55;&#x5220;&#x9664;&#x6210;&#x529F;&#x8FD4;&#x56DE;true&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;false
+     */
+    public static boolean deleteDirectory(Context context, String filePath) {
+        // &#x5982;&#x679C;dir&#x4E0D;&#x4EE5;&#x6587;&#x4EF6;&#x5206;&#x9694;&#x7B26;&#x7ED3;&#x5C3E;&#xFF0C;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x5206;&#x9694;&#x7B26;
+        if (!filePath.endsWith(File.separator))
+            filePath = filePath + File.separator;
+        File dirFile = new File(filePath);
+        // &#x5982;&#x679C;dir&#x5BF9;&#x5E94;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x6216;&#x8005;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x5219;&#x9000;&#x51FA;
+        if ((!dirFile.exists()) || (!dirFile.isDirectory())) {
+            Logger.d(&quot;&#x5220;&#x9664;&#x76EE;&#x5F55;&#x5931;&#x8D25;&#xFF1A;&quot; + filePath + &quot;&#x4E0D;&#x5B58;&#x5728;&#xFF01;&quot;);
+            return false;
+        }
+        boolean flag = true;
+        // &#x5220;&#x9664;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x5305;&#x62EC;&#x5B50;&#x76EE;&#x5F55;
+        File[] files = dirFile.listFiles();
+        for (File file : files) {
+            // &#x5220;&#x9664;&#x5B50;&#x6587;&#x4EF6;
+            if (file.isFile()) {
+                flag = deleteSingleFile(context, file.getAbsolutePath());
+                if (!flag)
+                    break;
+            }
+            // &#x5220;&#x9664;&#x5B50;&#x76EE;&#x5F55;
+            else if (file.isDirectory()) {
+                flag = deleteDirectory(context, file
+                        .getAbsolutePath());
+                if (!flag)
+                    break;
+            }
+        }
+        if (!flag) {
+            Logger.d(&quot;&#x5220;&#x9664;&#x76EE;&#x5F55;&#x5931;&#x8D25;&#xFF01;&quot;);
+            return false;
+        }
+        // &#x5220;&#x9664;&#x5F53;&#x524D;&#x76EE;&#x5F55;
+        if (dirFile.delete()) {
+            Logger.d(&quot;--Method--&quot;, &quot;Copy_Delete.deleteDirectory: &#x5220;&#x9664;&#x76EE;&#x5F55;&quot; + filePath + &quot;&#x6210;&#x529F;&#xFF01;&quot;);
+            return true;
+        } else {
+            Logger.d(&quot;&#x5220;&#x9664;&#x76EE;&#x5F55;&#xFF1A;&quot; + filePath + &quot;&#x5931;&#x8D25;&#xFF01;&quot;);
+            return false;
+        }
+    }
+
+    public static boolean isExists(String strFile) {
+        try {
+            File f = new File(strFile);
+            if (!f.exists()) {
+                return false;
+            }
+
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean isImage(String pathName) {
+        if (TextUtils.isEmpty(pathName) || !pathName.contains(&quot;.&quot;)) {
+            return false;
+        }
+        String c = pathName.substring(pathName.lastIndexOf(&quot;.&quot;));
+        if (TextUtils.equals(c, &quot;.gif&quot;) ||
+                TextUtils.equals(c, &quot;.jpeg&quot;) ||
+                TextUtils.equals(c, &quot;.jpg&quot;) ||
+                TextUtils.equals(c, &quot;.png&quot;) ) {
+            return true;
+        }
+        return false;
+    }
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="热更新HotCode在Cordova平台的实践.html" class="navigation navigation-prev " aria-label="Previous page: 热更新(HotCode)在Cordova平台的实践">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Android原生Table组件开发整理.html" class="navigation navigation-next " aria-label="Next page: Android原生Table组件开发整理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Android开发工具之OKHttp日志抓取之升级版","level":"1.14","depth":1,"next":{"title":"Android原生Table组件开发整理","level":"1.15","depth":1,"path":"Android原生Table组件开发整理.md","ref":"Android原生Table组件开发整理.md","articles":[]},"previous":{"title":"热更新(HotCode)在Cordova平台的实践","level":"1.13","depth":1,"path":"热更新HotCode在Cordova平台的实践.md","ref":"热更新HotCode在Cordova平台的实践.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Android开发工具之OKHttp日志抓取之升级版.md","mtime":"2020-01-17T08:23:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-27T07:03:27.764Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

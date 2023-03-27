@@ -1,0 +1,1509 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Android组件化开发 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Android开发工具之OKHttp日志抓取.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="Android组件化开发.html">
+            
+                <a href="Android组件化开发.html">
+            
+                    
+                    Android组件化开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Android开发工具之OKHttp日志抓取.html">
+            
+                <a href="Android开发工具之OKHttp日志抓取.html">
+            
+                    
+                    Android开发工具之OKHttp日志抓取（仿IOS DBDebugToolkit)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Android开发工具之环境切换.html">
+            
+                <a href="Android开发工具之环境切换.html">
+            
+                    
+                    Android开发工具之环境切换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="热更新在Cordova平台的实践.html">
+            
+                <a href="热更新在Cordova平台的实践.html">
+            
+                    
+                    热更新(HotCode)在Cordova平台的实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ES6新特性学习.html">
+            
+                <a href="ES6新特性学习.html">
+            
+                    
+                    ES6新特性学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="H5常见router.html">
+            
+                <a href="H5常见router.html">
+            
+                    
+                    H5常见router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="webpack使用学习.html">
+            
+                <a href="webpack使用学习.html">
+            
+                    
+                    webpack使用学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Web安全问题之CSRF和XSS.html">
+            
+                <a href="Web安全问题之CSRF和XSS.html">
+            
+                    
+                    Web安全问题之CSRF和XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="路由系统重构文档.html">
+            
+                <a href="路由系统重构文档.html">
+            
+                    
+                    路由系统重构文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="前端干货：JS的执行顺序.html">
+            
+                <a href="前端干货：JS的执行顺序.html">
+            
+                    
+                    前端干货：JS的执行顺序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="前端学习之路.html">
+            
+                <a href="前端学习之路.html">
+            
+                    
+                    前端学习之路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="热更新HotCode在Cordova平台的实践.html">
+            
+                <a href="热更新HotCode在Cordova平台的实践.html">
+            
+                    
+                    热更新(HotCode)在Cordova平台的实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="Android开发工具之OKHttp日志抓取之升级版.html">
+            
+                <a href="Android开发工具之OKHttp日志抓取之升级版.html">
+            
+                    
+                    Android开发工具之OKHttp日志抓取之升级版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="Android原生Table组件开发整理.html">
+            
+                <a href="Android原生Table组件开发整理.html">
+            
+                    
+                    Android原生Table组件开发整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="Gitlab.html">
+            
+                <a href="Gitlab.html">
+            
+                    
+                    Gitlab CI/CD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="RN中场景一之RN和原生交互.html">
+            
+                <a href="RN中场景一之RN和原生交互.html">
+            
+                    
+                    RN中场景一之RN和原生交互
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="Taro小程序开发学习.html">
+            
+                <a href="Taro小程序开发学习.html">
+            
+                    
+                    Taro小程序开发学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="Taro小程序dva框架开发学习.html">
+            
+                <a href="Taro小程序dva框架开发学习.html">
+            
+                    
+                    Taro小程序dva框架开发学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Android组件化开发</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="android&#x7EC4;&#x4EF6;&#x5316;&#x548C;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;">Android&#x7EC4;&#x4EF6;&#x5316;&#x548C;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;</h1>
+<p>&#x501F;&#x9274;&#x7F51;&#x5740;&#xFF1A;<a href="https://www.jianshu.com/p/00746e6fb48a" target="_blank">https://www.jianshu.com/p/00746e6fb48a</a></p>
+<p>Github&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/coffeelife/BaseModuleDemo" target="_blank">https://github.com/coffeelife/BaseModuleDemo</a>(&#x6B64;&#x5904;&#x662F;copy&#x7684;&#x501F;&#x9274;&#x7F51;&#x5740;&#x4EE3;&#x7801;) &#x3002;</p>
+<p>&#x672C;&#x6587;&#x7AE0;&#x9879;&#x76EE;&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/coffeelife/BaseDemo" target="_blank">https://github.com/coffeelife/BaseDemo</a></p>
+<h2 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h2>
+<p>Android&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#x662F;&#x5C06;&#x9879;&#x76EE;&#x5206;&#x4E3A;&#x51E0;&#x4E2A;&#x6A21;&#x5757;&#x5F00;&#x53D1;&#xFF0C;&#x4E3B;&#x8981;&#x4E3A;&#x4E86;&#x63D0;&#x5347;&#x5F00;&#x53D1;&#x6548;&#x7387;&#xFF0C;&#x53EF;&#x4EE5;&#x4E00;&#x8D77;&#x540C;&#x6B65;&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#xFF0C;&#x4E3B;&#x8981;&#x89E3;&#x51B3;&#x9879;&#x76EE;&#x81C3;&#x80BF;&#x3001;&#x8026;&#x5408;&#x4E25;&#x91CD;&#xFF0C;&#x4EE3;&#x7801;&#x7ECF;&#x8FC7;&#x957F;&#x65F6;&#x95F4;&#x548C;&#x591A;&#x4E2A;&#x4EBA;&#x5F00;&#x53D1;&#x4E4B;&#x540E;&#xFF0C;&#x4F53;&#x79EF;&#x4F1A;&#x4E0D;&#x65AD;&#x589E;&#x957F;&#xFF0C;&#x5F88;&#x591A;&#x65B0;&#x52A0;&#x5165;&#x7684;&#x4F19;&#x4F34;&#x90FD;&#x4E0D;&#x4F1A;&#x52A8;&#x539F;&#x6765;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x53EA;&#x4F1A;&#x5F80;&#x4E0A;&#x589E;&#x52A0;&#x5185;&#x5BB9;&#xFF0C;&#x800C;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#x7684;&#x8BDD;&#x5C31;&#x4F1A;&#x628A;&#x901A;&#x7528;&#x7684;&#x8FD9;&#x90E8;&#x5206;&#x63D0;&#x53D6;&#x51FA;&#x6765;&#xFF0C;&#x907F;&#x514D;&#x91CD;&#x590D;&#x5F15;&#x5165;&#x3002;</p>
+<p>&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;&#x8DDF;&#x6211;&#x76EE;&#x524D;&#x63A5;&#x89E6;&#x7684;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;&#x5F88;&#x7C7B;&#x4F3C;&#xFF0C;&#x5373;&#x628A;&#x901A;&#x7528;&#x7684;&#x4E00;&#x4E9B;&#x5E03;&#x5C40;&#xFF0C;&#x63A7;&#x4EF6;&#x63D0;&#x53D6;&#x51FA;&#x6765;&#x91CD;&#x590D;&#x5229;&#x7528;&#xFF0C;reactJs&#x5F00;&#x53D1;&#x4FBF;&#x662F;&#x8FD9;&#x6837;&#xFF0C;&#x628A;&#x7EC4;&#x4EF6;&#x72EC;&#x7ACB;&#x51FA;&#x6765;&#xFF0C;&#x5176;&#x4ED6;&#x4EBA;&#x76F4;&#x63A5;&#x6309;&#x7167;&#x7EC4;&#x4EF6;&#x5316;&#x7684;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;Andorid&#x540C;&#x6837;&#x662F;&#x8FD9;&#x6837;&#xFF0C;&#x4F8B;&#x5982;&#x628A;&#x4E00;&#x4E9B;&#x7A7A;&#x5E03;&#x5C40;&#x3001;&#x6807;&#x9898;&#x3001;&#x5237;&#x65B0;&#x751A;&#x81F3;&#x662F;webview&#x63D0;&#x53D6;&#x51FA;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x63D0;&#x9AD8;&#x4EE3;&#x7801;&#x7684;&#x91CD;&#x590D;&#x5229;&#x7528;&#x7387;&#x3002;</p>
+<h2 id="&#x6D45;&#x8C08;">&#x6D45;&#x8C08;</h2>
+<p>&#x501F;&#x56FE;</p>
+<p><img src="https://i.loli.net/2019/05/23/5ce66eb724ce512060.png" alt="5ce66eb724ce512060"></p>
+<p>&#x6211;&#x4EEC;&#x73B0;&#x6709;&#x9879;&#x76EE;&#x76F4;&#x63A5;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#xFF0C;&#x52A0;&#x4E00;&#x4E2A;base&#x5E93;&#xFF0C;&#x52A0;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x5E93;&#xFF0C;&#x5176;&#x4ED6;&#x90FD;&#x662F;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#xFF0C;&#x5176;&#x5B9E;&#x5E76;&#x4E0D;&#x662F;&#x5F88;&#x6E05;&#x6670;&#x660E;&#x4E86;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x6A21;&#x5757;&#x7684;&#x4E1A;&#x52A1;&#x90FD;&#x96C6;&#x4E2D;&#x5728;app&#x5305;&#x5185;&#x3002;</p>
+<p>&#x501F;&#x56FE;&#x5206;&#x6790;&#xFF1A;&#x6211;&#x770B;&#x4E86;&#x8FD9;&#x4E2A;&#x4EBA;&#x7684;&#x6587;&#x7AE0;&#x4E4B;&#x540E;&#xFF0C;&#x66F4;&#x52A0;&#x660E;&#x4E86;&#x7EC4;&#x4EF6;&#x5316;&#xFF0C;&#x5B83;&#x6700;&#x4E0A;&#x5C42;&#x53EA;&#x662F;&#x4E00;&#x5C42;&#x58F3;&#xFF0C;&#x8DDF;&#x4E0B;&#x56FE;&#x4E00;&#x5BF9;&#x6BD4;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x6709;&#x5F02;&#x66F2;&#x540C;&#x5DE5;&#x4E4B;&#x5904;&#xFF0C;&#x7136;&#x540E;&#x5206;&#x4E3A;N&#x4E2A;Moudle&#xFF0C;&#x4E0D;&#x540C;&#x4E1A;&#x52A1;&#x4E0D;&#x540C;Moudle&#x5F00;&#x53D1;&#xFF0C;&#x800C;&#x4E0D;&#x540C;&#x7684;&#x4E1A;&#x52A1;&#x53C8;&#x57FA;&#x4E8E;Base&#x7C7B;&#x3001;&#x7F51;&#x7EDC;&#x3001;&#x7F13;&#x5B58;&#x548C;&#x5DE5;&#x5177;&#xFF0C;&#x7136;&#x540E;&#x5F15;&#x5165;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#x540C;&#x6837;&#x4EE5;library&#xFF0C;&#x4F7F;&#x7528;&#x76F4;&#x63A5;&#x5F15;&#x5165;&#x4F7F;&#x7528;&#x3002;</p>
+<p><img src="https://i.loli.net/2019/05/23/5ce670878dd5356327.png" alt="5ce670878dd5356327"></p>
+<p>&#x8FD9;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x8BF7;&#x76F4;&#x63A5;&#x67E5;&#x770B;&#x6211;&#x5B66;&#x4E60;&#x7684;&#x535A;&#x5BA2;&#xFF1A;<a href="https://www.jianshu.com/p/00746e6fb48a" target="_blank">https://www.jianshu.com/p/00746e6fb48a</a></p>
+<h2 id="&#x6587;&#x7AE0;&#x91CD;&#x70B9;">&#x6587;&#x7AE0;&#x91CD;&#x70B9;</h2>
+<p>&#x672C;&#x6587;&#x7AE0;&#x53EA;&#x4ECB;&#x7ECD;Base&#x7C7B;moudle&#x7684;&#x90E8;&#x5206;&#x7F16;&#x5199;&#x3002;</p>
+<p>&#x9879;&#x76EE;&#x7ED3;&#x6784;</p>
+<p><img src="https://i.loli.net/2019/05/23/5ce679cd5078680955.png" alt="5ce679cd5078680955"></p>
+<p><code>AbsBaseActivity.class</code></p>
+<pre><code>public class AbsBaseActivity extends AppCompatActivity implements IBaseActFrag {
+    @Override
+    public void gStartActivity(Intent intent) {
+        startActivity(intent);
+    }
+
+    @Override
+    public void gStartActivity(Class&lt;? extends Activity&gt; cls) {
+        gStartActivity(cls, null);
+    }
+
+    /* &#x6253;&#x5F00;&#x65B0;&#x7684;Activity */
+    @Override
+    public void gStartActivity(Class&lt;? extends Activity&gt; cls, Bundle bundle) {
+        Intent intent = new Intent();
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        intent.setClass(this, cls);
+        startActivity(intent);
+    }
+
+    @Override
+    public void gStartShareActivity(String title, String shareContent) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType(&quot;text/plain&quot;);
+        if (title != null) {
+            intent.putExtra(Intent.EXTRA_TITLE, title);
+        }
+        intent.putExtra(Intent.EXTRA_TEXT, shareContent);
+        startActivity(Intent.createChooser(intent,
+            getString(R.string.share_message)));
+    }
+
+    @Override
+    public void gStartImageShare(String shareContent, Uri uri) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType(&quot;headpic/*&quot;);
+        if (uri == null) {
+            gStartShareActivity(null, shareContent);
+            return;
+        }
+        intent.putExtra(Intent.EXTRA_STREAM, uri);
+        intent.putExtra(Intent.EXTRA_TEXT, shareContent);
+        intent.putExtra(&quot;sms_body&quot;, shareContent);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(Intent.createChooser(intent,
+            getString(R.string.share_message)));
+    }
+
+    /* &#x6253;&#x5F00;&#x65B0;&#x7684;Activity for result */
+    @Override
+    public void gStartActivityForResult(Class&lt;? extends Activity&gt; cls,
+                                        Bundle bundle, int requestCode) {
+        Intent intent = new Intent();
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        intent.setClass(this, cls);
+        startActivityForResult(intent, requestCode);
+    }
+
+    /* &#x5E26;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x4E0A;&#x4E00;&#x4E2A;activity&#xFF0C; &#x914D;&#x5408;gStartActivityForResult&#x4F7F;&#x7528; */
+    @Override
+    public void gBackForResult(int resultCode, Bundle bundle) {
+        Intent intent = new Intent();
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+       setResult(resultCode, intent);
+       finish();
+    }
+
+    /* &#x56DE;&#x5230;&#x4E4B;&#x524D;&#x7684;Activity */
+    @Override
+    public void gBackToActivity(Class&lt;? extends Activity&gt; cls, Bundle bundle) {
+        Intent intent = new Intent();
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        intent.setClass(this, cls);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+            | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
+
+    /* &#x6839;&#x636E;url&#x8DF3;&#x8F6C;Activity */
+    public void gStartActivity(String url, Bundle bundle) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+            | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
+
+    public void openBrowser(String url) {
+        final Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        if (intent.resolveActivity(this.getPackageManager()) != null) {
+            this.startActivity(Intent.createChooser(intent, &quot;&#x8BF7;&#x9009;&#x62E9;&#x6D4F;&#x89C8;&#x5668;&quot;));
+        } else {
+            ToastUtils.showToast(getContext(),&quot;&#x8BF7;&#x4E0B;&#x8F7D;&#x6D4F;&#x89C8;&#x5668;&quot;);
+        }
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
+    }
+}
+</code></pre><p><code>AbsBaseActivity</code>&#x5185;&#x5BB9;&#x5F88;&#x7B80;&#x5355;&#x4E3B;&#x8981;&#x662F;&#x5C01;&#x88C5;&#x4E86;&#x5F00;&#x542F;Activity&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5305;&#x62EC;&#x56DE;&#x6389;&#x65B9;&#x5F0F;&#xFF0C;&#x6253;&#x5F00;&#x5916;&#x90E8;url&#x94FE;&#x63A5;&#x7B49;&#x64CD;&#x4F5C;&#x3002;</p>
+<p><code>BaseActivity.class</code></p>
+<pre><code>public abstract class BaseActivity extends AbsBaseActivity {
+    protected ActivityManager activityManager = ActivityManager.getInstance();
+    protected ImmersionBar mImmersionBar;
+
+    private Unbinder unbinder;
+    private ViewStub emptyView;
+    protected Context mContext;
+    protected LoadingDialog loadingDialog;
+    protected Bundle mBundle;
+
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = this;
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        if (isActionBar()) {
+            setContentView(R.layout.activity_base);
+            ((ViewGroup) findViewById(R.id.fl_content)).addView(getLayoutInflater().inflate(getLayoutId(), null));
+        } else {
+            setContentView(getLayoutId());
+        }
+        //&#x521D;&#x59CB;&#x5316;ButterKnife
+        unbinder = ButterKnife.bind(this);
+
+        //&#x6C89;&#x6D78;&#x5F0F;&#x72B6;&#x6001;&#x680F;
+        initImmersionBar(R.color.blue);
+
+        //&#x52A0;&#x5165;Activity&#x7BA1;&#x7406;&#x5668;
+        BaseApplication.getApplication().getActivityManage().addActivity(this);
+        if (regEvent()) {
+            EventBusUtils.register(this);
+        }
+        loadingDialog = new LoadingDialog(mContext);
+
+        mBundle = savedInstanceState == null ? getIntent().getExtras() : savedInstanceState;
+        if (mBundle == null) {
+            mBundle = new Bundle();
+        }
+
+        this.onInitialization(mBundle);
+        this.initView(mBundle);
+        this.initData(mBundle);
+
+    }
+
+
+    /**
+     * &#x6C89;&#x6D78;&#x680F;&#x989C;&#x8272;
+     */
+    protected void initImmersionBar(int color) {
+        mImmersionBar = ImmersionBar.with(this);
+        if (color != 0) {
+            mImmersionBar.statusBarColor(color);
+        }
+        mImmersionBar.init();
+    }
+
+    public void showToast(String msg) {
+        ToastUtils.showToast(this, msg);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
+        if (regEvent()) {
+            EventBusUtils.unregister(this);
+        }
+        //&#x5FC5;&#x987B;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x9632;&#x6B62;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;
+        if (mImmersionBar != null) {
+            mImmersionBar.destroy();
+        }
+        //&#x5C06;Activity&#x4ECE;&#x7BA1;&#x7406;&#x5668;&#x79FB;&#x9664;
+        BaseApplication.getApplication().getActivityManage().removeActivity(this);
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        initView(mBundle);
+    }
+
+    //***************************************&#x7A7A;&#x9875;&#x9762;&#x65B9;&#x6CD5;*************************************
+    protected void showEmptyView(String text) {
+        showEmptyOrErrorView(text, R.drawable.bg_no_data);
+    }
+
+    protected void showEmptyView() {
+        showEmptyView(getString(R.string.no_data));
+    }
+
+    protected void showErrorView(String text) {
+        showEmptyOrErrorView(text, R.drawable.bg_no_net);
+    }
+
+    protected void showErrorView() {
+        showErrorView(getString(R.string.error_data));
+    }
+
+    public void showEmptyOrErrorView(String text, int img) {
+
+        if (emptyView == null) {
+            emptyView = findViewById(R.id.vs_empty);
+        }
+        emptyView.setVisibility(View.VISIBLE);
+        findViewById(R.id.iv_empty).setBackgroundResource(img);
+        ((TextView) findViewById(R.id.tv_empty)).setText(text);
+        findViewById(R.id.ll_empty).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onPageClick();
+            }
+        });
+    }
+
+    protected void hideEmptyView() {
+        if (emptyView != null) {
+            emptyView.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * &#x7A7A;&#x9875;&#x9762;&#x88AB;&#x70B9;&#x51FB;
+     */
+    protected void onPageClick() {
+
+    }
+
+    //***************************************&#x7A7A;&#x9875;&#x9762;&#x65B9;&#x6CD5;*********************************
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Logger.e(&quot;permissions:&quot; + Arrays.toString(permissions) + &quot; grantResults:&quot; + Arrays.toString(grantResults));
+
+        //&#x5982;&#x679C;&#x6709;&#x672A;&#x6388;&#x6743;&#x6743;&#x9650;&#x5219;&#x8DF3;&#x8F6C;&#x8BBE;&#x7F6E;&#x9875;&#x9762;
+        if (!requestPermissionsResult(grantResults)) {
+            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+            intent.setData(Uri.parse(&quot;package:&quot; + getPackageName()));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+
+
+    }
+
+    /**
+     * &#x5224;&#x65AD;&#x6388;&#x6743;&#x7ED3;&#x679C;
+     */
+    private boolean requestPermissionsResult(int[] grantResults) {
+        for (int code : grantResults) {
+            if (code == -1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    /**
+     * &#x5B50;&#x7C7B;&#x63A5;&#x53D7;&#x4E8B;&#x4EF6; &#x91CD;&#x5199;&#x8BE5;&#x65B9;&#x6CD5;
+     */
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventBus(Event event) {
+    }
+
+
+    /**
+     * &#x662F;&#x5426;&#x9700;&#x8981;ActionBar
+     * TODO &#x6682;&#x65F6;&#x7528;&#x6B64;&#x65B9;&#x6CD5; &#x540E;&#x7EED;&#x4F18;&#x5316;
+     */
+    protected boolean isActionBar() {
+        return false;
+    }
+
+    /**
+     * &#x9700;&#x8981;&#x63A5;&#x6536;&#x4E8B;&#x4EF6; &#x91CD;&#x5199;&#x8BE5;&#x65B9;&#x6CD5; &#x5E76;&#x8FD4;&#x56DE;true
+     */
+    protected boolean regEvent() {
+        return false;
+    }
+
+    protected abstract int getLayoutId();
+
+    protected abstract void initView(Bundle bundle);
+
+    protected abstract void onInitialization(Bundle bundle);
+
+    protected abstract void initData(Bundle bundle);
+
+}
+</code></pre><p><code>BaseActivity</code>&#x5305;&#x62EC;&#x5BF9;&#x5E03;&#x5C40;&#x83B7;&#x53D6;<code>getLayoutId()</code>&#x3001;<code>initView</code>&#x3001;<code>onInitialization</code>&#x3001;<code>initData</code>&#x7B49;&#x65B9;&#x6CD5;&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x7EDF;&#x4E00;&#x521D;&#x59CB;&#x5316;&#x3001;&#x83B7;&#x53D6;&#x5E03;&#x5C40;&#x3001;&#x521D;&#x59CB;&#x5316;&#x5E03;&#x5C40;&#x9875;&#x9762;&#x548C;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#x65B9;&#x6CD5;&#x3002;&#x5176;&#x4E2D;&#x8FD8;&#x5305;&#x62EC;&#x5BF9;&#x72B6;&#x6001;&#x680F;&#x7684;&#x521D;&#x59CB;&#x5316;&#x64CD;&#x4F5C;&#xFF0C;<code>showtoast()</code>&#x65B9;&#x6CD5;&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x8FD8;&#x6709;&#x5BF9;<code>EventBus</code>&#x7684;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x3002;</p>
+<p><code>MainActivity.class</code></p>
+<pre><code>public class MainActivity extends BaseActivity {
+
+    @Override
+    protected void initImmersionBar(int color) {
+        super.initImmersionBar(color);//&#x53EF;&#x4EE5;&#x91CD;&#x5199;statusbar
+    }
+
+    @Override
+    protected boolean regEvent() {
+        return super.regEvent();//&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;true&#x7136;&#x540E;&#x91CD;&#x5199;onEvnentBus()&#x65B9;&#x6CD5;
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;//&#x8FD4;&#x56DE;&#x9875;&#x9762;&#x5E03;&#x5C40;
+    }
+
+    @Override
+    protected void initView(Bundle bundle) {
+        showToast(&quot;&#x4E3B;&#x9875;&quot;);//&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x663E;&#x793A;toast
+        //&#x521D;&#x59CB;&#x5316;view
+    }
+
+    @Override
+    protected void onInitialization(Bundle bundle) {
+//&#x83B7;&#x53D6;&#x521D;&#x59CB;&#x5316;&#x9875;&#x9762;bundle&#x503C;&#x548C;&#x521D;&#x59CB;&#x5316;&#x64CD;&#x4F5C;
+    }
+
+    @Override
+    protected void initData(Bundle bundle) {
+    //&#x83B7;&#x53D6;&#x6570;&#x636E;
+    }
+
+    @Override
+    public void onEventBus(Event event) {
+        super.onEventBus(event);//&#x53EF;&#x4EE5;&#x91CD;&#x5199;
+    }
+}
+</code></pre><p>&#x4F7F;&#x7528;<code>EventBus</code>&#x53EA;&#x9700;&#x8981;&#x91CD;&#x5199;<code>regEvent</code>&#x548C;<code>onEventBus</code>&#x65B9;&#x6CD5;</p>
+<pre><code>@Override
+ protected boolean regEvent() {
+ return true;
+ }
+
+@Override
+ public void onEventBus(Event event) {
+ super.onEventBus(event);
+ }
+</code></pre><p><code>AbsBaseFragment</code>&#x548C;<code>BaseFragment</code>&#x4E0E;<code>AbsBaseAchtivity</code>&#x548C;<code>BaseActivity</code>&#x7C7B;&#x4F3C;&#xFF0C;&#x6B64;&#x5904;&#x4E0D;&#x505A;&#x5177;&#x4F53;&#x4ECB;&#x7ECD;&#x3002;</p>
+<p><code>BaseMvpActivity.class</code></p>
+<pre><code>@SuppressWarnings(&quot;unchecked&quot;)
+public abstract class BaseMvpActivity&lt;P extends BasePresenter&gt; extends BaseActivity implements IBaseView {
+    protected P presenter;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //&#x521B;&#x5EFA;present
+        presenter = createPresenter();
+        if (presenter != null) {
+            presenter.attachView(this);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (presenter != null) {
+            presenter.detachView();
+            presenter = null;
+        }
+
+    }
+
+
+    //***************************************IBaseView&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;*************************************
+    @Override
+    public void showLoading() {
+        if (loadingDialog != null &amp;&amp; !loadingDialog.isShowing()) {
+            loadingDialog.show();
+        }
+    }
+
+    @Override
+    public void dismissLoading() {
+        if (loadingDialog != null &amp;&amp; loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
+    }
+
+    @Override
+    public void onEmpty(Object tag) {
+
+    }
+
+    @Override
+    public void onError(Object tag, String errorMsg) {
+
+    }
+
+    @Override
+    public Context getContext() {
+        return mContext;
+    }
+    //***************************************IBaseView&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;*************************************
+
+    /**
+     * &#x521B;&#x5EFA;Presenter
+     */
+    protected abstract P createPresenter();
+}
+</code></pre><p><code>BaseMvpAcitvity</code>&#x4E3B;&#x8981;&#x662F;&#x5F80;&#x4E0A;&#x5C01;&#x88C5;&#x4E86;&#x4E00;&#x5C42;Mvp&#x7684;&#x57FA;&#x7C7B;&#xFF0C;&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x4F7F;&#x7528;Mvp&#xFF0C;<code>Presenter</code>&#x4F5C;&#x4E3A;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x5F15;&#x5165;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x57FA;&#x7C7B;&#x4E2D;&#x521D;&#x59CB;&#x5316;&#xFF0C;Mvp&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x8FD9;&#x91CC;&#x4E0D;&#x505A;&#x4ECB;&#x7ECD;&#x554A;&#xFF0C;&#x4E2A;&#x4EBA;&#x611F;&#x89C9;MVP&#x6A21;&#x5F0F;&#x867D;&#x7136;&#x5C06;moudle&#x3001;present&#x548C;view&#x5206;&#x5F00;&#xFF0C;&#x4F46;&#x662F;&#x9700;&#x8981;&#x5EFA;&#x5F88;&#x591A;&#x7C7B;&#xFF0C;&#x89E3;&#x8026;&#x5904;&#x7406;&#x7684;&#x5F88;&#x597D;&#xFF0C;&#x4F46;&#x662F;&#x6587;&#x4EF6;&#x5F88;&#x591A;&#x5F88;&#x590D;&#x6742;&#xFF0C;&#x4E0D;&#x5982;&#x539F;&#x59CB;MVC&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x4FBF;&#x3002;<code>BaseMvpFragment</code>&#x8DDF;<code>BaseMvpActivity</code>&#x7C7B;&#x4F3C;&#xFF0C;&#x4E0D;&#x505A;&#x89E3;&#x91CA;&#x3002;</p>
+<p><code>BaseMvpSwipeBackActivity.class</code></p>
+<pre><code>/**
+ * &#x5E26;&#x6ED1;&#x52A8;&#x8FD4;&#x56DE;&#x7684;mvp&#x57FA;&#x7C7B;
+ * @author gm
+ * @param &lt;P&gt;
+ */
+public abstract class BaseMvpSwipeBackActivity&lt;P extends BasePresenter&gt; extends BaseMvpActivity&lt;P&gt; {
+
+    protected SlidingLayout rootView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        rootView = new SlidingLayout(this);
+        rootView.bindActivity(this);
+        super.onCreate(savedInstanceState);
+    }
+
+    protected void setSliding(boolean isSliding) {
+        rootView.setIsSlide(isSliding);//Activity&#x53EF;&#x4EE5;&#x91CD;&#x5199;&#x7981;&#x6B62;&#xFF0C;&#x4F46;&#x66F4;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x76F4;&#x63A5;&#x4F7F;&#x7528;BaseActivity
+    }
+}
+</code></pre><p><code>BaseMvpSwipeBackActivity</code>&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x5C01;&#x88C5;&#x5E26;&#x6709;&#x8DDF;ios&#x7C7B;&#x4F3C;&#x7684;&#x6ED1;&#x52A8;&#x8FD4;&#x56DE;&#x5C01;&#x88C5;&#x7684;&#x57FA;&#x7C7B;&#xFF0C;&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x91CD;&#x5199;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x60C5;&#x51B5;&#x4E0D;&#x9700;&#x8981;&#x76F4;&#x63A5;&#x91CD;&#x5199;<code>setSliding</code>&#x65B9;&#x6CD5;</p>
+<p><code>BaseWebviewActivity.class</code></p>
+<pre><code>public abstract class BaseWebViewActivity&lt;P extends BasePresenter&gt; extends BaseMvpSwipeBackActivity&lt;P&gt; {
+    @BindView(R2.id.tv_title)
+    protected TextView tvTitle;
+    @BindView(R2.id.web_view)
+    protected ProgressBarWebView mWebView;
+    @BindView(R2.id.ll_back)
+    protected LinearLayout llBack;
+    protected String url;
+    protected String cookie;
+    @BindView(R2.id.error_layout)
+    LinearLayout errorLayout;
+    protected boolean isError = false;
+    @BindView(R2.id.error_str)
+    TextView errorStr;
+    @BindView(R2.id.error_url)
+    TextView errorUrl;
+    @BindView(R2.id.tv_title_right)
+    TextView tvTitleRight;
+    private CallBackFunction imgsCallBack = null, addressCallBack = null, barcodeCallback = null, selectOrgCallBack = null;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_webview_layout;
+    }
+
+    @Override
+    protected void onInitialization(Bundle bundle) {
+        ARouter.getInstance().inject(this);
+//        cookie = UserManager.getInstance().getCookie() == null ? &quot;&quot; : UserManager.getInstance().getCookie().getCookie();
+        url = bundle.getString(&quot;url&quot;);
+        if (TextUtils.isEmpty(url)) {
+            showToast(&quot;&#x94FE;&#x63A5;&#x51FA;&#x9519;&#x4E86;!&quot;);
+            finish();
+            return;
+        }
+    }
+
+    @Override
+    protected void initView(Bundle bundle) {
+        initHardwareAccelerate();
+        mWebView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
+        WebSettings webSetting = mWebView.getWebView().getSettings();
+        webSetting.setJavaScriptEnabled(true);
+        webSetting.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSetting.setAllowFileAccess(true);
+        webSetting.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        webSetting.setSupportZoom(false);
+        webSetting.setBuiltInZoomControls(true);
+        webSetting.setUseWideViewPort(true);
+        webSetting.setSupportMultipleWindows(true);
+        webSetting.setLoadWithOverviewMode(true);
+        webSetting.setAppCacheEnabled(true);
+        webSetting.setDatabaseEnabled(true);
+        webSetting.setDomStorageEnabled(true);
+        webSetting.setGeolocationEnabled(true);
+        webSetting.setAppCacheMaxSize(Long.MAX_VALUE);
+        webSetting.setPluginState(WebSettings.PluginState.ON_DEMAND);
+        webSetting.setRenderPriority(WebSettings.RenderPriority.HIGH);
+//        webSetting.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        //&#x53D6;&#x5F97;&#x7F13;&#x5B58;&#x8DEF;&#x5F84;
+        String appCachePath = getApplicationContext().getCacheDir().getAbsolutePath();//&#x8BBE;&#x7F6E;&#x8DEF;&#x5F84;
+        // API 19 deprecated
+        webSetting.setDatabasePath(appCachePath);
+        // &#x8BBE;&#x7F6E;Application caches&#x7F13;&#x5B58;&#x76EE;&#x5F55;
+        webSetting.setAppCachePath(appCachePath);
+        // &#x8BBE;&#x7F6E;&#x5B58;&#x50A8;&#x6A21;&#x5F0F; &#x5EFA;&#x8BAE;&#x7F13;&#x5B58;&#x7B56;&#x7565;&#x4E3A;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6709;&#x7F51;&#x7EDC;&#xFF0C;&#x6709;&#x7684;&#x8BDD;&#xFF0C;&#x4F7F;&#x7528;LOAD_DEFAULT,&#x65E0;&#x7F51;&#x7EDC;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;LOAD_CACHE_ELSE_NETWORK
+        webSetting.setCacheMode(WebSettings.LOAD_DEFAULT);
+
+        //&#x53BB;&#x6389;&#x7F29;&#x653E;&#x6309;&#x94AE;
+        webSetting.setBuiltInZoomControls(true);
+        webSetting.setDisplayZoomControls(false);
+        // this.getSettingsExtension().setPageCacheCapacity(IX5WebSettings.DEFAULT_CACHE_CAPACITY);//extension
+        // settings &#x7684;&#x8BBE;&#x8BA1;
+
+        handleCookie();
+        tvTitle.setText(&quot;&quot;);
+        setWebClient();
+
+        initHandler();
+
+    }
+
+    private void initHandler() {
+
+        mWebView.getWebView().registerHandler(&quot;loginoutJSBridge&quot;, new BridgeHandler() {
+
+            @Override
+            public void handler(String data, CallBackFunction function) {
+                Logger.d(&quot;&#x70B9;&#x51FB;&#x9000;&#x51FA;&quot;);
+                finish();
+            }
+        });
+
+
+        mWebView.getWebView().registerHandler(&quot;getImagesJSBridge&quot;, new BridgeHandler() {
+
+            @Override
+            public void handler(String data, CallBackFunction function) {
+                JsonObject jsonObject = GsonUtils.getRootJsonObject(data);
+                int count = jsonObject.get(&quot;imageCount&quot;).getAsInt();
+                imgsCallBack = function;
+                PictureSelector.create(BaseWebViewActivity.this)
+                        .openGallery(PictureMimeType.ofImage())//&#x53EA;&#x663E;&#x793A;&#x56FE;&#x7247;
+                        .maxSelectNum(count)//&#x6700;&#x591A;&#x9009;&#x62E9;&#x4E2A;&#x6570;
+                        .imageSpanCount(4)//&#x6BCF;&#x884C;&#x663E;&#x793A;&#x4E2A;&#x6570;
+                        .selectionMode(PictureConfig.MULTIPLE)//&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x591A;&#x9009;
+                        .compress(true)
+                        .compressMaxKB(512)
+                        .previewImage(true)//&#x662F;&#x5426;&#x53EF;&#x9884;&#x89C8;
+                        .isCamera(true)//&#x662F;&#x5426;&#x542F;&#x7528;&#x62CD;&#x7167;
+                        .forResult(PictureConfig.CHOOSE_REQUEST);//&#x7ED3;&#x679C;&#x56DE;&#x8C03; onActivityResult code
+            }
+        });
+
+        mWebView.getWebView().registerHandler(&quot;navRightButtonJSBridge&quot;, new BridgeHandler() {
+
+            @Override
+            public void handler(String eventName, CallBackFunction function) {
+                if (isFinishing()) {
+                    return;
+                }
+                if (TextUtils.isEmpty(eventName)) {
+                    return;
+                }
+                Gson gson = new Gson();
+                Map map = gson.fromJson(eventName, Map.class);
+
+                String navRightButtonTitle = (String) map.get(&quot;navRightButtonTitle&quot;);
+                if (!TextUtils.isEmpty(navRightButtonTitle)) {
+                    tvTitleRight.setVisibility(View.VISIBLE);
+                    tvTitleRight.setText(navRightButtonTitle);
+                }
+
+            }
+        });
+
+
+        mWebView.getWebView().registerHandler(&quot;QRCodeJSBridge&quot;, new BridgeHandler() {
+
+            @Override
+            public void handler(String data, CallBackFunction function) {
+                barcodeCallback = function;
+            }
+        });
+
+
+    }
+
+
+    /**
+     * &#x542F;&#x7528;&#x786C;&#x4EF6;&#x52A0;&#x901F;
+     */
+    private void initHardwareAccelerate() {
+        try {
+            if (Integer.parseInt(android.os.Build.VERSION.SDK) &gt;= 11) {
+                getWindow().setFlags(android.view.WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED, android.view.WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private void setWebClient() {
+        mWebView.setWebChromeClient(new CustomWebChromeClient(mWebView.getProgressBar(), tvTitle));
+
+        BridgeWebViewClient.BridgeCallBack bridgeCallBack = new BridgeWebViewClient.BridgeCallBack() {
+            //&#x7F51;&#x9875;&#x52A0;&#x8F7D;&#x6210;&#x529F;&#x56DE;&#x8C03;
+            @Override
+            public void onSuccess(WebView view, String url) {
+                if (isFinishing()) {
+                    return;
+                }
+                if (url.equals(&quot;about:blank&quot;)) {//&#x7A7A;&#x767D;&#x94FE;&#x63A5;&#x52A0;&#x8F7D;&#x5904;&#x7406;
+                    isError = true;
+                    tvTitle.setText(&quot;&#x7F51;&#x9875;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&quot;);
+                    errorLayout.setVisibility(View.VISIBLE);
+                    mWebView.setVisibility(View.GONE);
+                    errorUrl.setTextColor(getResources().getColor(R.color.black));
+                    return;
+                }
+                //&#x56DE;&#x8C03;&#x6210;&#x529F;&#x540E;&#x7684;&#x76F8;&#x5173;&#x64CD;&#x4F5C;
+                isError = false;
+                errorLayout.setVisibility(View.GONE);
+                mWebView.setVisibility(View.VISIBLE);
+            }
+
+            //&#x7F51;&#x9875;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&#x56DE;&#x8C03;
+            @Override
+            public void onFail(WebView webView, int i, String errStr, String url) {
+                if (isFinishing()) {
+                    return;
+                }
+                isError = true;
+                if (errorLayout != null) {
+                    errorLayout.setVisibility(View.VISIBLE);
+                }
+                if (mWebView != null)
+                    mWebView.setVisibility(View.GONE);
+                tvTitle.setText(&quot;&#x7F51;&#x9875;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&quot;);
+                if (errorStr != null) {
+                    errorStr.setText(getString(R.string.string_webview_error, TextUtils.isEmpty(errStr) ? &quot;&quot; : errStr));
+                }
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                Logger.d(&quot;onPageStarted&quot;);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                Logger.d(&quot;onPageFinished&quot;);
+                if (mWebView == null) {
+                    return;
+                }
+                if (mWebView.getWebView().canGoBack())
+                    llBack.setVisibility(View.VISIBLE);
+                else
+                    llBack.setVisibility(View.GONE);
+            }
+        };
+
+        WebViewClient webViewClient = mWebView.getWebView().getWebViewClient();
+        if (webViewClient instanceof BridgeWebViewClient)
+            ((BridgeWebViewClient) webViewClient).setBridgeCallBack(bridgeCallBack);
+    }
+
+    @Override
+    protected void initData(Bundle bundle) {
+//        mWebView.loadUrl(&quot;file:///android_asset/index.html&quot;);
+        mWebView.loadUrl(url);
+    }
+
+    @OnClick({R2.id.ll_back})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R2.id.ll_back:
+                goBack();
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        goBack();
+    }
+
+    /**
+     * &#x56DE;&#x9000;
+     */
+    protected void goBack() {
+        if (mWebView.getWebView().canGoBack()) {
+            mWebView.getWebView().goBack();
+        } else {
+            this.finish();
+        }
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mWebView != null) {
+            mWebView.getWebView().destroy();
+        }
+    }
+
+    /**
+     * &#x8C03;&#x7528;Js&#x8FD4;&#x56DE;
+     */
+    protected void callJSBack() {
+        if (mWebView == null || mWebView.getWebView() == null) {
+            return;
+        }
+        mWebView.getWebView().callHandler(&quot;BackListener&quot;, &quot;&quot;, new CallBackFunction() {
+            @Override
+            public void onCallBack(String s) {
+                try {
+                    Logger.e(&quot;&#x8FD4;&#x56DE;&#x6570;&#x636E;&quot; + s);
+                    if (s != null &amp;&amp; !s.equals(&quot;&quot;)) {
+                        JsonObject backJson = GsonUtils.getRootJsonObject(s);
+                        boolean isBack = backJson.get(&quot;isBack&quot;).getAsBoolean();
+                        if (isBack) {
+                            if (mWebView.getWebView().canGoBack()) {
+                                mWebView.getWebView().goBack();
+                            } else {
+                                finish();
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+
+                }
+            }
+        });
+    }
+
+    private void handleCookie() {
+        CookieSyncManager.createInstance(this);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.LOLLIPOP) {
+            cookieManager.removeSessionCookie();// &#x79FB;&#x9664;
+        } else {
+            cookieManager.removeSessionCookies(null);// &#x79FB;&#x9664;
+        }
+
+        if (!TextUtils.isEmpty(url)) {
+            try {
+                URL uri = new URL(url);
+//                String host = uri.getHost();
+//                URL baseUri = new URL(ApiManager.getInstance().getBaseUrl());
+//                String baseHost = baseUri.getHost();
+//                URL webUri = new URL(ApiManager.getInstance().getWebURL());
+//                String webHost = webUri.getHost();
+//                URL taskUri = new URL(ApiManager.getInstance().getTaskUrl());
+//                String taskHost = taskUri.getHost();
+//                for (int i = 0; i &lt; cookie.split(&quot;;&quot;).length; i++) {
+//                    Logger.e(&quot;cookie&quot; + i + cookie.split(&quot;;&quot;)[i]);
+//                    cookieManager.setCookie(host, cookie.split(&quot;;&quot;)[i]);//&#x6307;&#x5B9A;&#x8981;&#x4FEE;&#x6539;&#x7684;cookies
+//                    cookieManager.setCookie(baseHost, cookie.split(&quot;;&quot;)[i]);//&#x6307;&#x5B9A;&#x8981;&#x4FEE;&#x6539;&#x7684;cookies
+//                    cookieManager.setCookie(webHost, cookie.split(&quot;;&quot;)[i]);//&#x6307;&#x5B9A;&#x8981;&#x4FEE;&#x6539;&#x7684;cookies
+//                    cookieManager.setCookie(taskHost, cookie.split(&quot;;&quot;)[i]);//&#x6307;&#x5B9A;&#x8981;&#x4FEE;&#x6539;&#x7684;cookies
+//                }
+//                if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.LOLLIPOP) {
+//                    CookieSyncManager.getInstance().sync();
+//                } else {
+//                    cookieManager.flush();
+//                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void reloadUrl(String url) {
+        this.url = url;
+        handleCookie();
+        mWebView.loadUrl(url);
+    }
+
+
+    @OnClick({ R2.id.ll_back})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R2.id.ll_back:
+                this.finish();
+                break;
+        }
+    }
+
+}
+</code></pre><p>&#x8FD9;&#x91CC;&#x5C01;&#x88C5;&#x7684;&#x662F;&#x5305;&#x542B;&#x6709;<code>webview</code>&#x7684;&#x57FA;&#x7C7B;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x9762;&#x7528;&#x5230;&#x7684;&#x662F;&#x817E;&#x8BAF;&#x7684;x5webview&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x517C;&#x5BB9;&#x4E0D;&#x540C;&#x624B;&#x673A;&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x662F;&#x52A0;&#x5FEB;&#x7F51;&#x9875;&#x52A0;&#x8F7D;&#x901F;&#x5EA6;&#xFF0C;&#x867D;&#x7136;&#x6211;&#x6CA1;&#x6709;&#x611F;&#x89C9;&#x51FA;&#x6765;&#x5FEB;&#x5F88;&#x591A;&#xFF0C;&#x4F46;&#x662F;&#x539F;&#x751F;&#x7684;webview&#x65E0;&#x6CD5;&#x517C;&#x5BB9;&#x5168;&#x90E8;&#x624B;&#x673A;&#x3002;&#x517C;&#x5BB9;&#x4E0D;&#x662F;&#x91CD;&#x70B9;&#xFF0C;&#x8FD9;&#x91CC;&#x9762;&#x505A;&#x4E86;&#x4E00;&#x5C42;&#x5C01;&#x88C5;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x5E26;&#x6709;&#x8FDB;&#x5EA6;&#x6761;&#x548C;bridge&#x6865;&#x7684;webview&#x3002;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x539F;&#x751F;&#x548C;h5&#x8FDB;&#x884C;&#x4EA4;&#x4E92;</p>
+<p>&#x6211;&#x4EEC;&#x9879;&#x76EE;&#x7528;&#x5230;&#x4E86;h5&#x8C03;&#x7528;&#x539F;&#x751F;&#x8FD4;&#x56DE;&#x6309;&#x94AE;&#x3001;&#x8C03;&#x7528;&#x539F;&#x751F;&#x626B;&#x4E8C;&#x7EF4;&#x7801;&#x3001;&#x8C03;&#x7528;&#x539F;&#x751F;&#x624B;&#x673A;&#x56FE;&#x7247;&#x7B49;&#x4E00;&#x7CFB;&#x5217;&#x529F;&#x80FD;&#xFF0C;&#x6211;&#x7684;Demo&#x7A0B;&#x5E8F;&#x5927;&#x90E8;&#x5206;&#x90FD;&#x53BB;&#x6389;&#x4E86;&#x53EA;&#x7559;&#x4E86;&#x51E0;&#x4E2A;&#x6848;&#x4F8B;&#x3002;</p>
+<p><code>JSBridge</code>&#x4F7F;&#x7528;&#x4E8B;&#x4F8B;</p>
+<pre><code> //&#x8C03;&#x7528;&#x9000;&#x51FA;&#x767B;&#x5F55;
+   mWebView.getWebView().registerHandler(&quot;loginoutJSBridge&quot;, new BridgeHandler() {
+
+            @Override
+            public void handler(String data, CallBackFunction function) {
+                Logger.d(&quot;&#x70B9;&#x51FB;&#x9000;&#x51FA;&quot;);
+                finish();
+            }
+        });
+
+
+//&#x8C03;&#x7528;&#x83B7;&#x53D6;&#x56FE;&#x7247;       mWebView.getWebView().registerHandler(&quot;getImagesJSBridge&quot;, new BridgeHandler() {
+
+            @Override
+            public void handler(String data, CallBackFunction function) {
+                JsonObject jsonObject = GsonUtils.getRootJsonObject(data);
+                int count = jsonObject.get(&quot;imageCount&quot;).getAsInt();
+                imgsCallBack = function;
+                PictureSelector.create(BaseWebViewActivity.this)
+                        .openGallery(PictureMimeType.ofImage())//&#x53EA;&#x663E;&#x793A;&#x56FE;&#x7247;
+                        .maxSelectNum(count)//&#x6700;&#x591A;&#x9009;&#x62E9;&#x4E2A;&#x6570;
+                        .imageSpanCount(4)//&#x6BCF;&#x884C;&#x663E;&#x793A;&#x4E2A;&#x6570;
+                        .selectionMode(PictureConfig.MULTIPLE)//&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x591A;&#x9009;
+                        .compress(true)
+                        .compressMaxKB(512)
+                        .previewImage(true)//&#x662F;&#x5426;&#x53EF;&#x9884;&#x89C8;
+                        .isCamera(true)//&#x662F;&#x5426;&#x542F;&#x7528;&#x62CD;&#x7167;
+                        .forResult(PictureConfig.CHOOSE_REQUEST);//&#x7ED3;&#x679C;&#x56DE;&#x8C03; onActivityResult code
+            }
+        });
+
+//&#x8C03;&#x7528;&#x4E8C;&#x7EF4;&#x7801;       
+        mWebView.getWebView().registerHandler(&quot;QRCodeJSBridge&quot;, new BridgeHandler() {
+
+            @Override
+            public void handler(String data, CallBackFunction function) {
+                barcodeCallback = function;
+            }
+        });
+
+//&#x8C03;&#x7528;&#x5173;&#x95ED;&#x8FD4;&#x56DE;
+ mWebView.getWebView().registerHandler(&quot;backJSBridge&quot;, new BridgeHandler() {
+ @Override
+ public void handler(String data, CallBackFunction function) {
+ this.finish();
+ }
+ });
+</code></pre><p>&#x56DE;&#x9000;&#x5C01;&#x88C5;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5386;&#x53F2;&#x5148;&#x56DE;&#x4E0A;&#x4E00;&#x9875;&#xFF0C;&#x6ED1;&#x52A8;&#x8FD4;&#x56DE;&#x4E0D;&#x652F;&#x6301;&#x56DE;&#x5386;&#x53F2;&#x529F;&#x80FD;</p>
+<pre><code> /**
+     * &#x56DE;&#x9000;
+     */
+    protected void goBack() {
+        if (mWebView.getWebView().canGoBack()) {
+            mWebView.getWebView().goBack();
+        } else {
+            this.finish();
+        }
+
+    }
+</code></pre><p>cookie&#x5E26;&#x5165;&#x5C01;&#x88C5;</p>
+<pre><code>private void handleCookie() {
+        CookieSyncManager.createInstance(this);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.LOLLIPOP) {
+            cookieManager.removeSessionCookie();// &#x79FB;&#x9664;
+        } else {
+            cookieManager.removeSessionCookies(null);// &#x79FB;&#x9664;
+        }
+
+        if (!TextUtils.isEmpty(url)) {
+            try {
+                URL uri = new URL(url);
+//                String host = uri.getHost();
+//                URL baseUri = new URL(ApiManager.getInstance().getBaseUrl());
+//                String baseHost = baseUri.getHost();
+//                URL webUri = new URL(ApiManager.getInstance().getWebURL());
+//                String webHost = webUri.getHost();
+//                URL taskUri = new URL(ApiManager.getInstance().getTaskUrl());
+//                String taskHost = taskUri.getHost();
+//                for (int i = 0; i &lt; cookie.split(&quot;;&quot;).length; i++) {
+//                    Logger.e(&quot;cookie&quot; + i + cookie.split(&quot;;&quot;)[i]);
+//                    cookieManager.setCookie(host, cookie.split(&quot;;&quot;)[i]);//&#x6307;&#x5B9A;&#x8981;&#x4FEE;&#x6539;&#x7684;cookies
+//                    cookieManager.setCookie(baseHost, cookie.split(&quot;;&quot;)[i]);//&#x6307;&#x5B9A;&#x8981;&#x4FEE;&#x6539;&#x7684;cookies
+//                    cookieManager.setCookie(webHost, cookie.split(&quot;;&quot;)[i]);//&#x6307;&#x5B9A;&#x8981;&#x4FEE;&#x6539;&#x7684;cookies
+//                    cookieManager.setCookie(taskHost, cookie.split(&quot;;&quot;)[i]);//&#x6307;&#x5B9A;&#x8981;&#x4FEE;&#x6539;&#x7684;cookies
+//                }
+//                if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.LOLLIPOP) {
+//                    CookieSyncManager.getInstance().sync();
+//                } else {
+//                    cookieManager.flush();
+//                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+</code></pre><p>&#x6B64;&#x5904;cookie&#x5F15;&#x5165;&#x89C1;&#x4EC1;&#x89C1;&#x667A;&#x3002;</p>
+<p><code>BaseFragmentAdapter.class</code></p>
+<pre><code>public class BaseFragmentAdapter extends FragmentPagerAdapter {
+
+    public static class TabInfo {
+        public Class&lt;?&gt; clss;
+        public String fTitle;
+        public Bundle args;
+        public String tag;
+    }
+
+    private final Context mContext;
+    private List&lt;TabInfo&gt; infoList;
+
+    public BaseFragmentAdapter(Context context, FragmentManager fm, List&lt;TabInfo&gt; infoList) {
+        super(fm);
+        this.mContext = context;
+        this.infoList = infoList;
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        TabInfo tabInfo = infoList.get(position);
+        Fragment instantiate = Fragment.instantiate(mContext, tabInfo.clss.getName(), tabInfo.args);
+        return instantiate;
+    }
+
+    @Override
+    public int getCount() {
+        return infoList.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return infoList.get(position).fTitle;
+    }
+}
+</code></pre><p><code>BaseFragmentAdapter</code>&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;<code>viewpager+Fragment</code>&#x5E03;&#x5C40;&#x4F7F;&#x7528;&#xFF0C;&#x8FD9;&#x8282;&#x653E;&#x5165;&#x4E00;&#x4E2A;<code>TabInfo</code>&#x7684;&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x7ED1;&#x5B9A;viewpager&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6548;&#x679C;&#xFF0C;&#x548C;tab&#x4E00;&#x8D77;&#x914D;&#x5408;&#x4F7F;&#x7528;&#x6548;&#x679C;&#x66F4;&#x597D;&#x3002;<code>BaseFragmentStateAdapter</code>&#x7C7B;&#x4F3C;&#xFF0C;&#x53EA;&#x662F;&#x53D1;&#x751F;&#x72B6;&#x6001;&#x53EF;&#x4EE5;&#x5373;&#x65F6;&#x6539;&#x53D8;&#xFF0C;&#x6CA1;&#x6709;&#x7F13;&#x5B58;&#x3002;</p>
+<p><code>CommonRecyclerAdapter.class</code></p>
+<pre><code>public abstract class CommonRecyclerAdapter&lt;T&gt; extends RecyclerView.Adapter&lt;CommonRecyclerViewHolder&gt; {
+    protected Context mContext;
+    protected int mLayoutId;
+    public List&lt;T&gt; mDatas = new ArrayList&lt;&gt;();
+    protected LayoutInflater mInflater;
+
+    private OnItemClickListener mOnItemClickListener;
+
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.mOnItemClickListener = onItemClickListener;
+    }
+    public CommonRecyclerAdapter(Context context, int layoutId) {
+        mContext = context;
+        mInflater = LayoutInflater.from(context);
+        mLayoutId = layoutId;
+    }
+    public CommonRecyclerAdapter(Context context, int layoutId, List&lt;T&gt; datas) {
+        mContext = context;
+        mInflater = LayoutInflater.from(context);
+        mLayoutId = layoutId;
+        mDatas = datas;
+    }
+
+    @Override
+    public CommonRecyclerViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
+        CommonRecyclerViewHolder viewHolder = CommonRecyclerViewHolder.get(mContext, null, parent, mLayoutId, -1);
+        setListener(parent, viewHolder, viewType);
+        return viewHolder;
+    }
+
+    protected int getPosition(CommonRecyclerViewHolder viewHolder) {
+        return viewHolder.getAdapterPosition();
+    }
+
+    protected boolean isEnabled(int viewType) {
+        return true;
+    }
+
+
+    protected void setListener(final ViewGroup parent, final CommonRecyclerViewHolder viewHolder, int viewType) {
+        if (!isEnabled(viewType)) return;
+        viewHolder.getConvertView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mOnItemClickListener != null) {
+                    int position = getPosition(viewHolder);
+                    mOnItemClickListener.onItemClick(parent, v, mDatas.get(position), position);
+                }
+            }
+        });
+        viewHolder.getConvertView().setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (mOnItemClickListener != null) {
+                    int position = getPosition(viewHolder);
+                    return mOnItemClickListener.onItemLongClick(parent, v, mDatas.get(position), position);
+                }
+                return false;
+            }
+        });
+    }
+
+    @Override
+    public void onBindViewHolder(CommonRecyclerViewHolder hepler, int position) {
+        hepler.updatePosition(position);
+        convert(hepler, mDatas.get(position));
+    }
+
+    public abstract void convert(CommonRecyclerViewHolder holder, T t);
+
+    @Override
+    public int getItemCount() {
+        return mDatas == null ? 0 : mDatas.size();
+    }
+
+
+    public interface OnItemClickListener&lt;T&gt; {
+        void onItemClick(ViewGroup parent, View view, T t, int position);
+
+        boolean onItemLongClick(ViewGroup parent, View view, T t, int position);
+    }
+
+}
+</code></pre><p><code>CommonRecyclerAdapter</code>&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x5C01;&#x88C5;<code>recycleview</code>&#x7684;<code>adapter</code>&#x9002;&#x914D;&#x5668;&#xFF0C;&#x65B9;&#x4FBF;&#x7ED3;&#x5408;<code>recycleview</code>&#x4F7F;&#x7528;&#xFF0C;&#x628A;&#x4E00;&#x4E9B;&#x91CD;&#x590D;&#x7684;&#x4EE3;&#x7801;&#x5C01;&#x88C5;&#x8D77;&#x6765;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x8BDD;&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x7136;&#x540E;&#x91CD;&#x5199;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x66F4;&#x5F3A;&#x5927;&#x7684;&#x53EF;&#x4EE5;&#x79FB;&#x6B65;BaseQuickAdapter&#xFF0C;Github&#x4E0A;&#x6709;&#x5E93;&#xFF0C;&#x4E5F;&#x633A;&#x597D;&#x7528;&#x7684;&#x3002;<code>CommonAdapter</code>&#x53EF;&#x4EE5;<code>listview</code>&#x3001;<code>viewpager</code>&#x6216;&#x8005;<code>gridview</code>&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x672C;&#x7F16;&#x6587;&#x7AE0;&#x4E3B;&#x8981;&#x501F;&#x9274;&#x4E86;&#x5927;&#x795E;&#x7684;&#x60F3;&#x6CD5;&#x548C;&#x6587;&#x7AE0;&#x601D;&#x8DEF;&#xFF0C;&#x60F3;&#x8981;&#x5B66;&#x4E60;&#x7684;&#x8BF7;&#x79FB;&#x6B65;&#x5927;&#x795E;&#x94FE;&#x63A5;&#xFF1A;<a href="https://www.jianshu.com/p/00746e6fb48a" target="_blank">https://www.jianshu.com/p/00746e6fb48a</a>&#xFF0C;&#x4E3B;&#x8981;&#x5185;&#x5BB9;&#x5728;&#x4ECB;&#x7ECD;Base&#x57FA;&#x7C7B;&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x5728;&#x57FA;&#x7840;&#x4E0A;&#x589E;&#x52A0;&#x4E86;webview&#x7C7B;&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x589E;&#x52A0;JSBridge&#x548C;Cookie&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x589E;&#x52A0;&#x4E86;Adapter&#x7684;&#x57FA;&#x7C7B;&#xFF0C;&#x5982;&#x679C;&#x89C9;&#x5F97;&#x4E0D;&#x597D;&#x7528;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x7F51;&#x4E0A;&#x641C;&#x7D22;&#x4F7F;&#x7528;&#x5176;&#x5B83;&#xFF0C;&#x65F6;&#x95F4;&#x7D27;&#x8FEB;&#xFF0C;&#x5199;&#x7684;&#x6BD4;&#x8F83;&#x4ED3;&#x4FC3;&#x7B80;&#x5355;&#xFF0C;&#x4EE3;&#x7801;&#x540E;&#x7EED;&#x4F1A;&#x66F4;&#x65B0;&#xFF0C;&#x6B64;&#x81F4;&#x656C;&#x793C;&#x3002;</p>
+<p>&#x501F;&#x9274;&#x7F51;&#x5740;&#xFF1A;<a href="https://www.jianshu.com/p/00746e6fb48a" target="_blank">https://www.jianshu.com/p/00746e6fb48a</a></p>
+<p>Github&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/coffeelife/BaseModuleDemo" target="_blank">https://github.com/coffeelife/BaseModuleDemo</a>(&#x6B64;&#x5904;&#x662F;copy&#x7684;&#x501F;&#x9274;&#x7F51;&#x5740;&#x4EE3;&#x7801;) &#x3002;</p>
+<p>&#x672C;&#x6587;&#x7AE0;&#x9879;&#x76EE;&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/coffeelife/BaseDemo" target="_blank">https://github.com/coffeelife/BaseDemo</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 介绍">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Android开发工具之OKHttp日志抓取.html" class="navigation navigation-next " aria-label="Next page: Android开发工具之OKHttp日志抓取（仿IOS DBDebugToolkit)">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Android组件化开发","level":"1.2","depth":1,"next":{"title":"Android开发工具之OKHttp日志抓取（仿IOS DBDebugToolkit)","level":"1.3","depth":1,"path":"Android开发工具之OKHttp日志抓取.md","ref":"Android开发工具之OKHttp日志抓取.md","articles":[]},"previous":{"title":"介绍","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Android组件化开发.md","mtime":"2019-05-23T11:27:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-27T07:03:27.764Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
