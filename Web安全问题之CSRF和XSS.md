@@ -101,7 +101,7 @@ XSS攻击可以分为3类：反射型（非持久型）、存储型（持久型�
 我们在前端页面放置一个`<a href="localhost:8001/?q=111&p=222"/>`，恶意链接的地址指向了 localhost:8001/?q=111&p=222。然后，我再启一个简单的 Node 服务处理恶意链接的请求：
 
 ```
-    const http =require('http');
+    const http =require('http');
     functionhandleReequest(req, res) {
     res.setHeader('Access-Control-Allow-Origin','*');
     res.writeHead(200,{'ContentType':'text/html;charset=UTF-});
@@ -124,6 +124,8 @@ XSS攻击可以分为3类：反射型（非持久型）、存储型（持久型�
 ```
 <script> alert("XSS 攻击")</script>//输入的恶意代码
 ```
+
+
 
 ### 基于DOM
 
@@ -164,7 +166,7 @@ onclick=alert(/xss/)
 
 ## 举例
 
-1.在网页 input 或者 textarea 中输入 `<script>alert('xss')</script>`或者其他脚本
+1.在网页 input 或者 textarea 中输入 <script>alert('xss')</script>或者其他脚本
 
 2.直接使用 URL 参数攻击  
 `https://www.baidu.com?jarttoTest=<script>alert(document.cookie)</script>`
@@ -198,7 +200,7 @@ function htmlEncodeByRegExp (str){
  s = str.replace(/&/g,"&");
  s = s.replace(/</g,"<");
  s = s.replace(/>/g,">");
- s = s.replace(/ /g," ");
+ s = s.replace(/ /g," ");
  s = s.replace(/\'/g,"'");
  s = s.replace(/\"/g,""");
  return s;
@@ -219,15 +221,15 @@ document.querySelector(".content").innerHTML=html; //<p>123</p>
 
 ```
 var JavaScriptEncode = function(str){
-
+     
     var hex=new Array('0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f');
-
+        
     function changeTo16Hex(charCode){
         return "\\x" + charCode.charCodeAt(0).toString(16);
     }
-
+    
     function encodeCharx(original) {
-
+        
         var found = true;
         var thecharchar = original.charAt(0);
         var thechar = original.charCodeAt(0);
@@ -252,7 +254,7 @@ var JavaScriptEncode = function(str){
             if(thechar > 47 && thechar < 58){ //数字
                 return original;
             }
-
+            
             if(thechar > 64 && thechar < 91){ //大写字母
                 return original;
             }
@@ -260,7 +262,7 @@ var JavaScriptEncode = function(str){
             if(thechar > 96 && thechar < 123){ //小写字母
                 return original;
             }        
-
+            
             if(thechar>127) { //大于127用unicode
                 var c = thechar;
                 var a4 = c%16;
@@ -275,7 +277,7 @@ var JavaScriptEncode = function(str){
             else {
                 return changeTo16Hex(original);
             }
-
+            
         }
     }     
     var preescape = str;

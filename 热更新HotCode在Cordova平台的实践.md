@@ -1,0 +1,659 @@
+# 热更新(HotCode)在Cordova平台的实践
+
+Github代码地址：https://github.com/coffeelife/HotCodeTest.git
+
+搭建`Cordova`环境教程网址：[https://rensanning.iteye.com/blog/2163892]
+
+```
+//使用教程
+git clone https://github.com/coffeelife/HotCodeTest.git
+cd HotCodeTest
+npm install -g cordova
+npm install -g ripple-emulator
+cd HotCodeTest
+npm install
+cordova platforms add android@5//5代表安卓版本号，5以上的话ripple emulate需要使用iphone模拟器
+cordova platforms add ios@5//5版本可以兼容异形屏
+//各个端运行
+ripple emulate//chrome浏览器运行，前提安装了ripple-emulate
+cordova run android//platforms安装了android
+cordova run ios//platforms安装了ios
+```
+
+## 背景
+
+现在很多应用和游戏都使用热更新功能，常见的热更新框架有微软的`codepush`,还有`JsPatch`，本篇文章介绍一下我们原来是用过的`hotCode`热更框架，原来做`Cordova`项目使用过热更新，主要方便苹果发版，苹果发版每次都要经过审核流程，需要时间太长，因此引入了`Cordova`内部的`hotCode`插件，来解决频繁发版的问题。
+
+此项目以`Cordova`项目为基础，我是在`Mac`下操作所有流程，需要有一个用来存放热更新源文件的服务器，当然需要可以外网访问到，然后需要安装`node.js`和`Cordova`环境，需要Android和ios开发环境支持。
+
+## Cordova环境搭建
+
+搭建`Cordova`环境教程网址：[https://rensanning.iteye.com/blog/2163892](https://rensanning.iteye.com/blog/2163892)
+
+注意：安装`Cordova`之前需要安装`Android`环境，具体按照上面网址配置
+
+### 安装Cordova
+
+```
+//安装node.js
+npm -v//检测是否安装成功
+npm install -g cordova//安装Cordova CLI
+cordova -v//检测cordova是否安装成功
+```
+
+### 创建Cordova项目
+
+```
+cordova cordova create HotCodeTest com.gm.test.hotcode HotCodeTest
+```
+
+`HotCodeTest`为工程名称
+
+`com.gm.test.hotcode`为工程包名
+
+`HotCodeTest`为项目名称
+
+## 为项目添加平台支持
+
+```
+//进入工程目录
+cd HotCodeTest
+cordova platforms add ios //添加ios平台
+cordova platforms add android 添加android平台
+//注意 我这为了兼容使用了Android 5.0的版本
+cordova platforms add android@5
+```
+
+![5cdd1ebf9c06f61381](https://i.loli.net/2019/05/16/5cdd1ebf9c06f61381.jpg)
+
+添加成功之后
+
+`package.json`
+
+```
+{
+  "name": "com.gm.test.hotcode",
+  "displayName": "HotCodeTest",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "dependencies": {//ios和Android平台版本
+    "cordova-android": "^5.2.2",
+    "cordova-ios": "^5.0.1"
+  },
+  "devDependencies": {
+    "cordova-plugin-whitelist": "^1.3.3"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [//ios和Android平台
+      "ios",
+      "android"
+    ]
+  }
+}
+```
+
+此时你会发现项目目录地下`platforms`多了`ios`和`android`两个目录
+
+### 运行项目
+
+如果想要在`chrome`浏览器中查看效果的话，可以安装一个工具`Ripple Emulator`
+
+```
+npm install -g ripple-emulator
+```
+
+在浏览器中查看效果
+
+```
+ripple emulate
+```
+
+这样会在localhost的4400开启一个服务，并会自动打开浏览器查看效果。
+
+访问网址：[http://localhost:4400/?enableripple=cordova-3.0.0](http://localhost:4400/?enableripple=cordova-3.0.0)
+
+效果如图
+
+![5cdd2169330e864915](https://i.loli.net/2019/05/16/5cdd2169330e864915.png)
+
+在真机上查看效果，安卓的话，可以用Android studio引入项目，然后运行到手机上也可以使用下面的命令行；ios的话可以用xcode引入项目，然后运行到模拟器或者真机上，效果如图
+
+```
+cordova run android//运行到Android虚拟机或者真机上
+cordova run ios//运行到ios虚拟机或者真机上
+```
+
+![5cdd227f9dca916505](https://i.loli.net/2019/05/16/5cdd227f9dca916505.png)
+
+## 使用hotCode插件(plugin)
+
+使用cordova内置的hotcode插件：cordova-hot-code-push-plugin
+
+### 流程示意图
+
+![5cde6c53221ed63559](https://i.loli.net/2019/05/17/5cde6c53221ed63559.png)
+
+1. 用户打开你的app.
+
+2. 插件初始化，在后台进程启动 升级加载器（update loader）.
+
+3. Update loader  从 `config.xml` 取 `config-file` 配置（一个url），并从此url加载一段 JSON 配置.  然后它把这段JSON配置中的 `release` 版本号 和当前app 已经安装的进行比较. 如果不同 - 进入下一步.
+
+4. Update loader 使用app配置（application config）中的 `content_url` ，去加载清单文件（manifest）. 它会找出自上次升级以来，哪些文件需要更新.
+
+5. Update loader 从 `content_url`下载更新文件.
+
+6. 如果一切顺利 - 发出一个"升级文件已经准备好，可以安装了"的通知.
+
+7. 升级文件已安装, app重新进入更新过的页面.
+
+### 安装hotcode
+
+```
+npm install -g cordova-hot-code-push-cli//全局安装hotcode工具
+cordova plugin add cordova-hot-code-push-plugin//添加热更新插件
+```
+
+安装完成之后`package.json`文件如下
+
+```
+"dependencies": {
+    "cordova-android": "^5.2.2",
+    "cordova-hot-code-push-plugin": "^1.5.3",//多了这个插件
+    "cordova-ios": "^5.0.1"
+  },
+  "devDependencies": {
+    "cordova-plugin-whitelist": "^1.3.3"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-hot-code-push-plugin": {}//多了这个插件
+    },
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+```
+
+### 配置hotcode配置文件
+
+在项目根目录下的`config.xml`文件中添加内容
+
+```
+<chcp>
+    <auto-download enabled="true" />
+    <auto-install enabled="true" />
+    <config-file url="https://missleslie.cn/www/chcp.json" />
+</chcp>
+```
+
+`auto-download`表示是否自动下载更新
+
+`auto-install`表示是否自动安装更新
+
+`config-file`表示更新的配置文件
+
+#### 生成cordova-hcp.json文件
+
+配置好config.xml文件以后，运行`init`生成`cordova-hcp.json`文件
+
+```
+cordova-hcp init
+```
+
+![5cde62d3dec9674855](https://i.loli.net/2019/05/17/5cde62d3dec9674855.jpg)
+
+输入项目名称，更新阶段默认`resume`，更新地址url:此处是我的服务器地址https://missleslie.cn/www/chcp.json  (此处更改为https://missleslie.cn/www) 只用到`chcp.json`的文件目录就可以
+
+其他的都可以不输入
+
+`cordova-hcp.json`
+
+```
+{
+  "name": "hotcodetest",
+  "autogenerated": true,
+  "ios_identifier": "",
+  "android_identifier": "",
+  "min_native_interface": 1,
+  "update": "resume",
+  "content_url": "https://missleslie.cn/www"
+}
+```
+
+`name`表示项目名称
+
+`update`表示更新阶段
+
+`content-url`表示服务器更新文件地址，指向`chcp.json`文件
+
+`min_native_interface`表示内核版本号
+
+`ios_identifier`表示Apple 开发者账号的 iTunes Connect 里面 App 页面的最后这串数字
+
+`android_identifier `是你应用的 id，例如`io.cordova.hellocordova`
+
+//`ios_identifier`表示 iOS上线后的地址，用于内核版本更新后的确认跳转
+
+//`android_identifier`表示 android上线后的地址，用于内核版本更新后的确认跳转
+
+运行`build`生成`chcp.json`和`chcp.manifest`
+
+`chcp.json`
+
+```
+{
+  "name": "hotcodetest",
+  "ios_identifier": "",
+  "autogenerated": true,
+  "android_identifier": "",
+  "update": "resume",
+  "content_url": "https://missleslie.cn/www",
+  "release": "2019.05.17-16.40.45"
+}
+```
+
+网上介绍
+
+```
+{
+  "name": "",//可为空
+  "autogenerated": true,//如果不添加，热更新会不能使用
+  "ios_identifier": "id123456789",//应用在App store id(可为空)
+  "android_identifier": "",//应用在应用商城上的地址或者App的下载地址(可为空)
+  "update": "start",//在应用启动时安装
+  "min_native_interface": 1,//可用以做App升级（可以不填)
+  "content_url":
+  "http://************/cordova/www"//www文件在服务器上的地址
+}
+```
+
+`release`表示当前分支时间节点
+
+这个文件是热更新每次请求的文件，通过对比release时间戳，来判断当前是否是最新分支代码，如果是则不进行更新操作，如果不是，则开始对比西面的`manifest`文件，对比文件`hash`码，进行差异化文件下载(就是哪个文件hash码不同，就下载哪个文件)，`hash`代表了这个文件是否有改变。
+
+文件目录
+
+![5ce273a1d5e9682938](https://i.loli.net/2019/05/20/5ce273a1d5e9682938.png)
+
+`chcp.manifest`
+
+```
+[
+  {
+    "file": "css/index.css",
+    "hash": "46df03526f60473bf81b113d600a6b00"
+  },
+  {
+    "file": "img/logo.png",
+    "hash": "7e34c95ac701f8cd9f793586b9df2156"
+  },
+  {
+    "file": "index.html",
+    "hash": "366a88c501aec796ca86d7b83a3e2603"
+  },
+  {
+    "file": "js/index.js",
+    "hash": "b144c071205225b243caacc5b550f592"
+  }
+]
+```
+
+`manifest`该文件会遍历`www`文件夹下所有文件，并生成对应的`file`和`hash`，主要通过`cordova-hcp build`命令生成，更新过程中通过对比hash码，来下载对应有变化的文件。
+
+接下来我们在index.js中写入更新代码
+
+`index.js`
+
+```
+// Update DOM on a Received Event
+    receivedEvent: function(id) {//在receivedEvent中加入下面chcp更新代码
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+        //加入的代码
+        chcp.fetchUpdate(function(error, data) {
+            if(!error) {
+                console.log("updateing");
+                chcp.installUpdate(function(error) {
+                    console.log("finish");
+                });
+            } else {
+                console.log("isnew");
+            }
+        })
+    }
+```
+
+其中，这段代码不难理解，首先我们通过`fetchUpdate`方法拉取是否有更新，如果有更新下载更新文件，然后重新加载最新的文件，如果没有更新就略过。
+
+**注意：chcp这段代码直接在模拟器和真机上运行，在`ripple emulate`上会报错**
+
+### 运行项目并替换新热更文件
+
+首先我们运行`cordova run ios`或者`cordova run android`启动Android或者ios模拟器或手机，运行之后效果如如下图
+
+![5cdd227f9dca916505](https://i.loli.net/2019/05/16/5cdd227f9dca916505.png)
+
+接下来修改index.html文件(此处简单修改)，修改成一下文件
+
+`index.html`
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />//添加这句支持中文，保持中文不乱吗
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>Hello Cordova</h1>//修改为Hello Cordova
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">hotcode更新</p>//修改为hotcode更新
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
+```
+
+接下来，**不要运行cordova run ios或者Android命令保持app是原来的代码**，然后运行`cordova-hcp build`生成最新的`chcp.json`和`chcp.manifest`文件
+
+```
+localhost:HotCodeTest gm$ cordova-hcp build
+Running build
+Config { name: 'hotcodetest',
+  autogenerated: true,
+  ios_identifier: '',
+  android_identifier: '',
+  update: 'now',
+  content_url: 'https://missleslie.cn/www',
+  release: '2019.05.21-16.56.11' }
+Build 2019.05.21-16.56.11 created in /Users/gm/HotCodeTest/www
+```
+
+运行成功之后，`chcp.json`变为以下内容
+
+```
+{
+  "name": "hotcodetest",
+  "autogenerated": true,
+  "ios_identifier": "",
+  "android_identifier": "",
+  "update": "now",//此处我修改为了及时更新，这个可以不改
+  "content_url": "https://missleslie.cn/www",//此处为cordova-hcp.json的更新网址
+  "release": "2019.05.21-16.56.11"//时间点自动更新为最新的
+}
+```
+
+然后整体把项目下面的`www`目录文件整体拷贝到服务器下的`www`目录下，弹框提示的话，全部选择替换。替换成功之后重新打开App，可能会有延迟，看文件多少和大小，我这里修改的比较少，基本页面秒变成更改之后的页面
+
+热更之后的页面
+
+![5ce3c3c90131c96391](https://i.loli.net/2019/05/21/5ce3c3c90131c96391.png)
+
+此处热更便配置完成，热更新服务搭建成功。
+
+疑问：1.我此处使用的是阿里云的服务器，搭建了一个freessh的sftp服务，我客户端用的mac `filezilla`客户端实现服务器文件上传更改（此处没有打码）
+
+![端](https://i.loli.net/2019/05/21/5ce3c4a780ebe51137.png)
+
+2.我服务器用的只是一个简单的ngnix服务，直接指导ngnix目录下的一个source文件夹（自己可以创建一个其他的），服务器技术比较菜，直接用的sever 2008界面化操作
+
+![5ce3c5a7b514144513](https://i.loli.net/2019/05/21/5ce3c5a7b514144513.png)
+
+3.ngnix配置文件清单（只贴出https和http的配置）,此处监听http的服务直接转到https服务，https用的阿里云的免费证书文件，不懂可以百度一下，下载之后然后把证书配置进去就可以用了
+
+```
+server {
+         listen 443 default ssl;
+        server_name missleslie.cn; # 你的域名
+        root source; # 前台文件存放文件夹，可改成别的
+        index index.html index.htm;# 上面配置的文件夹里面的index.html
+        ssl_certificate  ./cert/a.pem;# 改成你的证书的名字
+        ssl_certificate_key ./cert/a.key;# 你的证书的名字
+        ssl_session_timeout 5m;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_prefer_server_ciphers on;
+        ssl_session_tickets on;
+        location / {
+            index index.html index.htm;
+            add_header Cache-Control no-store;//此处清除缓存
+
+        }
+    }
+    server {
+        listen 80;
+        server_name missleslie.cn;# 你的域名
+        rewrite ^(.*)$ https://$host$1 permanent;# 把http的域名请求转成https
+    }
+```
+
+4.此处贴出最新的index.js代码，做了一些优化，把更新代码放到了一起，并每次在生命周期resume的过程中进行更新拉取操作
+
+`index.js`
+
+```
+var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+
+    bindEvents: function() {
+        //页面布局
+        window.addEventListener('load', function (){
+            var sizeA = $("html").width()*16/320;
+            $("html").css("fontSize",sizeA + "px");
+
+            var sizeB = $("html").attr("style").replace("font-size:","").replace("px;","").trim() * 1.0;
+            if(sizeA != sizeB) {
+                sizeA = sizeA * sizeA /sizeB;
+                $("html").css("fontSize", sizeA + "px");
+            }
+
+            if($("html").width() != $(".page").width()){
+                sizeA = sizeA * $("html").width() /$(".page").width();
+                $("html").css("fontSize", sizeA + "px");
+            }
+        }, false);
+
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+        document.addEventListener("resume", function(){
+            chcp.fetchUpdate(function(error, data) {
+                if(!error) {
+                    console.log("updateing");
+                    chcp.installUpdate(function(error) {
+                        console.log("finish");
+                    });
+                } else {
+                    console.log("isnew");
+                }
+            })
+        });
+    },
+
+    // deviceready Event Handler
+    //
+    // Bind any cordova events here. Common events are:
+    // 'pause', 'resume', etc.
+    onDeviceReady: function() {
+        this.receivedEvent('deviceready');
+    },
+
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+    }
+};
+```
+
+5.cordova项目运行真机模拟器报错问题总结如下：
+
+（1）android项目平台添加最好用`cordova platforms add android@5`@后面表示版本号，最后用5和6，如果是最新的可能运行起来运行问题，版本5以上的话`ripple emulate`会显示`cannot get`，这个时候用把模拟机型选择iphone的就可以（前提是platforms有ios的）
+
+（2）ios项目添加平台最后也用`cordova platforms add ios@5`用最新的就可以，其他的可能不支持异形屏的处理，运行起来安全区域可能有问题
+
+（3）ios平台版本为5.0的情况下，cordova版本需要为8.0，不要用最新的或者9.0，因为运行模拟器或者真机时会报一个错误，问题我也不太清楚哈。运行`npm install -g cordova@8`就可以。
+
+此处，我找了一个原来开发的界面进行热更，包含了图片、css、js和html，一个比较简单页面。流程如下
+
+代码最新结构
+
+![5ce4eb3369bca82720](https://i.loli.net/2019/05/22/5ce4eb3369bca82720.png)
+
+```
+//保持原来项目运行结果不变，修改原来项目代码
+//前提是前面都执行过之后
+cd HotCodeTest
+cordova-hcp build
+//命令行输出一下内容表示成功，变为最新时间
+localhost:HotCodeTest gm$ cordova-hcp build
+Running build
+Config { name: 'hotcodetest',
+  autogenerated: true,
+  ios_identifier: '',
+  android_identifier: '',
+  update: 'now',
+  content_url: 'https://missleslie.cn/www',
+  release: '2019.05.22-14.04.45' }
+Build 2019.05.22-14.04.45 created in /Users/gm/HotCodeTest/www
+
+//将www目录下的最新代码提交到服务器的www目录下
+//将app退入后台，然后再重新进入，如果网速比较慢的情况下，过段时间发现页面自动变为最新
+```
+
+安卓设备截取日志如下，我原来操作过，所以更改的文件之后这两个，对比之后下载更改文件，变为最新（ios的没看，不太懂哈）。
+
+![5ce4ec3c9010585392](https://i.loli.net/2019/05/22/5ce4ec3c9010585392.png)
+
+最新页面截图
+
+![5ce4ece11194563576](https://i.loli.net/2019/05/22/5ce4ece11194563576.png)
+
+热更步骤完成。
+
+### 深度探索
+
+`cordova-hcp init `操作个人认为是创建`cordova-hcp.json`文件。
+
+`cordova-hcp build`操作是遍历`www`目录下的所有文件夹下的所有文件然后生成对应的 `hash`码到`chcp.manifest`文件中，然后对应生成`chcp.json`文件的最新时间戳和内容。
+
+原来公司大神代码，不难理解
+
+`ChcpService.java`
+
+```
+package com.www.service;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import org.apache.commons.codec.digest.DigestUtils;
+
+public class ChcpService {
+    public static void main(String[] args) throws Exception{
+        String filePath = "/Users/gm/HotCodeTest/www";
+        String outPath = "/Users/gm/HotCodeTest/www";
+        String chcpSite = "https://missleslie.cn/www";
+        File parent = new File(filePath);
+        List<File> list = new ArrayList<File>();
+
+        //遍历所有文件
+        listFile(parent, list);
+
+        //构建
+        List<Map<String, String>> chcpList = new ArrayList<Map<String, String>>();
+
+        for(File f:list){
+            String relativePath = f.getAbsolutePath().replace("\\", "/").replace(filePath, "");
+            if(!(relativePath.contains(".svn") || relativePath.endsWith("chcp.json") || relativePath.endsWith("chcp.manifest")||relativePath.endsWith(".ttf"))){
+                Map<String, String> map = new HashMap<String,String>();
+                map.put("file", relativePath);
+                map.put("hash", DigestUtils.md5Hex(new FileInputStream(f)));
+                chcpList.add(map);
+            }
+        }
+
+        Map<String, Object> map = new LinkedHashMap<String, Object>();
+        map.put("autogenerated", true);
+        map.put("release", Common.formatDate(new Date(), "yyyy.MM.dd-HH.mm.ss"));
+        map.put("content_url", chcpSite);
+        map.put("update", "now");
+
+        //生成文件
+        FileUtil.deleteFile(outPath + "chcp.manifest");
+        FileUtil.deleteFile(outPath + "chcp.json");
+
+        FileUtil.createFile(outPath, "chcp.json", JsonCenter.ObjectToPrinter(map), "GB2312");
+        FileUtil.createFile(outPath, "chcp.manifest", JsonCenter.ObjectToPrinter(chcpList), "GB2312");
+
+        System.out.println("Done");
+    }
+
+    private static void listFile(File file, List<File> list){
+        if(file.isDirectory()){
+            for(File son:file.listFiles()){
+                listFile(son, list);
+            }
+        }else{
+            list.add(file);
+        }
+    }
+}
+```
+
+引入的jar包，后续会放到我现有的项目java文件夹下，想看的可以看一下，不保证能使用哈。运行之后输出`Done`表示成功，`chcp.json`文件如下，`chcp.manifest`有点多，不贴代码了。
+
+```
+{
+  "autogenerated" : true,
+  "release" : "2019.05.22-14.40.27",
+  "content_url" : "https://missleslie.cn/www",
+  "update" : "now"
+}
+```
+
+热更新篇终。
+
+Github代码地址：https://github.com/coffeelife/HotCodeTest.git
